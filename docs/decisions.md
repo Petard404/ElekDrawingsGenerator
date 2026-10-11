@@ -34,7 +34,10 @@ One entry per decision: date, decision, alternatives considered, reason.
   - Circuit A cable: 5G2,5.
   - Bureaupunten in slaapkamer 2 and 3: sockets on circuit U. The light count drops from 72 to 70.
 - **Alternatives:** 100 mA general differential; G at 20 A + 5G4 or 32 A + 5G6; G behind DIFF-ALG only; type B for G; bureaupunten as light points.
-  - DIFF-TUIN: 30 mA type A, 40 A, as in the overview (confirmed).
+  - DIFF-TUIN: 30 mA type A, 40 A, as in the overview (confirmed). Poles: 4 (assumption: it is fed by J, 3P+N; to confirm).
+  - DIFF-ALG: 300 mA type A, 40 A, 4-pole. It is also the main switch; there is no separate main breaker.
+  - D1–D5: 30 mA type A, 4-pole, 40 A (assumption: the owner's "40 A" applies to these too; to confirm).
+  - Earthing: not drawn in M7. The earthing design itself still has to be checked (owner action, outside the tool).
   - Surge protection: not drawn for now.
 - **Reason:** The owner's choice. 32 A on 5G4 was rejected because 4 mm² is protected at no more than 25 A. A charging point without any 30 mA fails inspection (overview §4.1).
 

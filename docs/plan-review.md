@@ -72,8 +72,8 @@ Order: M1–M5, then M7, then M6 (hardening, guide and final tests cover House B
 
 ## Open questions for the owner
 
-- House B values still missing, needed before the House B YAML is typed (by M7): current rating of DIFF-ALG; rating and poles of D1–D5; poles of DIFF-TUIN; main switch or main breaker and the connection rating.
-- Earthing (aardingsonderbreker, aardingsstrip, aardinrichting) in M7 or not.
+- House B values are now in `docs/decisions.md`. Two assumptions to confirm by M7: DIFF-TUIN 4-pole, D1–D5 40 A.
+- Earthing is not drawn in M7; the owner checks the earthing design separately.
 
 - Off-page leftovers name the K lights "K6 Tuin, K7 Werkplaats, K8 Wc". Use those names on House A?
 - Earlier plan questions still stand: confirm that pages never flow automatically (before M1); the slips in the original (before M5); the square-with-triangle symbol and the grey cable marks.
