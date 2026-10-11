@@ -34,13 +34,25 @@ The final test is `docs/testcase/house-b-overzicht-v4.md`, with the provisional 
 | Sub-board BRD-TUIN fed by circuit J, with its own differential and circuits T1–T3 | Only a nested breaker; no board kind or label |
 | Circuits A and J directly behind the 300 mA with no 30 mA | Allowed by the model; no layout rule yet |
 | Reserve circuits Y and T3 (breaker without devices, or empty place) | Missing |
-| Fixed connection box (kookplaat), wallbox, boiler (W.W.), IR panel | `box` with label could cover these; decide |
+| Appliances with a mandatory AREI symbol: oven, dishwasher, washing machine, dryer, CV boiler, water heater (W.W.), IR panel | One device kind and symbol each; symbol shapes from AREI references (to supply) |
+| Fixed connection box (kookplaat), wallbox | Own kinds; symbols from AREI references |
+| Hood, fridge, combi microwave | Plain sockets (assumption, see decisions) |
 | Sockets with 2, 3 or 4 mechanisms (counts as 1 box) | `socket.count` covers it |
 | V's sockets switched through a teleruptor | No symbol |
 | Title block with version (v4) and date | Missing |
 | Cable notation "3G2,5 mm²", "XVB 5G6 mm²" | `cable` is free text, fine |
 
 Lighting circuits 1–35 use numbers, not letters, and are switched through a controller. They come in M8 and do not need fields in 1.3.
+
+## Symbols from the AREI library (replaces the plan's Symbols section where they differ)
+
+The owner supplied the ShadowHunter AREI library, now in `docs/reference/arei/` (see its README). It changes M2:
+
+- **New task 2.0 (Sonnet):** a script in `tools/` that converts named masters from the 2023 `.vssx` stencils to SVG (Visio geometry: MoveTo, LineTo, ArcTo, EllipticalArcTo, Ellipse; text). Output in `docs/reference/arei/svg-2023/`. Check: each converted symbol is rendered and compared by eye with its name; arcs and text are the risk.
+- **Task 2.2** measures each symbol from the library (single-line variant), not from the House A pages. House A's pages are still used for sizes in the layout and for the House A comparison.
+- **Task 2.3** builds each symbol as primitives from its notes entry, as planned.
+- **Symbol set** grows from 13 to the House A set plus House B needs: Differentieel 2023, breaker, fuse, kWh meter, socket with protective conductor (n-count), outdoor waterproof socket, conductors-in-cable marks, oven, dishwasher, washing machine, dryer, kookfornuis, boiler, Verwarmingstoestel (IR panel and CV boiler), laadinrichting, impulsschakelaar, schakel- en verdeelbord, aftakdoos, earthing (aardingsonderbreker, aardingsstrip, aardinrichting) if earthing is in M7. M8 adds drukknop, bewegingssensor, domotica sturingseenheid, motor (rolluik).
+- House A symbols with no library match (square-with-triangle, converter, transformer as drawn) stay as measured from the House A pages.
 
 ## Slips in the overview v4
 
