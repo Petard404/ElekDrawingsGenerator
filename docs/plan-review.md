@@ -63,12 +63,17 @@ The owner supplied the ShadowHunter AREI library, now in `docs/reference/arei/` 
 
 ## Milestones added
 
+Order: M1–M5, then M7, then M6 (hardening, guide and final tests cover House B), then M8.
+
 | Milestone | Done when |
 | --- | --- |
 | M7 House B power | Main board and BRD-TUIN with all circuits A–Y and T1–T3, DIFF-ALG, D1–D5 and DIFF-TUIN. A script checks that every circuit, device and value in the overview (with the provisional values) appears on the PDF |
 | M8 House B lighting and control | Lighting circuits 1–35 and controller inputs drawn. Needs the source xlsx and a decision on how the controller is drawn. Expected total: 70 lighting points |
 
 ## Open questions for the owner
+
+- House B values still missing, needed before the House B YAML is typed (by M7): current rating of DIFF-ALG; rating and poles of D1–D5; poles of DIFF-TUIN; main switch or main breaker and the connection rating.
+- Earthing (aardingsonderbreker, aardingsstrip, aardinrichting) in M7 or not.
 
 - Off-page leftovers name the K lights "K6 Tuin, K7 Werkplaats, K8 Wc". Use those names on House A?
 - Earlier plan questions still stand: confirm that pages never flow automatically (before M1); the slips in the original (before M5); the square-with-triangle symbol and the grey cable marks.

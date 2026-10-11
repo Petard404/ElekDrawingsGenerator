@@ -14,6 +14,12 @@ One entry per decision: date, decision, alternatives considered, reason.
 - **Alternatives:** Include them in M7; leave them out of scope.
 - **Reason:** The owner's choice. The circuit content is only in the source xlsx, and how the controller is drawn is not yet decided.
 
+## 2026-10-11 · Milestone order
+
+- **Decision:** M1–M5, then M7 (House B power), then M6 (hardening), then M8 (House B lighting and control).
+- **Alternatives:** M6 before M7, as numbered.
+- **Reason:** M6 writes the user guide and final tests; doing House B first means they cover its features and are not redone.
+
 ## 2026-10-11 · Open design values get one concrete value
 
 - **Decision:** Where the design leaves a choice open, the test YAML holds one provisional value, marked with a YAML comment. Rating fields stay numeric.
@@ -28,6 +34,8 @@ One entry per decision: date, decision, alternatives considered, reason.
   - Circuit A cable: 5G2,5.
   - Bureaupunten in slaapkamer 2 and 3: sockets on circuit U. The light count drops from 72 to 70.
 - **Alternatives:** 100 mA general differential; G at 20 A + 5G4 or 32 A + 5G6; G behind DIFF-ALG only; type B for G; bureaupunten as light points.
+  - DIFF-TUIN: 30 mA type A, 40 A, as in the overview (confirmed).
+  - Surge protection: not drawn for now.
 - **Reason:** The owner's choice. 32 A on 5G4 was rejected because 4 mm² is protected at no more than 25 A. A charging point without any 30 mA fails inspection (overview §4.1).
 
 ## 2026-10-11 · Appliances get their own AREI symbols
