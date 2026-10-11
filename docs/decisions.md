@@ -59,6 +59,24 @@ One entry per decision: date, decision, alternatives considered, reason.
 - **Alternatives:** One hand-coded function per symbol from measurements (original plan).
 - **Reason:** About 30 symbols; conversion is more faithful to the AREI shapes and needs far fewer briefs.
 
+## 2026-10-11 · Official label formats for House B
+
+- **Decision:** House B follows the label formats of AREI table 2.23 (`docs/reference/arei/official/notes.md`): breaker "C20", differential "40/0.3A" with "type A", cable as type, fire class and cores x section with a decimal point. Default breaker curve is C. House A keeps the texts of its original, because it is the comparison case.
+- **Alternatives:** House A formats everywhere; official formats for both cases.
+- **Reason:** The official table prescribes these formats; curve C is standard practice. Changing House A would break the M5 comparison with its original.
+
+## 2026-10-11 · Cabling in House B
+
+- **Decision:** Most House B circuits are VOB conductors in flexible plastic conduit (Elflex); cables are XVB. Circuit J is XVB 5G6 in a conduit (overview). Which other circuits are XVB, and the exact label for VOB, are open.
+- **Alternatives:** XVB Cca for every circuit, as in the official examples.
+- **Reason:** The owner's information on how the house is wired.
+
+## 2026-10-11 · Only extracts of reference documents are committed
+
+- **Decision:** Full reference documents (the 314-page AREI 2026 PDF) stay local and are ignored by git. Only extracts and notes are committed, such as `docs/reference/arei/official/`.
+- **Alternatives:** Commit the full PDF (9.9 MB).
+- **Reason:** The owner's choice; keeps the repository small.
+
 ## 2026-10-11 · Default socket variant
 
 - **Decision:** Sockets default to "protective conductor with child protection". Other variants are typed explicitly.
