@@ -54,6 +54,33 @@ The owner supplied the ShadowHunter AREI library, now in `docs/reference/arei/` 
 - **Symbol set** grows from 13 to the House A set plus House B needs: Differentieel 2023, breaker, fuse, kWh meter, socket with protective conductor (n-count), outdoor waterproof socket, conductors-in-cable marks, oven, dishwasher, washing machine, dryer, kookfornuis, boiler, Verwarmingstoestel (IR panel and CV boiler), laadinrichting, impulsschakelaar, schakel- en verdeelbord, aftakdoos, earthing (aardingsonderbreker, aardingsstrip, aardinrichting) if earthing is in M7. M8 adds drukknop, bewegingssensor, domotica sturingseenheid, motor (rolluik).
 - House A symbols with no library match (square-with-triangle, converter, transformer as drawn) stay as measured from the House A pages.
 
+## Software review (amends Code architecture, Symbols and tasks 2.0–2.3)
+
+1. **Symbols are generated, not hand-coded.** One converter in `tools/` turns library SVG (and the SVG converted from the 2023 `.vssx`) into primitives in mm and writes one data file per symbol, committed to the repo. A small hand-written table per symbol gives anchor, connection points and size. `symbols.py` loads the data files. Only House A's own symbols (square-with-triangle, converter as drawn) are hand-made. Tasks 2.0, 2.2 and 2.3 become: converter (Sonnet), metadata table (Haiku), the few hand-made symbols (Haiku).
+2. **Primitives carry style.** Line, Polyline (open or closed), Arc, Circle, Rect and Text, each with stroke width, fill and dash; Text with anchor, rotation and size. Bézier curves are flattened to polylines by the converter. `Page` lives in `primitives.py` so the one-direction import rule holds. Fixed in task 2.1.
+3. **Text widths from ReportLab's Helvetica metrics** (`stringWidth`), in the layout and in the overlap and overflow checks. SVG and PDF both use Helvetica.
+4. **Model (tasks 1.3, 1.4):**
+   - One `appliance` kind with a `type` field (oven, dishwasher, washing_machine, dryer, stove, water_heater, heating_device), not seven kinds.
+   - Differential `type` (AC, A, F, B) and `selective` (bool) as separate fields.
+   - Socket `variant`: default "protective conductor with child protection"; other values: protective conductor only, waterproof.
+   - `board` is allowed as a child of a circuit (J feeds BRD-TUIN).
+   - IDs are converted to strings (YAML reads `20` as a number; M8 circuits are numbered).
+   - Pydantic reports error locations as list indexes; task 1.4 maps them back to the element ID. `HuiselekError` allows no ID for file and syntax errors.
+   - Error messages are Dutch and live in `labels.py` with the drawing texts. Tests assert on the element ID and error code, not on the message text.
+5. **Export:** all pages drawn into one ReportLab canvas with `showPage()`; no merge step. pypdf becomes a test-only dependency.
+6. **Pin dependency versions** in `pyproject.toml` so a library update cannot change golden files.
+7. **Golden files:** a separate command writes candidate files to `out/` for approval; tests never write golden files. Specified in task 2.1.
+8. **Batch small tasks** about five per brief (symbol metadata, broken test files) to save main-session tokens.
+
+## Validating the symbol library
+
+The converter proves only that our symbol matches the library file, not that the library matches AREI. Four checks:
+
+1. **Against the official text.** The symbol sheet (task 2.4) shows three columns per symbol: the official AREI image, the library source, our generated symbol. The official images come from the AREI Book 1 text (FOD Economie) or the Volta annex listed in the background sources; to be obtained.
+2. **Old set against the 2023 set.** A script lists symbols that differ between `svg-en/` and `visio-2023-nl/`. Each difference is a symbol the 2023 amendment may have changed, and is checked first against the official text.
+3. **Conversion check.** Each converted 2023 shape is rendered next to its source geometry; arcs and text are the risk.
+4. **Practice check.** Before the House B dossier is used, an installer or inspection body reviews the approved symbol sheet (scope requirement C4/C5).
+
 ## Slips in the overview v4
 
 - Letter O is not used, but the overview says only H, I and Z are unused.

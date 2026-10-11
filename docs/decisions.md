@@ -53,6 +53,24 @@ One entry per decision: date, decision, alternatives considered, reason.
 - **Alternatives:** Redraw symbols from the House A pages (original plan); use only the older SVG set; export from Visio by hand.
 - **Reason:** AREI symbols are mandatory for a dossier that goes to inspection, and House A's symbols are the owner's own drawing. The licence allows use and modification. No Visio licence.
 
+## 2026-10-11 · Symbols generated from the library by a converter
+
+- **Decision:** A converter turns library SVG into primitive data files per symbol, with a hand-written table for anchor and connection points. Only House A's own symbols are hand-coded.
+- **Alternatives:** One hand-coded function per symbol from measurements (original plan).
+- **Reason:** About 30 symbols; conversion is more faithful to the AREI shapes and needs far fewer briefs.
+
+## 2026-10-11 · Default socket variant
+
+- **Decision:** Sockets default to "protective conductor with child protection". Other variants are typed explicitly.
+- **Alternatives:** Protective conductor only as default.
+- **Reason:** Sockets without child protection are rare in current installations.
+
+## 2026-10-11 · Error messages in Dutch
+
+- **Decision:** CLI and validation messages are in Dutch and live in `labels.py`. Code, comments, docs and commit messages stay in English. Tests check element ID and error code, not message text.
+- **Alternatives:** English messages.
+- **Reason:** Interface parts are Dutch, like the drawing. This extends the CLAUDE.md convention, which only named drawing text.
+
 ## 2026-10-11 · No phase field
 
 - **Decision:** Circuits get no `phase` field.
