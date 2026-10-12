@@ -1,6 +1,8 @@
 # Plan review
 
-11 October 2026 · planning session. Read together with `docs/handoff-plan.md`; where they differ, this file and `docs/decisions.md` win.
+11 October 2026 · planning session.
+
+> **History only.** Everything below was merged into `docs/handoff-plan.md` version 2 on 12 October 2026. Read the plan and `docs/decisions.md`, not this file.
 
 The inventory in the plan was checked against the text that is visible on the four reference pages: circuits, ratings, cables, device IDs, counts and the listed slips all match. Measured positions also match: first device x 97.5, device pitch 7.6, cable text x 78, circuit text x 161, detail names x 141 at pitch 15.4.
 
@@ -70,7 +72,9 @@ The owner supplied the ShadowHunter AREI library, now in `docs/reference/arei/` 
 5. **Export:** all pages drawn into one ReportLab canvas with `showPage()`; no merge step. pypdf becomes a test-only dependency.
 6. **Pin dependency versions** in `pyproject.toml` so a library update cannot change golden files.
 7. **Golden files:** a separate command writes candidate files to `out/` for approval; tests never write golden files. Specified in task 2.1.
-8. **Batch small tasks** about five per brief (symbol metadata, broken test files) to save main-session tokens.
+8. **Label formats are templates.** House A and House B write the same values differently ("20A" vs "C20", "300 mA 4x40 A" vs "40/0.3A type A", "XVB 3x2.5" vs "XVB Cca 3G2.5²"). Format strings live in `labels.py`, and a project can override them from its YAML or a settings file. No label format is hard-coded in layout or symbols.
+9. **Installation marks** (conduit, in or on a wall) are out of version 1.
+10. **Batch small tasks** about five per brief (symbol metadata, broken test files) to save main-session tokens.
 
 ## Validating the symbol library
 
@@ -96,6 +100,12 @@ Order: M1–M5, then M7, then M6 (hardening, guide and final tests cover House B
 | --- | --- |
 | M7 House B power | Main board and BRD-TUIN with all circuits A–Y and T1–T3, DIFF-ALG, D1–D5 and DIFF-TUIN. A script checks that every circuit, device and value in the overview (with the provisional values) appears on the PDF |
 | M8 House B lighting and control | Lighting circuits 1–35 and controller inputs drawn. Needs the source xlsx and a decision on how the controller is drawn. Expected total: 70 lighting points |
+
+## Parked data questions (for typing the House B YAML in M7; they do not change the software)
+
+- Which House B circuits are XVB besides J; all others are VOB in conduit.
+- VOB label text: official "H07V-U Eca 2.5²" or "VOB 3x2.5".
+- The two assumptions in `docs/decisions.md`: DIFF-TUIN 4-pole, D1–D5 40 A.
 
 ## Open questions for the owner
 

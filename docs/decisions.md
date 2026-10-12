@@ -2,6 +2,12 @@
 
 One entry per decision: date, decision, alternatives considered, reason.
 
+## 2026-10-12 · Plan consolidated into version 2
+
+- **Decision:** `docs/handoff-plan.md` version 2 merges the plan review and the decisions of 11 October; it is the single source for what we build. `docs/plan-review.md` is kept as history only.
+- **Alternatives:** Keep the plan plus a review that amends it.
+- **Reason:** Three documents that contradict each other in places cost the coding session tokens and invite mistakes.
+
 ## 2026-10-11 · Final acceptance test is House B
 
 - **Decision:** The final acceptance test is the design overview `docs/testcase/house-b-overzicht-v4.md` (House B). House A stays the reference for symbols and layout style and the test case for M2 to M5.

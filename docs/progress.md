@@ -1,9 +1,10 @@
 # Progress
 
-## 2026-10-11 · Before M1
+## 2026-10-12 · Before M1
 
-- Plan reviewed by the planning session: findings in `docs/plan-review.md`, decisions in `docs/decisions.md`.
-- The final test is House B (`docs/testcase/house-b-overzicht-v4.md`), added as M7 (power) and M8 (lighting and control). House A stays the test for M2–M5.
+- Plan consolidated into `docs/handoff-plan.md` version 2: House A and House B, symbols from the AREI library by converter, styled primitives, label templates, Dutch messages, task list for M1–M8, test plan. `docs/plan-review.md` is history.
+- Decisions of 11 and 12 October are in `docs/decisions.md`.
+- AREI library, the official table 2.23 extract and notes are in `docs/reference/arei/`.
 - No code yet.
 
-**Next step:** the coding session reads CLAUDE.md, `docs/handoff-plan.md` and `docs/plan-review.md`, then proposes its plan for M1 and waits for the owner's go.
+**Next step:** the owner confirms that pages never flow automatically. Then the coding session reads CLAUDE.md, the plan and the decision log, proposes its plan for M1 and waits for the owner's go.
