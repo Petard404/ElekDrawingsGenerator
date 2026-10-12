@@ -2,6 +2,12 @@
 
 One entry per decision: date, decision, alternatives considered, reason.
 
+## 2026-10-12 · Pages are typed, no automatic flow
+
+- **Decision:** Pages are typed in the YAML with `page` and `children_page`. The tool never flows pages; an overfull page stops the build with an error naming the page and element. Automatic flow is kept as a possible later extension.
+- **Alternatives:** Automatic page flow with page-break rules.
+- **Reason:** Pages by content, as in House A; predictable output and page numbers; simpler code and tests.
+
 ## 2026-10-12 · Plan consolidated into version 2
 
 - **Decision:** `docs/handoff-plan.md` version 2 merges the plan review and the decisions of 11 October; it is the single source for what we build. `docs/plan-review.md` is kept as history only.

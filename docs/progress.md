@@ -7,4 +7,4 @@
 - AREI library, the official table 2.23 extract and notes are in `docs/reference/arei/`.
 - No code yet.
 
-**Next step:** the owner confirms that pages never flow automatically. Then the coding session reads CLAUDE.md, the plan and the decision log, proposes its plan for M1 and waits for the owner's go.
+**Next step:** the coding session reads CLAUDE.md, the plan and the decision log, proposes its plan for M1 and waits for the owner's go.

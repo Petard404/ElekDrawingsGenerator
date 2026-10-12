@@ -14,7 +14,7 @@ Version 1 is a Python command-line tool that reads one YAML file describing a ho
 | Input | One YAML file per installation | Nesting in YAML matches the tree of the installation |
 | Interface | Command line for now; messages in Dutch | The reader sits behind a neutral data model so Excel or a form can replace it |
 | Output | One SVG per page, and one PDF with selectable text drawn from those SVGs | svglib converts each page onto one ReportLab canvas; no merge step |
-| Pages | A4 portrait; pages are typed in the YAML, each with its own title; no automatic flow | To confirm before M1 |
+| Pages | A4 portrait; pages are typed in the YAML, each with its own title; no automatic flow | Confirmed 12 Oct; automatic flow is a possible later extension |
 | Scope | Single-line diagram only | Position plan, panel layout and material list come later |
 | Intelligence | None: the tool draws what is typed | No circuit assignment and no AREI rule checks in version 1 |
 | Test cases | House A (redraw, M2–M5), House B (final test, M7 power, M8 lighting and control) | Order M1–M5, M7, M6, M8 |
@@ -494,11 +494,11 @@ Golden files change only on purpose: a test run never rewrites them, a separate 
 
 ## Out of scope and open answers
 
-Version 1 leaves out the position plan, panel layout, material list, automatic circuit assignment, AREI rule checking, Excel input, automatic page flow, a graphical interface, and on the drawing: earthing, surge protection, installation marks and phases.
+Version 1 leaves out the position plan, panel layout, material list, automatic circuit assignment, AREI rule checking, Excel input, automatic page flow (a possible later extension), a graphical interface, and on the drawing: earthing, surge protection, installation marks and phases.
 
 Answers needed from the owner:
 
-- [ ] Confirm that pages are typed in the YAML and never flow automatically (before M1).
+- [x] Pages are typed in the YAML and never flow automatically (confirmed 12 October).
 - [ ] The House A slips under House A: copy or correct each (before M5).
 - [ ] Name the square-with-triangle symbol and the grey marks above the cables (before task 2.6).
 - [ ] House B data, before task 7.4: which circuits besides J are XVB (the rest is VOB in conduit); VOB label text, official "H07V-U Eca 2.5²" or "VOB 3x2.5"; confirm DIFF-TUIN 4-pole and D1–D5 40 A.
