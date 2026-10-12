@@ -2,11 +2,13 @@
 <rect x="0.5" y="0.4" width="209.2" height="296.7" fill="none" stroke="#000000" stroke-width="0.8"/>
 <rect x="0.25" y="276.6" width="209.61" height="20.7" fill="none" stroke="#000000" stroke-width="0.5"/>
 <line x1="105.06" y1="276.6" x2="105.06" y2="297.3" fill="none" stroke="#000000" stroke-width="0.5"/>
-<text x="3.9" y="282.9" font-family="Helvetica" font-size="4.23" text-anchor="start" fill="#000000">Pagina 1: aansluiting</text>
+<text x="3.9" y="282.9" font-family="Helvetica" font-size="4.23" text-anchor="start" fill="#000000">Aansluiting</text>
 <text x="108.9" y="282.9" font-family="Helvetica" font-size="4.23" text-anchor="start" fill="#000000">Straat A 1, 0000 Gemeente</text>
-<line x1="0.25" y1="286.95" x2="209.86" y2="286.95" fill="none" stroke="#000000" stroke-width="0.5"/>
+<line x1="0.25" y1="286.95" x2="177.86" y2="286.95" fill="none" stroke="#000000" stroke-width="0.5"/>
 <text x="3.9" y="293.25" font-family="Helvetica" font-size="4.23" text-anchor="start" fill="#000000">Getekend door: Ontwerper</text>
 <text x="108.9" y="293.25" font-family="Helvetica" font-size="4.23" text-anchor="start" fill="#000000">Uitgevoerd door: Installateur</text>
+<line x1="177.86" y1="276.6" x2="177.86" y2="297.3" fill="none" stroke="#000000" stroke-width="0.5"/>
+<text x="193.86" y="288.08" font-family="Helvetica" font-size="4.23" text-anchor="middle" fill="#000000">Pagina 1 van 1</text>
 <rect x="5.7" y="5.2" width="25.3" height="14.9" fill="none" stroke="#000000" stroke-width="0.46"/>
 <rect x="8.3" y="6.4" width="11.7" height="2.4" fill="none" stroke="#000000" stroke-width="0.38"/>
 <text x="20.7" y="8.4" font-family="Helvetica" font-size="2.12" text-anchor="start" fill="#000000">3*230 V</text>
@@ -50,7 +52,11 @@
 <text x="66.73" y="51.78" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">20A</text>
 <polyline points="86.78,57.43 78.28,57.43 77.28,57.43" fill="none" stroke="#000000" stroke-width="0.26"/>
 <polyline points="81.53,57.93 82.03,57.43 82.53,56.93" fill="none" stroke="#000000" stroke-width="0.26"/>
-<text x="83.83" y="56.63" font-family="Helvetica" font-size="1.73" text-anchor="start" fill="#000000">3</text>
+<text x="82.03" y="54.93" font-family="Helvetica" font-size="1.73" text-anchor="middle" fill="#000000">3</text>
+<polyline points="87.34,56.85 87.34,55.69 84.8,55.69 84.8,56.85" fill="none" stroke="#000000" stroke-width="0.26"/>
+<polyline points="80.36,56.85 80.36,55.69 77.83,55.69 77.83,56.85" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="86.09" y1="56.85" x2="86.09" y2="55.69" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="79.12" y1="56.85" x2="79.12" y2="55.69" fill="none" stroke="#000000" stroke-width="0.26"/>
 <text x="77.93" y="59.73" font-family="Helvetica" font-size="1.8" text-anchor="start" fill="#000000">XVB 3x2.5</text>
 <path d="M 96.87 62.75 A 1.42 1.42 0 0 1 99.71 62.75" fill="none" stroke="#000000" stroke-width="0.26"/>
 <line x1="96.87" y1="62.75" x2="96.59" y2="62.75" fill="none" stroke="#000000" stroke-width="0.26"/>
@@ -83,7 +89,11 @@
 <text x="66.73" y="67.13" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">20A</text>
 <polyline points="86.78,72.78 78.28,72.78 77.28,72.78" fill="none" stroke="#000000" stroke-width="0.26"/>
 <polyline points="81.53,73.28 82.03,72.78 82.53,72.28" fill="none" stroke="#000000" stroke-width="0.26"/>
-<text x="83.83" y="71.98" font-family="Helvetica" font-size="1.73" text-anchor="start" fill="#000000">3</text>
+<text x="82.03" y="70.28" font-family="Helvetica" font-size="1.73" text-anchor="middle" fill="#000000">3</text>
+<polyline points="87.34,72.2 87.34,71.04 84.8,71.04 84.8,72.2" fill="none" stroke="#000000" stroke-width="0.26"/>
+<polyline points="80.36,72.2 80.36,71.04 77.83,71.04 77.83,72.2" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="86.09" y1="72.2" x2="86.09" y2="71.04" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="79.12" y1="72.2" x2="79.12" y2="71.04" fill="none" stroke="#000000" stroke-width="0.26"/>
 <text x="77.93" y="75.08" font-family="Helvetica" font-size="1.8" text-anchor="start" fill="#000000">XVB 3x2.5</text>
 <path d="M 96.87 78.1 A 1.42 1.42 0 0 1 99.71 78.1" fill="none" stroke="#000000" stroke-width="0.26"/>
 <line x1="96.87" y1="78.1" x2="96.59" y2="78.1" fill="none" stroke="#000000" stroke-width="0.26"/>
@@ -137,7 +147,11 @@
 <text x="66.73" y="82.48" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">16A</text>
 <polyline points="86.78,88.13 78.28,88.13 77.28,88.13" fill="none" stroke="#000000" stroke-width="0.26"/>
 <polyline points="81.53,88.63 82.03,88.13 82.53,87.63" fill="none" stroke="#000000" stroke-width="0.26"/>
-<text x="83.83" y="87.33" font-family="Helvetica" font-size="1.73" text-anchor="start" fill="#000000">3</text>
+<text x="82.03" y="85.63" font-family="Helvetica" font-size="1.73" text-anchor="middle" fill="#000000">3</text>
+<polyline points="87.34,87.55 87.34,86.39 84.8,86.39 84.8,87.55" fill="none" stroke="#000000" stroke-width="0.26"/>
+<polyline points="80.36,87.55 80.36,86.39 77.83,86.39 77.83,87.55" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="86.09" y1="87.55" x2="86.09" y2="86.39" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="79.12" y1="87.55" x2="79.12" y2="86.39" fill="none" stroke="#000000" stroke-width="0.26"/>
 <text x="77.93" y="90.43" font-family="Helvetica" font-size="1.8" text-anchor="start" fill="#000000">XVB 3x2.5</text>
 <path d="M 96.87 93.45 A 1.42 1.42 0 0 1 99.71 93.45" fill="none" stroke="#000000" stroke-width="0.26"/>
 <line x1="96.87" y1="93.45" x2="96.59" y2="93.45" fill="none" stroke="#000000" stroke-width="0.26"/>
@@ -192,7 +206,11 @@
 <text x="63.53" y="110.88" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">Hoofd auto 1</text>
 <polyline points="82.28,116.04 73.78,116.04 72.78,116.04" fill="none" stroke="#000000" stroke-width="0.26"/>
 <polyline points="77.03,116.54 77.53,116.04 78.03,115.54" fill="none" stroke="#000000" stroke-width="0.26"/>
-<text x="79.33" y="115.24" font-family="Helvetica" font-size="1.73" text-anchor="start" fill="#000000">5</text>
+<text x="77.53" y="113.54" font-family="Helvetica" font-size="1.73" text-anchor="middle" fill="#000000">5</text>
+<polyline points="82.28,115.46 82.28,114.3 79.75,114.3 79.75,115.46" fill="none" stroke="#000000" stroke-width="0.26"/>
+<polyline points="75.31,115.46 75.31,114.3 72.78,114.3 72.78,115.46" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="81.04" y1="115.46" x2="81.04" y2="114.3" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="74.07" y1="115.46" x2="74.07" y2="114.3" fill="none" stroke="#000000" stroke-width="0.26"/>
 <text x="68.53" y="118.37" font-family="Helvetica" font-size="1.8" text-anchor="start" fill="#000000">XVB 5x6</text>
 <line x1="63.53" y1="116.04" x2="63.53" y2="180.23" fill="none" stroke="#000000" stroke-width="0.2"/>
 <line x1="63.53" y1="134.18" x2="66.83" y2="134.18" fill="none" stroke="#000000" stroke-width="0.2"/>
@@ -210,7 +228,11 @@
 <text x="66.73" y="128.53" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">20A</text>
 <polyline points="86.78,134.18 78.28,134.18 77.28,134.18" fill="none" stroke="#000000" stroke-width="0.26"/>
 <polyline points="81.53,134.68 82.03,134.18 82.53,133.68" fill="none" stroke="#000000" stroke-width="0.26"/>
-<text x="83.83" y="133.38" font-family="Helvetica" font-size="1.73" text-anchor="start" fill="#000000">3</text>
+<text x="82.03" y="131.68" font-family="Helvetica" font-size="1.73" text-anchor="middle" fill="#000000">3</text>
+<polyline points="87.34,133.6 87.34,132.44 84.8,132.44 84.8,133.6" fill="none" stroke="#000000" stroke-width="0.26"/>
+<polyline points="80.36,133.6 80.36,132.44 77.83,132.44 77.83,133.6" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="86.09" y1="133.6" x2="86.09" y2="132.44" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="79.12" y1="133.6" x2="79.12" y2="132.44" fill="none" stroke="#000000" stroke-width="0.26"/>
 <text x="77.93" y="136.48" font-family="Helvetica" font-size="1.8" text-anchor="start" fill="#000000">XVB 3x2.5</text>
 <path d="M 96.87 139.5 A 1.42 1.42 0 0 1 99.71 139.5" fill="none" stroke="#000000" stroke-width="0.26"/>
 <line x1="96.87" y1="139.5" x2="96.59" y2="139.5" fill="none" stroke="#000000" stroke-width="0.26"/>
@@ -264,7 +286,11 @@
 <text x="66.73" y="143.88" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">20A</text>
 <polyline points="86.78,149.53 78.28,149.53 77.28,149.53" fill="none" stroke="#000000" stroke-width="0.26"/>
 <polyline points="81.53,150.03 82.03,149.53 82.53,149.03" fill="none" stroke="#000000" stroke-width="0.26"/>
-<text x="83.83" y="148.73" font-family="Helvetica" font-size="1.73" text-anchor="start" fill="#000000">3</text>
+<text x="82.03" y="147.03" font-family="Helvetica" font-size="1.73" text-anchor="middle" fill="#000000">3</text>
+<polyline points="87.34,148.95 87.34,147.79 84.8,147.79 84.8,148.95" fill="none" stroke="#000000" stroke-width="0.26"/>
+<polyline points="80.36,148.95 80.36,147.79 77.83,147.79 77.83,148.95" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="86.09" y1="148.95" x2="86.09" y2="147.79" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="79.12" y1="148.95" x2="79.12" y2="147.79" fill="none" stroke="#000000" stroke-width="0.26"/>
 <text x="77.93" y="151.83" font-family="Helvetica" font-size="1.8" text-anchor="start" fill="#000000">XVB 3x2.5</text>
 <path d="M 96.87 154.85 A 1.42 1.42 0 0 1 99.71 154.85" fill="none" stroke="#000000" stroke-width="0.26"/>
 <line x1="96.87" y1="154.85" x2="96.59" y2="154.85" fill="none" stroke="#000000" stroke-width="0.26"/>
@@ -287,7 +313,11 @@
 <text x="66.73" y="159.23" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">20A</text>
 <polyline points="86.78,164.88 78.28,164.88 77.28,164.88" fill="none" stroke="#000000" stroke-width="0.26"/>
 <polyline points="81.53,165.38 82.03,164.88 82.53,164.38" fill="none" stroke="#000000" stroke-width="0.26"/>
-<text x="83.83" y="164.08" font-family="Helvetica" font-size="1.73" text-anchor="start" fill="#000000">3</text>
+<text x="82.03" y="162.38" font-family="Helvetica" font-size="1.73" text-anchor="middle" fill="#000000">3</text>
+<polyline points="87.34,164.3 87.34,163.14 84.8,163.14 84.8,164.3" fill="none" stroke="#000000" stroke-width="0.26"/>
+<polyline points="80.36,164.3 80.36,163.14 77.83,163.14 77.83,164.3" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="86.09" y1="164.3" x2="86.09" y2="163.14" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="79.12" y1="164.3" x2="79.12" y2="163.14" fill="none" stroke="#000000" stroke-width="0.26"/>
 <text x="77.93" y="167.18" font-family="Helvetica" font-size="1.8" text-anchor="start" fill="#000000">XVB 3x2.5</text>
 <path d="M 96.87 170.2 A 1.42 1.42 0 0 1 99.71 170.2" fill="none" stroke="#000000" stroke-width="0.26"/>
 <line x1="96.87" y1="170.2" x2="96.59" y2="170.2" fill="none" stroke="#000000" stroke-width="0.26"/>
@@ -306,7 +336,11 @@
 <text x="66.73" y="174.58" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">20A</text>
 <polyline points="86.78,180.23 78.28,180.23 77.28,180.23" fill="none" stroke="#000000" stroke-width="0.26"/>
 <polyline points="81.53,180.73 82.03,180.23 82.53,179.73" fill="none" stroke="#000000" stroke-width="0.26"/>
-<text x="83.83" y="179.43" font-family="Helvetica" font-size="1.73" text-anchor="start" fill="#000000">3</text>
+<text x="82.03" y="177.73" font-family="Helvetica" font-size="1.73" text-anchor="middle" fill="#000000">3</text>
+<polyline points="87.34,179.65 87.34,178.49 84.8,178.49 84.8,179.65" fill="none" stroke="#000000" stroke-width="0.26"/>
+<polyline points="80.36,179.65 80.36,178.49 77.83,178.49 77.83,179.65" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="86.09" y1="179.65" x2="86.09" y2="178.49" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="79.12" y1="179.65" x2="79.12" y2="178.49" fill="none" stroke="#000000" stroke-width="0.26"/>
 <text x="77.93" y="182.53" font-family="Helvetica" font-size="1.8" text-anchor="start" fill="#000000">XVB 3x2.5</text>
 <path d="M 96.87 185.55 A 1.42 1.42 0 0 1 99.71 185.55" fill="none" stroke="#000000" stroke-width="0.26"/>
 <line x1="96.87" y1="185.55" x2="96.59" y2="185.55" fill="none" stroke="#000000" stroke-width="0.26"/>
@@ -330,7 +364,11 @@
 <text x="116.81" y="189.93" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">20A</text>
 <polyline points="136.86,195.58 128.36,195.58 127.36,195.58" fill="none" stroke="#000000" stroke-width="0.26"/>
 <polyline points="131.61,196.08 132.11,195.58 132.61,195.08" fill="none" stroke="#000000" stroke-width="0.26"/>
-<text x="133.91" y="194.78" font-family="Helvetica" font-size="1.73" text-anchor="start" fill="#000000">3</text>
+<text x="132.11" y="193.08" font-family="Helvetica" font-size="1.73" text-anchor="middle" fill="#000000">3</text>
+<polyline points="137.41,195 137.41,193.84 134.88,193.84 134.88,195" fill="none" stroke="#000000" stroke-width="0.26"/>
+<polyline points="130.44,195 130.44,193.84 127.91,193.84 127.91,195" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="136.17" y1="195" x2="136.17" y2="193.84" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="129.2" y1="195" x2="129.2" y2="193.84" fill="none" stroke="#000000" stroke-width="0.26"/>
 <text x="128.01" y="197.88" font-family="Helvetica" font-size="1.8" text-anchor="start" fill="#000000">XVB 3x2.5</text>
 <path d="M 146.95 200.9 A 1.42 1.42 0 0 1 149.79 200.9" fill="none" stroke="#000000" stroke-width="0.26"/>
 <line x1="146.95" y1="200.9" x2="146.67" y2="200.9" fill="none" stroke="#000000" stroke-width="0.26"/>

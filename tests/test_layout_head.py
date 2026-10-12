@@ -120,8 +120,10 @@ def test_children_on_another_page_are_skipped():
     pages = layout(build_model(data), S)
     assert [p.id for p in pages] == ["pg1", "pg2"]
     assert not [q for q in pages[0].primitives if isinstance(q, Text) and q.text == "X"]
-    assert not vertical(pages[0].primitives, 34.57)  # no feeder without a second child
-    assert not [q for q in pages[1].primitives if isinstance(q, Text) and q.size != 4.23]  # frame, title
+    # the moved child leaves a feeder to the feeder end (content limit - 16.8) with a Naar end
+    assert vertical(pages[0].primitives, 34.57) == [(APPROX(57.43), APPROX(276.6 - 3.0 - 16.8))]
+    assert [q.text for q in pages[0].primitives if isinstance(q, Text) and q.text.startswith("Naar")] == ["Naar Pg 2"]
+    assert [q for q in pages[1].primitives if isinstance(q, Text) and q.text == "X"]
 
 
 def test_group_child_without_circuits_is_unsupported():
@@ -152,9 +154,12 @@ def test_frame_and_title_block_as_measured(prims):
 
 def test_title_block_cells(prims):
     cells = {t.text: (t.x, t.y, t.size) for t in prims if isinstance(t, Text) and t.size == 4.23}
-    assert set(cells) == {"Pagina 1: aansluiting", "Straat A 1, 0000 Gemeente",
+    assert set(cells) == {"Aansluiting", "Straat A 1, 0000 Gemeente", "Pagina 1 van 1",
                           "Getekend door: Ontwerper", "Uitgevoerd door: Installateur"}
-    assert cells["Pagina 1: aansluiting"][:2] == APPROX((3.9, 276.6 + 6.3))
+    number = [q for q in prims if isinstance(q, Text) and q.text == "Pagina 1 van 1"][0]
+    assert (number.x, number.y) == APPROX(((0.25 + 209.61 - 32.0 + 0.25 + 209.61) / 2, 286.95 + 1.125))
+    assert (number.anchor, number.size) == ("middle", 4.23)
+    assert cells["Aansluiting"][:2] == APPROX((3.9, 276.6 + 6.3))
     assert cells["Straat A 1, 0000 Gemeente"][:2] == APPROX((108.9, 276.6 + 6.3))
     assert cells["Getekend door: Ontwerper"][:2] == APPROX((3.9, 286.95 + 6.3))
 

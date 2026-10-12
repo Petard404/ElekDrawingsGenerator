@@ -147,6 +147,8 @@ class Page:
     title: str
     primitives: tuple[Primitive, ...] = ()
     content_limit_y: float | None = None  # lowest y that content may reach (above the title block)
+    # Clickable page links: (x0, y0, x1, y1, number of the target page), mm, y down.
+    links: tuple[tuple[float, float, float, float, int], ...] = ()
 
 
 # A picture drawn onto a page after its SVG: (file path, x_mm, y_mm, w_mm, h_mm). The box is on

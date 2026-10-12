@@ -31,6 +31,7 @@ Curve = Literal["B", "C", "D"]
 Poles = Literal["1P", "1P+N", "2P", "3P", "3P+N", "4P"]
 DiffType = Literal["AC", "A", "F", "B"]
 Voltage = Literal["230V", "3x230V", "3N400V"]
+Mounting = Literal["in_wall", "on_wall", "in_conduit", "in_conduit_in_wall"]
 Variant = Literal["child_protection", "protective_conductor", "waterproof", "waterproof_plain"]
 ApplianceType = Literal[
     "oven", "dishwasher", "washing_machine", "dryer",
@@ -89,6 +90,7 @@ class Breaker(Container):
     poles: Poles | None = None
     cable: Text | None = None
     conductors: Positive | None = None
+    mounting: Mounting | None = None
 
 
 class Differential(Container):
@@ -109,6 +111,7 @@ class Circuit(Container):
     poles: Poles | None = None
     cable: Text | None = None
     conductors: Positive | None = None
+    mounting: Mounting | None = None
     children_page: Id | None = None
 
 
@@ -365,6 +368,9 @@ def _check(f: _File) -> dict[str, str]:
             ref = getattr(node, field_name, None)
             if ref is not None and ref not in page_ids:
                 raise HuiselekError("unknown_page", node.id, field=field_name, page=ref)
+        if getattr(node, "children_page", None) == (getattr(node, "page", None) or inherited_page):
+            raise HuiselekError("unknown_page", node.id, field="children_page",
+                                page=node.children_page, variant="own_page")
         if getattr(node, "link_text", None) is not None and not (
             getattr(node, "page", None) or getattr(node, "children_page", None)
         ):

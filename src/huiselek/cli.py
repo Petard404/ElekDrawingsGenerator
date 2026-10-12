@@ -62,7 +62,8 @@ def _build(args: argparse.Namespace) -> int:
     svgs = [render_svg(page, settings) for page in pages]
     out = args.output or Path("out") / f"{args.file.stem}.pdf"
     out.parent.mkdir(parents=True, exist_ok=True)
-    export_pdf(svgs, out)
+    export_pdf(svgs, out, links=[page.links for page in pages],
+               title=labels.PDF_TITLE, author=installation.project.drawn_by)
     for n, svg in enumerate(svgs, 1):  # one SVG per page next to the PDF
         (out.parent / f"{out.stem}_p{n}.svg").write_text(svg, encoding="utf-8", newline="\n")
     print(labels.CLI_OK.format(path=out, pages=len(pages)))

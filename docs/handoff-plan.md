@@ -208,9 +208,9 @@ Top level: `project`, `pages`, optional `labels`, `installation`. Nothing else.
 | pages | list of `{`**id**`, `**title**`}`, at least one | none |
 | labels | template name: text, for names in the template list below | none |
 | supply | **label**, **voltage** | breaker, differential |
-| breaker | **rating_a**, label, curve, poles, cable, conductors | differential, breaker, circuit, reserve |
+| breaker | **rating_a**, label, curve, poles, cable, conductors, mounting | differential, breaker, circuit, reserve |
 | differential | **sensitivity_ma**, **rating_a**, **poles**, **type**, selective (default false), label | differential, breaker, circuit, reserve |
-| circuit | **description**, **rating_a**, curve (default C), poles, cable, conductors, children_page | devices, circuit, board |
+| circuit | **description**, **rating_a**, curve (default C), poles, cable, conductors, mounting, children_page | devices, circuit, board |
 | board | **label** | differential, breaker, circuit, reserve |
 | reserve | rating_a, curve, poles; without rating_a it is a free place | none |
 | socket | count (mechanisms, default 1), variant (default `child_protection`; `protective_conductor`, `waterproof` (with protective conductor and child protection), `waterproof_plain`), note | none |
@@ -223,7 +223,7 @@ Top level: `project`, `pages`, optional `labels`, `installation`. Nothing else.
 
 "Devices" are socket, light, appliance, impulse_relay, photo_detector, transformer, converter and box. The root `installation` must be a supply. Every node has **kind** and **id**. Containers (supply, breaker, differential, circuit, board) may also have `page` and `link_text`.
 
-Value rules: supply `voltage` is the network type, one of `230V` (single-phase, two conductors), `3x230V`, `3N400V`; ratings, `sensitivity_ma`, `count` and `conductors` are positive integers; `poles` is one of `1P`, `1P+N`, `2P`, `3P`, `3P+N`, `4P`; `curve` is B, C or D; differential `type` is AC, A, F or B. A circuit without children is a spare breaker.
+Value rules: supply `voltage` is the network type, one of `230V` (single-phase, two conductors), `3x230V`, `3N400V`; ratings, `sensitivity_ma`, `count` and `conductors` are positive integers; `poles` is one of `1P`, `1P+N`, `2P`, `3P`, `3P+N`, `4P`; `curve` is B, C or D; `mounting` (installation mark on the cable, no default: without it no mark) is `in_wall`, `on_wall`, `in_conduit` or `in_conduit_in_wall`; differential `type` is AC, A, F or B. A circuit without children is a spare breaker.
 
 Rules that keep the format stable:
 

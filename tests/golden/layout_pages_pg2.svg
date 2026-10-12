@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 210 297">
+<rect x="0.5" y="0.4" width="209.2" height="296.7" fill="none" stroke="#000000" stroke-width="0.8"/>
+<rect x="0.25" y="276.6" width="209.61" height="20.7" fill="none" stroke="#000000" stroke-width="0.5"/>
+<line x1="105.06" y1="276.6" x2="105.06" y2="297.3" fill="none" stroke="#000000" stroke-width="0.5"/>
+<text x="3.9" y="282.9" font-family="Helvetica" font-size="4.23" text-anchor="start" fill="#000000">Differentieel 2</text>
+<text x="108.9" y="282.9" font-family="Helvetica" font-size="4.23" text-anchor="start" fill="#000000">Straat A 1, 0000 Gemeente</text>
+<line x1="0.25" y1="286.95" x2="177.86" y2="286.95" fill="none" stroke="#000000" stroke-width="0.5"/>
+<text x="3.9" y="293.25" font-family="Helvetica" font-size="4.23" text-anchor="start" fill="#000000">Getekend door: Ontwerper</text>
+<text x="108.9" y="293.25" font-family="Helvetica" font-size="4.23" text-anchor="start" fill="#000000">Uitgevoerd door: Installateur</text>
+<line x1="177.86" y1="276.6" x2="177.86" y2="297.3" fill="none" stroke="#000000" stroke-width="0.5"/>
+<text x="193.86" y="288.08" font-family="Helvetica" font-size="4.23" text-anchor="middle" fill="#000000">Pagina 2 van 2</text>
+<line x1="42.4" y1="57.43" x2="45.7" y2="57.43" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="45.7" y1="57.43" x2="47.7" y2="57.43" fill="none" stroke="#000000" stroke-width="0.26"/>
+<polyline points="55.7,57.43 53.7,57.43 50.74,58.91 47.9,60.33" fill="none" stroke="#000000" stroke-width="0.26"/>
+<polygon points="49.42,60.24 49.16,59.7 47.9,60.32 48.17,60.86" fill="#000000" stroke="#000000" stroke-width="0.26"/>
+<text x="47.1" y="64.23" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">40/0.03A</text>
+<text x="47.1" y="67.83" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">type A</text>
+<text x="47.1" y="71.43" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">Diff 2</text>
+<line x1="8.66" y1="57.43" x2="42.4" y2="57.43" fill="none" stroke="#000000" stroke-width="0.2"/>
+<polygon points="8.38,56.69 10.42,57.43 8.38,58.17 8.5,58 8.59,57.82 8.64,57.63 8.66,57.43 8.64,57.23 8.59,57.04 8.5,56.86" fill="#000000" stroke="#000000" stroke-width="0.26"/>
+<text x="8.66" y="50.73" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">Van pg 1</text>
+<text x="8.66" y="54.33" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">Ref Diff 2</text>
+<line x1="55.7" y1="57.43" x2="63.53" y2="57.43" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="63.53" y1="57.43" x2="63.53" y2="72.78" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="63.53" y1="57.43" x2="66.83" y2="57.43" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="76.83" y1="57.43" x2="98.29" y2="57.43" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="98.29" y1="57.43" x2="98.29" y2="61.33" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="66.83" y1="57.43" x2="68.83" y2="57.43" fill="none" stroke="#000000" stroke-width="0.26"/>
+<polyline points="76.83,57.43 74.83,57.43 71.87,58.91 69.03,60.33" fill="none" stroke="#000000" stroke-width="0.26"/>
+<polygon points="70.55,60.24 70.29,59.7 69.03,60.32 69.3,60.86" fill="#000000" stroke="#000000" stroke-width="0.26"/>
+<text x="66.73" y="51.78" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">16A</text>
+<path d="M 96.87 62.75 A 1.42 1.42 0 0 1 99.71 62.75" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="96.87" y1="62.75" x2="96.59" y2="62.75" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="99.99" y1="62.75" x2="99.71" y2="62.75" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="100" y1="61.33" x2="96.6" y2="61.33" fill="none" stroke="#000000" stroke-width="0.26"/>
+<text x="98.29" y="66.43" font-family="Helvetica" font-size="1.8" text-anchor="middle" fill="#000000">X1</text>
+<text x="160.95" y="57.43" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">X</text>
+<text x="160.95" y="61.03" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">Zolder</text>
+<line x1="63.53" y1="72.78" x2="66.83" y2="72.78" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="76.83" y1="72.78" x2="98.29" y2="72.78" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="98.29" y1="72.78" x2="98.29" y2="76.68" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="66.83" y1="72.78" x2="68.83" y2="72.78" fill="none" stroke="#000000" stroke-width="0.26"/>
+<polyline points="76.83,72.78 74.83,72.78 71.87,74.26 69.03,75.68" fill="none" stroke="#000000" stroke-width="0.26"/>
+<polygon points="70.55,75.59 70.29,75.05 69.03,75.67 69.3,76.21" fill="#000000" stroke="#000000" stroke-width="0.26"/>
+<text x="66.73" y="67.13" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">16A</text>
+<path d="M 96.87 78.1 A 1.42 1.42 0 0 1 99.71 78.1" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="96.87" y1="78.1" x2="96.59" y2="78.1" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="99.99" y1="78.1" x2="99.71" y2="78.1" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="100" y1="76.68" x2="96.6" y2="76.68" fill="none" stroke="#000000" stroke-width="0.26"/>
+<text x="98.29" y="81.78" font-family="Helvetica" font-size="1.8" text-anchor="middle" fill="#000000">Y1</text>
+<text x="160.95" y="72.78" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">Y</text>
+<text x="160.95" y="76.38" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">Werkplaats</text>
+</svg>

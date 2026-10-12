@@ -17,7 +17,7 @@ from .errors import HuiselekError
 from .primitives import Arc, Circle, Line, Polyline, Primitive, Rect, Style, Text
 from .settings import Settings
 
-CODE_DRAWN = ("page_link", "photo_detector")
+CODE_DRAWN = ("page_link", "photo_detector", "switch_contact")
 ROTATIONS = (0, 90, 180, 270)
 
 
@@ -31,11 +31,13 @@ class Symbol:
     anchor: str
 
     def _mover(self, x: float, y: float, rotation: int) -> Callable[[float, float], tuple[float, float]]:
+        """Function that maps symbol-frame points to page coordinates for this placement."""
         if rotation not in ROTATIONS:
             raise ValueError(f"rotation must be one of {ROTATIONS}, got {rotation!r}")
         ax, ay = self.points[self.anchor]
 
         def move(px: float, py: float) -> tuple[float, float]:
+            """Map a symbol-frame point to the page, relative to the anchor and turned by the rotation."""
             dx, dy = px - ax, py - ay
             if rotation == 90:      # clockwise on the page (y down): (1, 0) -> (0, 1)
                 dx, dy = -dy, dx
@@ -59,6 +61,7 @@ class Symbol:
 
 
 def _transform(p: Primitive, move: Callable[[float, float], tuple[float, float]], rotation: int) -> Primitive:
+    """Map a primitive to page coordinates with move; arcs turn with the rotation, text keeps its own."""
     if isinstance(p, Line):
         x1, y1 = move(p.x1, p.y1)
         x2, y2 = move(p.x2, p.y2)
@@ -82,6 +85,7 @@ def _transform(p: Primitive, move: Callable[[float, float], tuple[float, float]]
 
 
 def _from_json(d: dict, style: Style) -> Primitive:
+    """Build a primitive from its JSON dict, with the given style."""
     t = d["type"]
     if t == "line":
         return Line(d["x1"], d["y1"], d["x2"], d["y2"], style)
@@ -116,6 +120,7 @@ def _scaled(p: Primitive, k: float) -> Primitive:
 
 
 def _filled(style: Style, fill: str | None) -> Style:
+    """Copy of style with the given fill colour."""
     return Style(style.stroke, style.stroke_width, fill, style.dash)
 
 
@@ -157,6 +162,16 @@ def _photo_detector(style: Style) -> Symbol:
     return Symbol("photo_detector", prims, w, h, {"a": (w / 2, 0.0), "b": (w / 2, h)}, "a")
 
 
+def _switch_contact(style: Style) -> Symbol:
+    """Open contact on a horizontal line: the blade drops from a (left) towards b (right); House A pages 3, 4.
+
+    Measured: blade 5.62 across and 3.14 down from a, the wire resumes 0.76 right of the blade end.
+    """
+    blade_dx, drop, gap = 5.62, 3.14, 0.76
+    prims = (Line(0.0, 0.0, blade_dx, drop, style),)
+    return Symbol("switch_contact", prims, blade_dx + gap, drop, {"a": (0.0, 0.0), "b": (blade_dx + gap, 0.0)}, "a")
+
+
 def load_symbols(s: Settings) -> dict[str, Symbol]:
     """Every symbol of the table plus the code-drawn ones, keyed by id (sorted)."""
     pkg = resources.files("huiselek")
@@ -181,6 +196,6 @@ def load_symbols(s: Settings) -> dict[str, Symbol]:
             {name: (x * k, y * k) for name, (x, y) in points.items()},
             entry["anchor"],
         )
-    for sym in (_page_link(style), _photo_detector(style)):
+    for sym in (_page_link(style), _photo_detector(style), _switch_contact(style)):
         out[sym.id] = sym
     return dict(sorted(out.items()))

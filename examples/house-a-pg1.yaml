@@ -12,7 +12,7 @@ labels:
   supply_voltage: "3*230 V"
 
 pages:
-  - {id: pg1, title: "Pagina 1: aansluiting"}
+  - {id: pg1, title: "Aansluiting"}
 
 installation:
   kind: supply
@@ -46,6 +46,7 @@ installation:
                   rating_a: 20
                   cable: "XVB 3x2.5"
                   conductors: 3
+                  mounting: in_wall
                   children:
                     - {kind: socket, id: I1}
                     - {kind: socket, id: I2}
@@ -56,6 +57,7 @@ installation:
                   rating_a: 20
                   cable: "XVB 3x2.5"
                   conductors: 3
+                  mounting: in_wall
                   children:
                     - {kind: socket, id: J1, count: 2}
                     - {kind: socket, id: J2, count: 2}
@@ -69,6 +71,7 @@ installation:
                   rating_a: 16
                   cable: "XVB 3x2.5"
                   conductors: 3
+                  mounting: in_wall
                   children:
                     - {kind: socket, id: K1}
                     - {kind: socket, id: K2}
@@ -90,6 +93,7 @@ installation:
                   label: "Hoofd auto 1"
                   cable: "XVB 5x6"
                   conductors: 5
+                  mounting: in_wall
                   children:
                     - kind: circuit
                       id: N
@@ -97,6 +101,7 @@ installation:
                       rating_a: 20
                       cable: "XVB 3x2.5"
                       conductors: 3
+                      mounting: in_wall
                       children:
                         - {kind: socket, id: N1, count: 2}
                         - {kind: socket, id: N2}
@@ -111,6 +116,7 @@ installation:
                       rating_a: 20
                       cable: "XVB 3x2.5"
                       conductors: 3
+                      mounting: in_wall
                       children:
                         - {kind: socket, id: L1}
                         - {kind: socket, id: L2}
@@ -120,6 +126,7 @@ installation:
                       rating_a: 20
                       cable: "XVB 3x2.5"
                       conductors: 3
+                      mounting: in_wall
                       children:
                         - {kind: socket, id: M1}
                     - kind: circuit
@@ -128,6 +135,7 @@ installation:
                       rating_a: 20
                       cable: "XVB 3x2.5"
                       conductors: 3
+                      mounting: in_wall
                       children:
                         - {kind: socket, id: O1, note: "3ph"}
                         - {kind: socket, id: O2}
@@ -137,5 +145,6 @@ installation:
                           rating_a: 20
                           cable: "XVB 3x2.5"
                           conductors: 3
+                          mounting: in_wall
                           children:
                             - {kind: socket, id: P3, count: 2}

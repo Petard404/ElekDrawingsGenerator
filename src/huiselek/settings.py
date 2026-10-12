@@ -32,6 +32,9 @@ class Settings:
     title_text_left: float = 3.9
     title_text_right: float = 108.9
     title_text_dy: float = 6.3      # baseline below the top of its row
+    title_number_w: float = 32.0    # page number cell at the right end of the two base rows
+    title_number_dx: float = 0.0    # number: centre offset from the middle of the cell
+    title_number_dy: float = 1.125  # baseline below the middle of the two rows (as the row texts: dy - row_h / 2)
     content_margin: float = 3.0     # content ends this far above the title block
 
     # Supply box
@@ -82,6 +85,12 @@ class Settings:
     conductors_dx: float = 18.5     # centre of the conductors mark
     conductors_count_dx: float = 1.8   # count text, from the centre of the mark
     conductors_count_dy: float = -0.8
+    conductors_count_marked_dy: float = -2.5   # with an installation mark: count centred above the slash and the marks
+    # Installation marks (mounting): centre of the symbol, from the row origin (4.8). With scale 0.83
+    # the in_wall marks span mounting_dx - 2.45 .. + 7.05 = 14.3 .. 23.8, House A's grey marks.
+    mounting_dx: float = 16.75
+    nested_mounting_dx: float = 11.7   # on the return line: the conductors slash falls between the two marks
+    mounting_text_gap: float = 0.3     # cable text keeps this far below a mark that hangs under the line
 
     # Nested breaker: breaker from the bus, loop to the right and back, bus continues below
     loop_dx: float = 19.64          # loop wire, from the bus
@@ -112,3 +121,24 @@ class Settings:
     text_size: float = 2.88         # rating, circuit letter, description
     small_text_size: float = 1.8    # cable text, IDs
     count_text_size: float = 1.73   # counts and notes
+
+    # Page links (docs/layout-notes.md 4.2, 4.3), detail page header, page number
+    link_text_dx: float = 6.1       # Naar text start, right of the arrow tip (feeder end)
+    link_first_dy: float = 0.7      # first Naar baseline below the line
+    link_line_step: float = 3.6     # further link lines
+    link_end_slot: int = 1          # Naar of a circuit: line and arrow end at this slot's stem
+    link_text_slot: int = 2         # ... and the texts start at this slot's ID x
+    link_text_id_dx: float = -1.0   # ID x against the stem
+    feeder_end_dy: float = 16.8     # feeder end y = content limit minus this
+    feeder_arrow_x: float = 63.9    # arrow tip of the Naar end of a moved differential
+    van_x: float = 8.66             # start of the Van wire of a moved differential
+    van_text_dy: float = 3.1        # last Van line baseline above the wire
+    detail_bus_x: float = 71.48
+    detail_link_dx: float = 14.6    # Van wire length on a detail page
+    detail_header_x: float = 141.30
+    detail_header_dy: float = -4.9  # circuit ID against the first row
+    detail_contact_dx: float = 21.95  # bus to the left terminal of the contact (detail rows)
+    detail_light_dx: float = 47.87    # bus to the light centre
+    detail_text_x: float = 141.30     # "ID name" of a detail row, on the row line
+    detail_count_dx: float = 2.2      # count right of the light centre
+    detail_count_dy: float = 0.6      # ... baseline below the row line

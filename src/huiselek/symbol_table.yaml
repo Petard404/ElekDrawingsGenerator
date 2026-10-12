@@ -12,7 +12,8 @@
 #              center   a mark (conductors, three_phase, ...) is placed centred on a cable
 #              label    text position for a count number or label (not on the geometry)
 # scale      optional, default 1.0: geometry, points, width, height and text size times this factor
-#            (stroke widths are not scaled); House A draws sockets at 0.85 and lights at 0.8
+#            (stroke widths are not scaled); House A draws sockets at 0.85, lights at 0.8 and the
+#            installation marks (line_*) at 0.83
 #
 # source     svg file relative to docs/reference/arei/
 # official   stems of the official table images (docs/reference/arei/official/images) that show it
@@ -253,6 +254,7 @@ line_in_conduit:
   rotate: 90
   keep_text: []
   drop: [1]          # the n-conductor slash; the official image has none
+  scale: 0.83        # installation marks: the in_wall marks span 9.5 mm (House A's grey marks)
   anchor: center
   points:
     a: [0, 1.975]
@@ -265,6 +267,7 @@ line_in_conduit_in_wall:
   rotate: 90
   keep_text: []
   drop: [1, 2, 4]    # the n-conductor slash [1] and the second "pi" shape [2] + its middle leg [4]; official p2_01 has one "pi" and one circle
+  scale: 0.83        # installation marks: the in_wall marks span 9.5 mm (House A's grey marks)
   anchor: center
   points:
     a: [0, 2.1]
@@ -277,6 +280,7 @@ line_in_wall:
   rotate: 90
   keep_text: []
   drop: [1]          # the n-conductor slash; the official image has none
+  scale: 0.83        # installation marks: the in_wall marks span 9.5 mm (House A's grey marks)
   anchor: center
   points:
     a: [0, 2.1]
@@ -289,6 +293,7 @@ line_on_wall:
   rotate: 270
   keep_text: []
   drop: [4]          # the n-conductor slash; the official image has none
+  scale: 0.83        # installation marks: the in_wall marks span 9.5 mm (House A's grey marks)
   anchor: center
   points:
     a: [0, 0]

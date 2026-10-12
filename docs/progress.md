@@ -1,5 +1,24 @@
 # Progress
 
+## 2026-10-12 · M4 Multi-page done (approved)
+
+- 4.0 `docs/layout-notes.md` section 3: House A pages 2 to 4 measured once by script (do not reread the reference SVGs); section 4: approved design for pages 2 to 4; 4.7: checks added after review.
+- 4.1 `layout.py`: one root per page; moved differential drawn as a head level on its page; Naar end (feeder end at content limit − 16.8, or a circuit line ending in an arrow for `children_page`); Van end on the target page; `Page.links` for clickable links; page number "Pagina n van m" in the page-title cell; templates `link_to`, `link_from`, `page_number`, `detail_row`.
+- 4.2 detail rows: bus x 71.48, code-drawn `switch_contact` (only with `switch: true`), plain light at + 47.87, text "ID name" at x 141.30, header letter.
+- 4.3 `export_pdf`: clickable links (bookmarkPage + linkRect), title/author/creator. `examples/house-a-multipage.yaml`: House A pages 1 to 4 without circuit F; corrections listed in its header (B1 for J1, differentials DF0..DF2, page titles).
+- 4.4 docstrings; README usage and pages section, commands run as written.
+- Review by a fresh agent: one-sided links in untested tree positions now stop with `layout_unsupported` (variant `link`); `children_page` on the own page is an error; detail text is a template. 959 tests pass.
+- Owner review additions: optional `mounting` (`in_wall`, `on_wall`, `in_conduit`, `in_conduit_in_wall`) on circuits and breakers draws the AREI installation mark on the cable (scale 0.83, marks +14.3..+23.8; House A's grey marks are `in_wall`, set on every circuit and the 32 A breaker); the page number has its own 32 mm cell at the right of the title block. 984 tests pass.
+- Golden files approved by the owner and copied to `tests/golden/`; 990 tests pass.
+- Open:
+  - texts are not checked against the narrower title cells; "Pagina 10 van 12" would not fit the 32 mm cell (task 6.1, word widths)
+  - `on_wall`, `in_conduit`, `in_conduit_in_wall` are tested by geometry, not yet seen in a render
+  - Naar ends in other tree positions (under the supply, nested breakers, group members) are `layout_unsupported`
+  - circuit F (transformer, converter) waits for M5
+  - the M4 example differs from the coming `house-a.yaml` of task 5.1 only by circuit F; 5.1 can start from it
+
+**Next step:** M5, starting with task 5.1 (House A YAML with the correction list), building on `examples/house-a-multipage.yaml`. Read CLAUDE.md, the M5 rows of the plan, `docs/layout-notes.md` and the decision log entries of 12 October.
+
 ## 2026-10-12 · M3 One page done (page 1 approved)
 
 - 3.1 `docs/layout-notes.md`: page 1 measured once (do not reread the reference SVG) plus the approved layout design. Rows sit on a fixed 15.35 grid; an overlapping row moves down by whole pitches.

@@ -1,0 +1,280 @@
+# House A, pages 1 to 4: connection, Diff 1 (page 1), Diff 2 (page 2) and the two lighting detail
+# pages (3: circuit A, 4: circuit G).
+#
+# Left out until M5: circuit F (transformer F1, converter F2; 6 A, XVB 3x2.5, "Transformators").
+# Nothing else of the inventory is left out.
+#
+# Corrections against the original drawing:
+# - Circuit B's socket is labelled J1 in the original, which duplicates the ID of socket J1 of
+#   circuit J: it is B1 here.
+# - The differentials are DF0, DF1 and DF2 (page 1 of the original had D0, D1): the IDs D1 and D2
+#   belong to the sockets of circuit D and IDs must be unique.
+# - The original page 2 carries the title "Pagina 1: aansluiting"; here "Differentieel 2".
+# - The original page 4 title reads "verlicthting 2de verdiep" (typo); here "Verlichting 2de
+#   verdiep G". All titles drop the "Pagina n:" prefix (the page number is drawn by the tool).
+# - The "Naar/Van" links and the page numbers come from the tool, not from typed text.
+project:
+  address: "Straat A 1, 0000 Gemeente"
+  drawn_by: "Ontwerper"
+  executed_by: "Installateur"
+
+labels:
+  breaker: "{rating_a}A"
+  differential: "{sensitivity_ma} mA\n{pole_count}x{rating_a} A"
+  differential_type: ""
+  supply_voltage: "3*230 V"
+
+pages:
+  - {id: pg1, title: "Aansluiting"}
+  - {id: pg2, title: "Differentieel 2"}
+  - {id: pg3, title: "Verlichting gelijkvloers A"}
+  - {id: pg4, title: "Verlichting 2de verdiep G"}
+
+installation:
+  kind: supply
+  id: SUP
+  label: "Aansluiting\nen teller"
+  voltage: "3x230V"
+  children:
+    - kind: breaker
+      id: Q0
+      rating_a: 40
+      label: "Hoofd auto 1"
+      children:
+        - kind: differential
+          id: DF0
+          sensitivity_ma: 300
+          rating_a: 40
+          poles: "4P"
+          type: A
+          children:
+            - kind: differential
+              id: DF1
+              label: "Diff 1"
+              sensitivity_ma: 30
+              rating_a: 40
+              poles: "4P"
+              type: A
+              children:
+                - kind: circuit
+                  id: I
+                  description: "Gang + poort"
+                  rating_a: 20
+                  cable: "XVB 3x2.5"
+                  conductors: 3
+                  mounting: in_wall
+                  children:
+                    - {kind: socket, id: I1}
+                    - {kind: socket, id: I2}
+                    - {kind: socket, id: I3}
+                - kind: circuit
+                  id: J
+                  description: "Badkamer + slaapkamer 2"
+                  rating_a: 20
+                  cable: "XVB 3x2.5"
+                  conductors: 3
+                  mounting: in_wall
+                  children:
+                    - {kind: socket, id: J1, count: 2}
+                    - {kind: socket, id: J2, count: 2}
+                    - {kind: socket, id: J3}
+                    - {kind: socket, id: J4}
+                    - {kind: socket, id: J5}
+                    - {kind: socket, id: J6}
+                - kind: circuit
+                  id: K
+                  description: "Garage + lichten buiten en WC"
+                  rating_a: 16
+                  cable: "XVB 3x2.5"
+                  conductors: 3
+                  mounting: in_wall
+                  children:
+                    - {kind: socket, id: K1}
+                    - {kind: socket, id: K2}
+                    - {kind: socket, id: K3}
+                    - {kind: socket, id: K4}
+                    - {kind: socket, id: K5}
+                    - {kind: light, id: K6, switch: true}
+                    - kind: photo_detector
+                      id: K7F
+                      children:
+                        - {kind: light, id: K7}
+                    - kind: photo_detector
+                      id: K8F
+                      children:
+                        - {kind: light, id: K8}
+                - kind: breaker
+                  id: Q32
+                  rating_a: 32
+                  label: "Hoofd auto 1"
+                  cable: "XVB 5x6"
+                  conductors: 5
+                  mounting: in_wall
+                  children:
+                    - kind: circuit
+                      id: N
+                      description: "Keuken"
+                      rating_a: 20
+                      cable: "XVB 3x2.5"
+                      conductors: 3
+                      mounting: in_wall
+                      children:
+                        - {kind: socket, id: N1, count: 2}
+                        - {kind: socket, id: N2}
+                        - {kind: socket, id: N3}
+                        - {kind: socket, id: N4, count: 2}
+                        - {kind: socket, id: N5, count: 3}
+                        - {kind: socket, id: N6, count: 2}
+                        - {kind: socket, id: N7, count: 2}
+                    - kind: circuit
+                      id: L
+                      description: "Werkplaats"
+                      rating_a: 20
+                      cable: "XVB 3x2.5"
+                      conductors: 3
+                      mounting: in_wall
+                      children:
+                        - {kind: socket, id: L1}
+                        - {kind: socket, id: L2}
+                    - kind: circuit
+                      id: M
+                      description: "Wasmachine"
+                      rating_a: 20
+                      cable: "XVB 3x2.5"
+                      conductors: 3
+                      mounting: in_wall
+                      children:
+                        - {kind: socket, id: M1}
+                    - kind: circuit
+                      id: O
+                      description: "Fornuis en oven"
+                      rating_a: 20
+                      cable: "XVB 3x2.5"
+                      conductors: 3
+                      mounting: in_wall
+                      children:
+                        - {kind: socket, id: O1, note: "3ph"}
+                        - {kind: socket, id: O2}
+                        - kind: circuit
+                          id: P
+                          description: "stopcontact onder wasbak"
+                          rating_a: 20
+                          cable: "XVB 3x2.5"
+                          conductors: 3
+                          mounting: in_wall
+                          children:
+                            - {kind: socket, id: P3, count: 2}
+            - kind: differential
+              id: DF2
+              page: pg2
+              link_text: "Ref Diff 2"
+              label: "Diff 2"
+              sensitivity_ma: 30
+              rating_a: 40
+              poles: "4P"
+              type: A
+              children:
+                - kind: circuit
+                  id: A
+                  description: "lichtkring gelijkvloers"
+                  rating_a: 16
+                  cable: "XVB 3x1.5"
+                  conductors: 3
+                  mounting: in_wall
+                  children_page: pg3
+                  link_text: "verlichting gelijkvloers"
+                  children:
+                    - {kind: light, id: A1, name: "Garage voor", switch: true}
+                    - {kind: light, id: A2, name: "Garage achter", switch: true}
+                    - {kind: light, id: A3, name: "gang en 1ste", switch: true}
+                    - {kind: light, id: A4, name: "werkplaats", switch: true}
+                    - {kind: light, id: A5, name: "zithoek", switch: true}
+                    - {kind: light, id: A6, name: "eethoek", switch: true}
+                    - {kind: light, id: A7, name: "bureau", switch: true}
+                    - {kind: light, id: A8, name: "spots zithoek", switch: true}
+                    - {kind: light, id: A9, name: "spots eethoek", switch: true}
+                    - {kind: light, id: A10, name: "keuken", switch: true}
+                    - {kind: light, id: A11, name: "terras", switch: true}
+                - kind: circuit
+                  id: B
+                  description: "CV"
+                  rating_a: 20
+                  cable: "XVB 3x2.5"
+                  conductors: 3
+                  mounting: in_wall
+                  children:
+                    - {kind: socket, id: B1}
+                - kind: circuit
+                  id: C
+                  description: "Bureau + zithoek"
+                  rating_a: 20
+                  cable: "XVB 3x2.5"
+                  conductors: 3
+                  mounting: in_wall
+                  children:
+                    - {kind: socket, id: C1, count: 2}
+                    - {kind: socket, id: C2, count: 2}
+                    - {kind: socket, id: C3}
+                    - {kind: light, id: C4, switch: true}
+                    - {kind: socket, id: C6, count: 2}
+                    - {kind: socket, id: C7, count: 2}
+                    - {kind: socket, id: C8, count: 2}
+                    - {kind: box, id: C9, label: "Rolluik"}
+                - kind: circuit
+                  id: D
+                  description: "Zithoek, eethoek, Veranda"
+                  rating_a: 20
+                  cable: "XVB 3x2.5"
+                  conductors: 3
+                  mounting: in_wall
+                  children:
+                    - {kind: socket, id: D1, count: 2}
+                    - {kind: socket, id: D2, count: 2}
+                    - {kind: socket, id: D3}
+                    - {kind: socket, id: D4, count: 2}
+                    - {kind: socket, id: D5, count: 4}
+                - kind: circuit
+                  id: E
+                  description: "Hobby / slaapkamer 1"
+                  rating_a: 20
+                  cable: "XVB 3x2.5"
+                  conductors: 3
+                  mounting: in_wall
+                  children:
+                    - {kind: socket, id: E1}
+                    - {kind: socket, id: E2, count: 2}
+                    - {kind: socket, id: E3}
+                    - {kind: socket, id: E4}
+                    - {kind: socket, id: E5, count: 2}
+                    - {kind: socket, id: E6, count: 2}
+                - kind: circuit
+                  id: G
+                  description: "verlichting 2de Verdiep"
+                  rating_a: 16
+                  cable: "XVB 3x2.5"
+                  conductors: 3
+                  mounting: in_wall
+                  children_page: pg4
+                  link_text: "verlichting 2de verdiep"
+                  children:
+                    - {kind: light, id: G1, name: "Badkamer", switch: true}
+                    - {kind: light, id: G2, name: "Gang", switch: true}
+                    - {kind: light, id: G3, name: "Hobbykamer", switch: true}
+                    - {kind: light, id: G4, name: "Slaapkamer 1", switch: true}
+                    - {kind: light, id: G5, name: "Muurverlichting A slaapkamer 1", switch: true}
+                    - {kind: light, id: G6, name: "Muurverlichting B slaapkamer 1", switch: true}
+                    - {kind: light, id: G7, name: "Slaapkamer 2", switch: true}
+                    - {kind: light, id: G8, name: "Muurverlichting A slaapkamer 2", switch: true}
+                    - {kind: light, id: G9, name: "Muurverlichting B slaapkamer 2", switch: true}
+                - kind: circuit
+                  id: H
+                  description: "verlichting zolder"
+                  rating_a: 16
+                  cable: "XVB 5x6"
+                  conductors: 5
+                  mounting: in_wall
+                  children:
+                    - kind: photo_detector
+                      id: H1F
+                      children:
+                        - {kind: light, id: H1}

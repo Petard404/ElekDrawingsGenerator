@@ -4,9 +4,11 @@
 <line x1="105.06" y1="276.6" x2="105.06" y2="297.3" fill="none" stroke="#000000" stroke-width="0.5"/>
 <text x="3.9" y="282.9" font-family="Helvetica" font-size="4.23" text-anchor="start" fill="#000000">Pagina 1: aansluiting</text>
 <text x="108.9" y="282.9" font-family="Helvetica" font-size="4.23" text-anchor="start" fill="#000000">Straat A 1, 0000 Gemeente</text>
-<line x1="0.25" y1="286.95" x2="209.86" y2="286.95" fill="none" stroke="#000000" stroke-width="0.5"/>
+<line x1="0.25" y1="286.95" x2="177.86" y2="286.95" fill="none" stroke="#000000" stroke-width="0.5"/>
 <text x="3.9" y="293.25" font-family="Helvetica" font-size="4.23" text-anchor="start" fill="#000000">Getekend door: Ontwerper</text>
 <text x="108.9" y="293.25" font-family="Helvetica" font-size="4.23" text-anchor="start" fill="#000000">Uitgevoerd door: Installateur</text>
+<line x1="177.86" y1="276.6" x2="177.86" y2="297.3" fill="none" stroke="#000000" stroke-width="0.5"/>
+<text x="193.86" y="288.08" font-family="Helvetica" font-size="4.23" text-anchor="middle" fill="#000000">Pagina 1 van 1</text>
 <rect x="5.7" y="5.2" width="25.3" height="14.9" fill="none" stroke="#000000" stroke-width="0.46"/>
 <rect x="8.3" y="6.4" width="11.7" height="2.4" fill="none" stroke="#000000" stroke-width="0.38"/>
 <text x="20.7" y="8.4" font-family="Helvetica" font-size="2.12" text-anchor="start" fill="#000000">3x230V</text>

@@ -18,6 +18,7 @@ TEMPLATE_NAMES: tuple[str, ...] = (
     "link_to",
     "link_from",
     "page_number",
+    "detail_row",
     "supply_voltage",
     "title_address",
     "title_drawn_by",
@@ -28,13 +29,19 @@ TEMPLATE_NAMES: tuple[str, ...] = (
 
 # Default text per template (the official forms); a project's `labels` section overrides it. Fields
 # are the node's own (rating_a, curve, ...); an unset field is empty. Derived fields: sensitivity_a
-# (sensitivity_ma / 1000 without trailing zeros) and pole_count (4P -> 4). Title templates get {value}.
+# (sensitivity_ma / 1000 without trailing zeros) and pole_count (4P -> 4). Title templates get {value}, link templates {page}, page_number {number} and {total}.
+# detail_row (the text beside a light on a detail page) takes the light's fields; its result is stripped, so the
+# default "{id} {name}" gives just the ID for a light without a name.
 # A text with line breaks is drawn one line each; an empty text is not drawn at all. Templates the
 # layout does not use yet have no default.
 TEMPLATES: dict[str, str] = {
     "breaker": "{curve}{rating_a}",
     "differential": "{rating_a}/{sensitivity_a}A",
     "differential_type": "type {type}",
+    "link_to": "Naar Pg {page}",
+    "link_from": "Van pg {page}",
+    "page_number": "Pagina {number} van {total}",
+    "detail_row": "{id} {name}",
     "supply_voltage": "{voltage}",
     "title_address": "{value}",
     "title_drawn_by": "Getekend door: {value}",
@@ -125,6 +132,14 @@ ERROR_VARIANTS: dict[str, str] = {
     "layout_unsupported.mixed": (
         "{id}: kringen naast differentiëlen of automaten onder één element worden nog niet getekend"
     ),
+    "layout_unsupported.roots": "{id}: meerdere beginpunten op één pagina worden nog niet getekend",
+    "layout_unsupported.link": (
+        "{id}: een verwijzing naar een andere pagina wordt op deze plaats nog niet getekend"
+    ),
+    "layout_unsupported.moved_siblings": (
+        "{id}: meerdere onderliggende elementen op een andere pagina onder één element worden nog niet getekend"
+    ),
+    "unknown_page.own_page": "{id}: 'children_page' mag niet de pagina van het element zelf zijn ('{page}')",
     "layout_unsupported.group": (
         "{id}: meerdere differentiëlen of automaten onder één element worden nog niet getekend"
     ),
@@ -180,6 +195,9 @@ YAML_PROBLEMS: list[tuple[str, str, bool]] = [
 ]  # fmt: skip
 YAML_FALLBACK = "syntaxfout ({0})"
 
+# Title in the PDF properties.
+PDF_TITLE = "Eendraadschema"
+
 # Command-line texts.
 CLI_DESCRIPTION = "Maakt een eendraadschema (AREI) als PDF uit een YAML-beschrijving."
 CLI_BUILD_HELP = "Lees een YAML-bestand en maak het schema."
@@ -227,7 +245,7 @@ SYMBOL_GROUPS: tuple[tuple[str, tuple[str, ...]], ...] = (
         "heating_device", "ev_charger", "appliance_general",
     )),
     ("Overige", ("transformer", "converter_ac_dc", "converter_dc_ac", "box", "junction_box", "board")),
-    ("In code getekend", ("page_link", "photo_detector")),
+    ("In code getekend", ("page_link", "photo_detector", "switch_contact")),
     ("Domotica (M8)", (
         "push_button", "domotica_detection", "domotica_clock", "domotica_push_button",
         "domotica_wireless", "motor",
@@ -239,7 +257,7 @@ SHEET_OTHER_GROUP = "Niet ingedeeld"
 # Dutch symbol names. Where a symbol has an official image the name is the wording of AREI
 # table 2.23 (official/images/index.csv, line breaks of the table joined; "Algemene voorstelling"
 # etc. kept, "differential" gets a hyphen so it can wrap, "voorgesteld met elektrische toevoerleiding" dropped from the light point).
-# Ours, with no official image or wording: page_link, photo_detector, the four domotica_* (named
+# Ours, with no official image or wording: page_link, photo_detector, switch_contact, the four domotica_* (named
 # after the legend lines of table J), socket_protective_conductor_n and socket_child_protection_n
 # (the official wording plus "met aantal (n)").
 SYMBOL_NAMES: dict[str, str] = {
@@ -292,6 +310,7 @@ SYMBOL_NAMES: dict[str, str] = {
     "socket_waterproof_plain": "Half-waterdichte, waterdichte of hermetische contactdoos",
     "stove": "Elektrisch fornuis",
     "switch": "Schakelaar",
+    "switch_contact": "Schakelcontact",
     "three_phase": "Driefasige wisselstroom",
     "transformer": "Transformator",
     "washing_machine": "Wasmachine",

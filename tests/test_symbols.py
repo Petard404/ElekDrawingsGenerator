@@ -11,6 +11,7 @@ from huiselek.symbols import CODE_DRAWN, ROTATIONS, load_symbols
 TOL = 0.05
 SYMBOLS = load_symbols(Settings())
 NOT_ON_GEOMETRY = ("center", "label")
+OPEN_TERMINAL = ("switch_contact", "b")  # the open contact: the blade stops short of b
 
 
 def _segments(p):
@@ -119,7 +120,7 @@ def test_anchor_is_a_point(sym):
 
 def test_points_lie_on_geometry(sym):
     for name, pt in sym.points.items():
-        if name in NOT_ON_GEOMETRY:
+        if name in NOT_ON_GEOMETRY or (sym.id, name) == OPEN_TERMINAL:
             continue
         assert _dist_to_all(pt, sym.primitives) <= TOL, (sym.id, name, pt)
 
@@ -136,7 +137,7 @@ def test_point_agrees_with_placed_geometry(sym, rotation):
     placed = sym.place(x, y, rotation)
     assert len(placed) == len(sym.primitives)
     for name in sym.points:
-        if name in NOT_ON_GEOMETRY:
+        if name in NOT_ON_GEOMETRY or (sym.id, name) == OPEN_TERMINAL:
             continue
         pt = sym.point(name, x, y, rotation)
         assert _dist_to_all(pt, placed) <= TOL, (sym.id, name, rotation)

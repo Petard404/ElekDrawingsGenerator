@@ -25,6 +25,8 @@ BAD = {
     "bad_invalid_value_poles_text_2": ("invalid_value", "D1"),
     "bad_invalid_value_poles_number": ("invalid_value", "D1"),
     "bad_invalid_value_curve": ("invalid_value", "K"),
+    "bad_invalid_value_mounting": ("invalid_value", "K"),
+    "bad_invalid_value_mounting": ("invalid_value", "K"),
     "bad_invalid_value_voltage": ("invalid_value", "SUP"),
     "bad_invalid_value_rating_negative": ("invalid_value", "K"),
     "bad_invalid_value_rating_text": ("invalid_value", "K"),
@@ -107,6 +109,43 @@ def test_defaults():
     assert nodes["D1"].selective is False and nodes["D0"].selective is True
     assert nodes["Q1"].curve == "D"
     assert nodes["R2"].rating_a is None
+
+
+@pytest.mark.parametrize("mounting", ["in_wall", "on_wall", "in_conduit", "in_conduit_in_wall"])
+def test_mounting_values_on_circuit_and_breaker(mounting):
+    data = load("valid_minimal")
+    nodes = {n["id"]: n for n in _walk(data["installation"])}
+    nodes["K"]["mounting"] = mounting
+    data["installation"]["children"][0]["children"].append(
+        {"kind": "breaker", "id": "QM", "rating_a": 32, "mounting": mounting})
+    built = {n.id: n for n in build_model(data).nodes()}
+    assert built["K"].mounting == mounting and built["QM"].mounting == mounting
+
+
+def test_mounting_has_no_default():
+    nodes = {n.id: n for n in build_model(load("valid_minimal")).nodes()}
+    assert nodes["K"].mounting is None and nodes["Q1"].mounting is None
+
+
+def _walk(node):
+    yield node
+    for c in node.get("children", []):
+        yield from _walk(c)
+
+
+@pytest.mark.parametrize("mounting", ["in_wall", "on_wall", "in_conduit", "in_conduit_in_wall"])
+def test_mounting_values_on_circuit_and_breaker(mounting):
+    data = load("valid_minimal")
+    for n in raw_nodes(data["installation"]):
+        if n["id"] in ("K", "Q1"):
+            n["mounting"] = mounting
+    built = {n.id: n for n in build_model(data).nodes()}
+    assert built["K"].mounting == mounting and built["Q1"].mounting == mounting
+
+
+def test_mounting_has_no_default():
+    nodes = {n.id: n for n in build_model(load("valid_minimal")).nodes()}
+    assert nodes["K"].mounting is None and nodes["Q1"].mounting is None
 
 
 def test_bad_table_matches_files():
@@ -346,3 +385,13 @@ def test_socket_variant_waterproof_plain():
     from huiselek.model import Socket
 
     assert Socket(kind="socket", id="X1", variant="waterproof_plain").variant == "waterproof_plain"
+
+
+def test_children_page_equal_to_the_circuits_own_page_is_an_error():
+    data = load("valid_minimal")
+    k = next(n for n in raw_nodes(data["installation"]) if n["id"] == "K")  # K is on pg1
+    k["children_page"] = "pg1"
+    with pytest.raises(HuiselekError) as exc:
+        build_model(data)
+    assert (exc.value.code, exc.value.element_id) == ("unknown_page", "K")
+    assert "mag niet de pagina van het element zelf zijn" in str(exc.value)

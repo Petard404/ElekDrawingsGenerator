@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 210 297">
+<rect x="0.5" y="0.4" width="209.2" height="296.7" fill="none" stroke="#000000" stroke-width="0.8"/>
+<rect x="0.25" y="276.6" width="209.61" height="20.7" fill="none" stroke="#000000" stroke-width="0.5"/>
+<line x1="105.06" y1="276.6" x2="105.06" y2="297.3" fill="none" stroke="#000000" stroke-width="0.5"/>
+<text x="3.9" y="282.9" font-family="Helvetica" font-size="4.23" text-anchor="start" fill="#000000">Aansluiting</text>
+<text x="108.9" y="282.9" font-family="Helvetica" font-size="4.23" text-anchor="start" fill="#000000">Straat A 1, 0000 Gemeente</text>
+<line x1="0.25" y1="286.95" x2="177.86" y2="286.95" fill="none" stroke="#000000" stroke-width="0.5"/>
+<text x="3.9" y="293.25" font-family="Helvetica" font-size="4.23" text-anchor="start" fill="#000000">Getekend door: Ontwerper</text>
+<text x="108.9" y="293.25" font-family="Helvetica" font-size="4.23" text-anchor="start" fill="#000000">Uitgevoerd door: Installateur</text>
+<line x1="177.86" y1="276.6" x2="177.86" y2="297.3" fill="none" stroke="#000000" stroke-width="0.5"/>
+<text x="193.86" y="288.08" font-family="Helvetica" font-size="4.23" text-anchor="middle" fill="#000000">Pagina 1 van 2</text>
+<rect x="5.7" y="5.2" width="25.3" height="14.9" fill="none" stroke="#000000" stroke-width="0.46"/>
+<rect x="8.3" y="6.4" width="11.7" height="2.4" fill="none" stroke="#000000" stroke-width="0.38"/>
+<text x="20.7" y="8.4" font-family="Helvetica" font-size="2.12" text-anchor="start" fill="#000000">3x230V</text>
+<text x="8.1" y="13.2" font-family="Helvetica" font-size="3.53" text-anchor="start" fill="#000000">Aansluiting</text>
+<line x1="13.4" y1="20.1" x2="13.4" y2="31.05" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="13.4" y1="31.05" x2="16.7" y2="31.05" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="16.7" y1="31.05" x2="18.7" y2="31.05" fill="none" stroke="#000000" stroke-width="0.26"/>
+<polyline points="26.7,31.05 24.7,31.05 21.74,32.53 18.9,33.95" fill="none" stroke="#000000" stroke-width="0.26"/>
+<polygon points="20.42,33.86 20.16,33.32 18.9,33.94 19.17,34.48" fill="#000000" stroke="#000000" stroke-width="0.26"/>
+<text x="16.6" y="25.4" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">40A</text>
+<line x1="26.7" y1="31.05" x2="32.94" y2="31.05" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="32.94" y1="31.05" x2="32.94" y2="43.61" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="32.94" y1="43.61" x2="13.4" y2="43.61" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="13.4" y1="43.61" x2="13.4" y2="57.43" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="13.4" y1="57.43" x2="16.7" y2="57.43" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="16.7" y1="57.43" x2="18.7" y2="57.43" fill="none" stroke="#000000" stroke-width="0.26"/>
+<polyline points="26.7,57.43 24.7,57.43 21.74,58.91 18.9,60.33" fill="none" stroke="#000000" stroke-width="0.26"/>
+<polygon points="20.42,60.24 20.16,59.7 18.9,60.32 19.17,60.86" fill="#000000" stroke="#000000" stroke-width="0.26"/>
+<text x="18.1" y="64.23" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">40/0.3A</text>
+<text x="18.1" y="67.83" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">type A</text>
+<line x1="42.4" y1="57.43" x2="45.7" y2="57.43" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="45.7" y1="57.43" x2="47.7" y2="57.43" fill="none" stroke="#000000" stroke-width="0.26"/>
+<polyline points="55.7,57.43 53.7,57.43 50.74,58.91 47.9,60.33" fill="none" stroke="#000000" stroke-width="0.26"/>
+<polygon points="49.42,60.24 49.16,59.7 47.9,60.32 48.17,60.86" fill="#000000" stroke="#000000" stroke-width="0.26"/>
+<text x="47.1" y="64.23" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">40/0.03A</text>
+<text x="47.1" y="67.83" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">type A</text>
+<text x="47.1" y="71.43" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">Diff 1</text>
+<line x1="26.7" y1="57.43" x2="42.4" y2="57.43" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="55.7" y1="57.43" x2="63.53" y2="57.43" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="63.53" y1="57.43" x2="63.53" y2="72.78" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="63.53" y1="57.43" x2="66.83" y2="57.43" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="76.83" y1="57.43" x2="105.95" y2="57.43" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="98.29" y1="57.43" x2="98.29" y2="61.33" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="105.95" y1="57.43" x2="105.95" y2="61.33" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="66.83" y1="57.43" x2="68.83" y2="57.43" fill="none" stroke="#000000" stroke-width="0.26"/>
+<polyline points="76.83,57.43 74.83,57.43 71.87,58.91 69.03,60.33" fill="none" stroke="#000000" stroke-width="0.26"/>
+<polygon points="70.55,60.24 70.29,59.7 69.03,60.32 69.3,60.86" fill="#000000" stroke="#000000" stroke-width="0.26"/>
+<text x="66.73" y="51.78" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">20A</text>
+<polyline points="86.78,57.43 78.28,57.43 77.28,57.43" fill="none" stroke="#000000" stroke-width="0.26"/>
+<polyline points="81.53,57.93 82.03,57.43 82.53,56.93" fill="none" stroke="#000000" stroke-width="0.26"/>
+<text x="83.83" y="56.63" font-family="Helvetica" font-size="1.73" text-anchor="start" fill="#000000">3</text>
+<text x="77.93" y="59.73" font-family="Helvetica" font-size="1.8" text-anchor="start" fill="#000000">XVB 3x2.5</text>
+<path d="M 96.87 62.75 A 1.42 1.42 0 0 1 99.71 62.75" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="96.87" y1="62.75" x2="96.59" y2="62.75" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="99.99" y1="62.75" x2="99.71" y2="62.75" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="100" y1="61.33" x2="96.6" y2="61.33" fill="none" stroke="#000000" stroke-width="0.26"/>
+<text x="98.29" y="66.43" font-family="Helvetica" font-size="1.8" text-anchor="middle" fill="#000000">I1</text>
+<path d="M 104.53 62.75 A 1.42 1.42 0 0 1 107.37 62.75" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="104.53" y1="62.75" x2="104.25" y2="62.75" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="107.65" y1="62.75" x2="107.37" y2="62.75" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="107.66" y1="61.33" x2="104.26" y2="61.33" fill="none" stroke="#000000" stroke-width="0.26"/>
+<text x="105.95" y="66.43" font-family="Helvetica" font-size="1.8" text-anchor="middle" fill="#000000">I2</text>
+<text x="160.95" y="57.43" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">I</text>
+<text x="160.95" y="61.03" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">Gang</text>
+<line x1="63.53" y1="72.78" x2="66.83" y2="72.78" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="76.83" y1="72.78" x2="98.29" y2="72.78" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="98.29" y1="72.78" x2="98.29" y2="76.68" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="66.83" y1="72.78" x2="68.83" y2="72.78" fill="none" stroke="#000000" stroke-width="0.26"/>
+<polyline points="76.83,72.78 74.83,72.78 71.87,74.26 69.03,75.68" fill="none" stroke="#000000" stroke-width="0.26"/>
+<polygon points="70.55,75.59 70.29,75.05 69.03,75.67 69.3,76.21" fill="#000000" stroke="#000000" stroke-width="0.26"/>
+<text x="66.73" y="67.13" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">20A</text>
+<path d="M 96.87 78.1 A 1.42 1.42 0 0 1 99.71 78.1" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="96.87" y1="78.1" x2="96.59" y2="78.1" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="99.99" y1="78.1" x2="99.71" y2="78.1" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="100" y1="76.68" x2="96.6" y2="76.68" fill="none" stroke="#000000" stroke-width="0.26"/>
+<text x="98.29" y="81.78" font-family="Helvetica" font-size="1.8" text-anchor="middle" fill="#000000">J1</text>
+<text x="160.95" y="72.78" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">J</text>
+<text x="160.95" y="76.38" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">Keuken</text>
+<line x1="34.57" y1="256.8" x2="63.9" y2="256.8" fill="none" stroke="#000000" stroke-width="0.2"/>
+<polygon points="61.86,256.06 63.9,256.8 61.86,257.54 61.98,257.37 62.07,257.19 62.12,257 62.14,256.8 62.12,256.61 62.07,256.41 61.98,256.23" fill="#000000" stroke="#000000" stroke-width="0.26"/>
+<text x="70" y="257.5" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">Naar Pg 2</text>
+<text x="70" y="261.1" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">Ref Diff 2</text>
+<line x1="34.57" y1="57.43" x2="34.57" y2="256.8" fill="none" stroke="#000000" stroke-width="0.2"/>
+</svg>

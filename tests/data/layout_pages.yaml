@@ -1,0 +1,75 @@
+# Two pages: Diff 1 on page 1, Diff 2 moved to page 2 (Naar and Van links).
+project:
+  address: "Straat A 1, 0000 Gemeente"
+  drawn_by: "Ontwerper"
+  executed_by: "Installateur"
+
+labels:
+  breaker: "{rating_a}A"
+
+pages:
+  - {id: pg1, title: "Aansluiting"}
+  - {id: pg2, title: "Differentieel 2"}
+
+installation:
+  kind: supply
+  id: SUP
+  label: "Aansluiting"
+  voltage: "3x230V"
+  children:
+    - kind: breaker
+      id: Q0
+      rating_a: 40
+      children:
+        - kind: differential
+          id: D0
+          sensitivity_ma: 300
+          rating_a: 40
+          poles: "4P"
+          type: A
+          children:
+            - kind: differential
+              id: D1
+              label: "Diff 1"
+              sensitivity_ma: 30
+              rating_a: 40
+              poles: "4P"
+              type: A
+              children:
+                - kind: circuit
+                  id: I
+                  description: "Gang"
+                  rating_a: 20
+                  cable: "XVB 3x2.5"
+                  conductors: 3
+                  children:
+                    - {kind: socket, id: I1}
+                    - {kind: socket, id: I2}
+                - kind: circuit
+                  id: J
+                  description: "Keuken"
+                  rating_a: 20
+                  children:
+                    - {kind: socket, id: J1}
+            - kind: differential
+              id: D2
+              page: pg2
+              link_text: "Ref Diff 2"
+              label: "Diff 2"
+              sensitivity_ma: 30
+              rating_a: 40
+              poles: "4P"
+              type: A
+              children:
+                - kind: circuit
+                  id: X
+                  description: "Zolder"
+                  rating_a: 16
+                  children:
+                    - {kind: socket, id: X1}
+                - kind: circuit
+                  id: Y
+                  description: "Werkplaats"
+                  rating_a: 16
+                  children:
+                    - {kind: socket, id: Y1}

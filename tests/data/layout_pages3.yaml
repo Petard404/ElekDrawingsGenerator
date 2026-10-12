@@ -1,0 +1,75 @@
+# Three pages: Diff 2 on page 2, whose circuit A has its lights on page 3 (detail page).
+project:
+  address: "Straat A 1, 0000 Gemeente"
+  drawn_by: "Ontwerper"
+  executed_by: "Installateur"
+
+labels:
+  breaker: "{rating_a}A"
+
+pages:
+  - {id: pg1, title: "Aansluiting"}
+  - {id: pg2, title: "Differentieel 2"}
+  - {id: pg3, title: "Verlichting gelijkvloers A"}
+
+installation:
+  kind: supply
+  id: SUP
+  label: "Aansluiting"
+  voltage: "3x230V"
+  children:
+    - kind: breaker
+      id: Q0
+      rating_a: 40
+      children:
+        - kind: differential
+          id: D0
+          sensitivity_ma: 300
+          rating_a: 40
+          poles: "4P"
+          type: A
+          children:
+            - kind: differential
+              id: D1
+              label: "Diff 1"
+              sensitivity_ma: 30
+              rating_a: 40
+              poles: "4P"
+              type: A
+              children:
+                - kind: circuit
+                  id: I
+                  description: "Gang"
+                  rating_a: 20
+                  children:
+                    - {kind: socket, id: I1}
+            - kind: differential
+              id: D2
+              page: pg2
+              link_text: "Ref Diff 2"
+              label: "Diff 2"
+              sensitivity_ma: 30
+              rating_a: 40
+              poles: "4P"
+              type: A
+              children:
+                - kind: circuit
+                  id: A
+                  description: "lichtkring gelijkvloers"
+                  rating_a: 16
+                  cable: "XVB 3x1.5"
+                  conductors: 3
+                  children_page: pg3
+                  link_text: "verlichting gelijkvloers"
+                  children:
+                    - {kind: light, id: A1, name: "Garage voor", switch: true}
+                    - {kind: light, id: A2, name: "Garage achter", switch: true}
+                    - {kind: light, id: A3, name: "Gang", switch: false}
+                    - {kind: light, id: A4, name: "Spots zithoek", switch: true, count: 2}
+                    - {kind: light, id: A5}
+                - kind: circuit
+                  id: B
+                  description: "Werkplaats"
+                  rating_a: 16
+                  children:
+                    - {kind: socket, id: B1}

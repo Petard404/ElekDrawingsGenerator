@@ -39,6 +39,9 @@ def main() -> None:
                "house_a_pg1": EXAMPLES / "house-a-pg1.yaml"}
     for name, path in sources.items():
         write(name, render_svg(layout(build_model(read(path)), s)[0], s))
+    for n, page in enumerate(layout(build_model(read(DATA / "layout_pages.yaml")), s), start=1):
+        write(f"layout_pages_pg{n}", render_svg(page, s))
+    write("layout_pages3_pg3", render_svg(layout(build_model(read(DATA / "layout_pages3.yaml")), s)[2], s))
 
 
 if __name__ == "__main__":

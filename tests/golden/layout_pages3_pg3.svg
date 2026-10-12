@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 210 297">
+<rect x="0.5" y="0.4" width="209.2" height="296.7" fill="none" stroke="#000000" stroke-width="0.8"/>
+<rect x="0.25" y="276.6" width="209.61" height="20.7" fill="none" stroke="#000000" stroke-width="0.5"/>
+<line x1="105.06" y1="276.6" x2="105.06" y2="297.3" fill="none" stroke="#000000" stroke-width="0.5"/>
+<text x="3.9" y="282.9" font-family="Helvetica" font-size="4.23" text-anchor="start" fill="#000000">Verlichting gelijkvloers A</text>
+<text x="108.9" y="282.9" font-family="Helvetica" font-size="4.23" text-anchor="start" fill="#000000">Straat A 1, 0000 Gemeente</text>
+<line x1="0.25" y1="286.95" x2="177.86" y2="286.95" fill="none" stroke="#000000" stroke-width="0.5"/>
+<text x="3.9" y="293.25" font-family="Helvetica" font-size="4.23" text-anchor="start" fill="#000000">Getekend door: Ontwerper</text>
+<text x="108.9" y="293.25" font-family="Helvetica" font-size="4.23" text-anchor="start" fill="#000000">Uitgevoerd door: Installateur</text>
+<line x1="177.86" y1="276.6" x2="177.86" y2="297.3" fill="none" stroke="#000000" stroke-width="0.5"/>
+<text x="193.86" y="288.08" font-family="Helvetica" font-size="4.23" text-anchor="middle" fill="#000000">Pagina 3 van 3</text>
+<line x1="56.88" y1="57.43" x2="71.48" y2="57.43" fill="none" stroke="#000000" stroke-width="0.2"/>
+<polygon points="56.6,56.69 58.64,57.43 56.6,58.17 56.72,58 56.81,57.82 56.86,57.63 56.88,57.43 56.86,57.23 56.81,57.04 56.72,56.86" fill="#000000" stroke="#000000" stroke-width="0.26"/>
+<text x="56.88" y="50.73" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">Van pg 2</text>
+<text x="56.88" y="54.33" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">verlichting gelijkvloers</text>
+<text x="141.3" y="52.53" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">A</text>
+<line x1="71.48" y1="57.43" x2="71.48" y2="118.83" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="71.48" y1="57.43" x2="93.43" y2="57.43" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="99.81" y1="57.43" x2="119.35" y2="57.43" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="93.43" y1="57.43" x2="99.05" y2="60.57" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="117.75" y1="55.83" x2="120.93" y2="59.01" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="120.95" y1="55.83" x2="117.74" y2="59.04" fill="none" stroke="#000000" stroke-width="0.26"/>
+<text x="141.3" y="57.43" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">A1 Garage voor</text>
+<line x1="71.48" y1="72.78" x2="93.43" y2="72.78" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="99.81" y1="72.78" x2="119.35" y2="72.78" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="93.43" y1="72.78" x2="99.05" y2="75.92" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="117.75" y1="71.18" x2="120.93" y2="74.36" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="120.95" y1="71.18" x2="117.74" y2="74.39" fill="none" stroke="#000000" stroke-width="0.26"/>
+<text x="141.3" y="72.78" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">A2 Garage achter</text>
+<line x1="71.48" y1="88.13" x2="119.35" y2="88.13" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="117.75" y1="86.53" x2="120.93" y2="89.71" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="120.95" y1="86.53" x2="117.74" y2="89.74" fill="none" stroke="#000000" stroke-width="0.26"/>
+<text x="141.3" y="88.13" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">A3 Gang</text>
+<line x1="71.48" y1="103.48" x2="93.43" y2="103.48" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="99.81" y1="103.48" x2="119.35" y2="103.48" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="93.43" y1="103.48" x2="99.05" y2="106.62" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="117.75" y1="101.88" x2="120.93" y2="105.06" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="120.95" y1="101.88" x2="117.74" y2="105.09" fill="none" stroke="#000000" stroke-width="0.26"/>
+<text x="121.55" y="104.08" font-family="Helvetica" font-size="1.73" text-anchor="start" fill="#000000">2</text>
+<text x="141.3" y="103.48" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">A4 Spots zithoek</text>
+<line x1="71.48" y1="118.83" x2="119.35" y2="118.83" fill="none" stroke="#000000" stroke-width="0.2"/>
+<line x1="117.75" y1="117.23" x2="120.93" y2="120.41" fill="none" stroke="#000000" stroke-width="0.26"/>
+<line x1="120.95" y1="117.23" x2="117.74" y2="120.44" fill="none" stroke="#000000" stroke-width="0.26"/>
+<text x="141.3" y="118.83" font-family="Helvetica" font-size="2.88" text-anchor="start" fill="#000000">A5</text>
+</svg>

@@ -240,3 +240,36 @@ One entry per decision: date, decision, alternatives considered, reason.
 - **Decision:** Proposals that improve the look of the drawing beyond House A's original are welcome. They are collected and proposed after M5, when the House A text comparison is done, or with task 7.1 for House B constructs. Each one is a change to settings or templates, approved by the owner on one rendered page, and it updates the golden files on purpose.
 - **Alternatives:** Stay strictly with House A's look; change the look during M4/M5.
 - **Reason:** The owner's wish (M3 approval). Changing the look before M5 would mix layout changes into the House A comparison.
+
+## 2026-10-12 · Layout design for pages 2 to 4 (M4)
+
+- **Decision:** The design follows `docs/layout-notes.md` section 4.
+  - Every page has one root; a second root on a page is `layout_unsupported` for now.
+  - One rule for every Naar end: arrow pointing right, texts after the tip (House A page 1 put them above the line). The Diff 2 feeder end stays at House A's distance above the title block.
+  - A Van arrow on every target page, also on the detail pages where House A has none.
+  - Detail rows use a code-drawn `switch_contact` (House A's open blade), not AREI's wall `switch`. Detail lights keep scale 0.8 (House A: 5.24 mm).
+  - Page numbers ("Pagina {number} van {total}") right-aligned in the page-title cell; House A titles drop their "Pagina n:" prefix.
+  - Links are clickable in the PDF.
+  - The M4 example is House A pages 1 to 4 without circuit F (transformer and converter wait for M5).
+  - A circuit with `children_page` has no devices on its own page.
+- **Alternatives:** House A's positions per link; no arrow on detail pages; the AREI wall switch; House A's light size on detail pages; no page numbers; plain (non-clickable) links; a reduced example.
+- **Reason:** Owner's choice (M4 plan and design approval). One rule per construct keeps the layout general; the look stays House A's until the visual design proposals after M5.
+
+## 2026-10-12 · M4 adjustments after review
+
+- **Decision:**
+  - The layout checks after all pages that every Van has its Naar; a moved node in a place without a drawn Naar is `layout_unsupported` (variant `link`). Two moved siblings under one element are `layout_unsupported` too.
+  - `children_page` equal to the circuit's own page is an error (`unknown_page`, variant `own_page`); no new error code.
+  - The detail-row text is the label template `detail_row` ("{id} {name}").
+  - The PDF title "Eendraadschema" lives in `labels.py`; the code-drawn `switch_contact` keeps its measured values in code, like `page_link` and `photo_detector`.
+  - The page title is not checked against the page number's width; task 6.1 checks word widths.
+- **Alternatives:** Draw a Naar end in every position now; a new error code; a hard-coded detail format; symbol values in settings.
+- **Reason:** The independent review found one-sided links in tree positions House A does not use. An error keeps the pairing rule true until those positions are designed; the House A output is unchanged.
+
+## 2026-10-12 · Installation marks on cables moved into M4; page number in its own cell
+
+- **Decision:**
+  - Circuits and breakers with a cable get an optional field `mounting`: `in_wall`, `on_wall`, `in_conduit`, `in_conduit_in_wall`. Its AREI mark is drawn on the cable where House A has its grey marks (+14.3 to +23.8 from the row origin). No default: without the field, no mark. House A's grey "⊓⊓" marks are the "in de wand" mark.
+  - The page number gets its own cell at the right end of the title block, about 32 mm wide, spanning the two base rows; the address and executed-by cells get shorter.
+- **Alternatives:** Marks in a later milestone (decision of 11 October); a separate task after M4; the page number split from the title cell or in its own row.
+- **Reason:** Owner's review of M4: the marks belong on the drawing now, and the page number should not share the title cell. This departs from the plan (input format change during M4).
