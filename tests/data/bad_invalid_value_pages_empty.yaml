@@ -1,0 +1,24 @@
+project:
+  address: "Straat A 1"
+  drawn_by: "Ontwerper"
+  executed_by: "Installateur"
+pages: []
+installation:
+  kind: supply
+  id: SUP
+  label: "Aansluiting"
+  voltage: "3x230V"
+  children:
+    - kind: differential
+      id: D1
+      sensitivity_ma: 30
+      rating_a: 40
+      poles: "4P"
+      type: A
+      children:
+        - kind: circuit
+          id: K
+          description: "Test"
+          rating_a: 16
+          children:
+            - {kind: socket, id: K1}

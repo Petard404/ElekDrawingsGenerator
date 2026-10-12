@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "huiselek"
+version = "0.1.0"
+description = "Generates an AREI single-line diagram (eendraadschema) as an A4 PDF from a YAML description of a household installation."
+requires-python = ">=3.11"
+dependencies = [
+    "PyYAML==6.0.3",
+    "pydantic==2.14.1",
+    "svglib==2.3.0",
+    "reportlab==5.0.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==9.1.1",
+    "pypdf==6.20.0",
+]
+
+[project.scripts]
+huiselek = "huiselek.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

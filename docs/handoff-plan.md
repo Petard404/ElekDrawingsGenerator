@@ -4,7 +4,7 @@ Version 2 · 12 October 2026 · Owner
 
 > Version 2 merges the plan review of 11 October (`docs/plan-review.md`, now history only) and the decisions in `docs/decisions.md`. This file is the single source for what we build; the decision log records why.
 
-Version 1 is a Python command-line tool that reads one YAML file describing a household installation and writes an AREI single-line diagram (eendraadschema) as a multi-page A4 portrait PDF. The user types the full structure, including the pages; the tool only draws it. Two test cases drive the work: House A, an existing four-page diagram that is redrawn and compared (M2 to M5), and House B, a new design that is the final acceptance test (M7 and M8).
+Version 1 is a Python command-line tool that reads one YAML file describing a household installation and writes an AREI single-line diagram (eendraadschema) as a multi-page A4 portrait PDF. The user types the full structure, including the pages; the tool only draws it. The goal is a tool for any household installation, not only the test houses, whose data model can later feed other work such as the PLC design. Two test cases drive the work: House A, an existing four-page diagram that is redrawn and compared (M2 to M5), and House B, a new design that is the final acceptance test (M7 and M8).
 
 ## Decisions
 
@@ -75,7 +75,7 @@ The original has points that look like slips. The owner decided on 12 October th
 - [ ] Lighting circuit H shows cable XVB 5x6, and G shows XVB 3x2.5 where A shows XVB 3x1.5.
 - [ ] The title block has the typos "Geteken" and "verlicthting".
 - [ ] The pages show no earthing, date or version; the file name says V1_00.
-- [ ] What is the square-with-triangle symbol ahead of lights K7, K8 and H1?
+- [x] What is the square-with-triangle symbol ahead of lights K7, K8 and H1? A photo detector that switches the light (owner, 12 October).
 - [ ] What do the small grey marks above each cable mean?
 - [ ] Off-page leftovers name the K lights "K6 Tuin, K7 Werkplaats, K8 Wc". Use those names?
 
@@ -105,7 +105,7 @@ Five steps, each a separate module so any one can be swapped.
 4. **Render**: write one SVG per page from the primitives.
 5. **Export**: convert each SVG with svglib and draw it as one page of a single ReportLab canvas.
 
-The command is `huiselek build installatie.yaml -o schema.pdf`. A second command, `huiselek symbols -o symbolen.pdf`, prints the symbol review sheet.
+The command is `python -m huiselek build installatie.yaml -o schema.pdf`. A second command, `python -m huiselek symbols -o symbolen.pdf`, prints the symbol review sheet. The `huiselek` console script also exists, but Windows Application Control may block its launcher.
 
 ## Input format
 
@@ -127,7 +127,7 @@ installation:
   id: SUP
   page: pg1
   label: "Aansluiting en teller"
-  voltage: "3*230 V"
+  voltage: "3x230V"
   children:
     - kind: breaker
       id: Q0
@@ -200,32 +200,73 @@ installation:
                     - {kind: box, id: C9, label: "Rolluik"}
 ```
 
-| Kind | Fields | Children |
+Top level: `project`, `pages`, optional `labels`, `installation`. Nothing else.
+
+| Kind | Fields (required in bold) | Children |
 | --- | --- | --- |
-| project | address, drawn_by, executed_by, optional version, date, extra (list of label and value pairs for the spare title block cells) | none |
-| labels (top level, optional) | overrides of label templates for this project | none |
-| supply | label, voltage | breakers, differentials |
-| breaker | rating_a, optional label, curve, poles, cable, conductors | differentials, breakers, circuits |
-| differential | sensitivity_ma, rating_a, poles, type (AC, A, F, B), optional selective, label | differentials, breakers, circuits |
-| circuit | description, rating_a, optional curve (default C), poles, cable, conductors, children_page | devices, circuits, board |
-| board | label | differentials, breakers, circuits |
-| reserve | optional rating_a, curve, poles; without a rating it is a free place | none |
-| socket | optional count (mechanisms), variant (default protective conductor with child protection; or protective conductor, waterproof), note | none |
-| light | optional switch, name, count | none |
-| appliance | type (oven, dishwasher, washing_machine, dryer, stove, water_heater, heating_device, ev_charger, …), optional note | none |
-| impulse_relay | none beyond id | devices |
+| project | **address**, **drawn_by**, **executed_by**, version, date (text, or an unquoted YAML date), extra (list of `{label, value}`) | none |
+| pages | list of `{`**id**`, `**title**`}`, at least one | none |
+| labels | template name: text, for names in the template list below | none |
+| supply | **label**, **voltage** | breaker, differential |
+| breaker | **rating_a**, label, curve, poles, cable, conductors | differential, breaker, circuit, reserve |
+| differential | **sensitivity_ma**, **rating_a**, **poles**, **type**, selective (default false), label | differential, breaker, circuit, reserve |
+| circuit | **description**, **rating_a**, curve (default C), poles, cable, conductors, children_page | devices, circuit, board |
+| board | **label** | differential, breaker, circuit, reserve |
+| reserve | rating_a, curve, poles; without rating_a it is a free place | none |
+| socket | count (mechanisms, default 1), variant (default `child_protection`; `protective_conductor`, `waterproof`), note | none |
+| light | switch (default false), name, count (default 1) | none |
+| appliance | **type**: `oven`, `dishwasher`, `washing_machine`, `dryer`, `stove`, `water_heater`, `heating_device`, `ev_charger`; note | none |
+| impulse_relay | none beyond id | devices except impulse_relay and photo_detector |
+| photo_detector | none beyond id | devices except impulse_relay and photo_detector |
 | transformer, converter | none beyond id | none |
-| box | label | none |
+| box | **label** | none |
+
+"Devices" are socket, light, appliance, impulse_relay, photo_detector, transformer, converter and box. The root `installation` must be a supply. Every node has **kind** and **id**. Containers (supply, breaker, differential, circuit, board) may also have `page` and `link_text`.
+
+Value rules: supply `voltage` is the network type, one of `230V` (single-phase, two conductors), `3x230V`, `3N400V`; ratings, `sensitivity_ma`, `count` and `conductors` are positive integers; `poles` is one of `1P`, `1P+N`, `2P`, `3P`, `3P+N`, `4P`; `curve` is B, C or D; differential `type` is AC, A, F or B. A circuit without children is a spare breaker.
 
 Rules that keep the format stable:
 
-- IDs are unique across the file and always strings; a number typed as an ID is converted. Unknown keys are an error.
-- `page` moves a node and everything under it to that page; `children_page` moves only its children. Both draw the "Naar" and "Van" link arrows automatically, with an optional reference text.
+- IDs are unique among nodes and always strings; a number typed as an ID is converted. Page IDs are unique among pages. Unknown keys are an error.
+- The root supply is on the first page in `pages` unless it has `page`. Every page must hold at least one node.
+- `page` moves a node and everything under it to that page; `children_page` moves only its children. Both draw the "Naar" and "Van" link arrows automatically. `link_text` adds a reference text to both arrows and is an error on a node without `page` or `children_page`. Every "Naar" arrow has exactly one matching "Van" arrow and the reverse; task 4.1 tests this.
 - Children that stay on their circuit's page are drawn along the circuit line; children moved to their own page are drawn one per row with their name.
 - Label formats are templates in `labels.py`; a project's `labels` section overrides them. No format is hard-coded in layout or symbols.
-- The square-with-triangle device ahead of lights K7, K8 and H1 gets its own kind once the owner has named it.
+- The square-with-triangle device ahead of lights K7, K8 and H1 in House A is the `photo_detector`; each light sits under its own detector.
 
-Field names are a proposal. Task 1.3 fixes them against House A and House B together and logs them.
+Error codes. Every error carries a code, the element ID (none for file and syntax errors, the page ID for page errors) and a Dutch message from `labels.py`. Tests assert code and ID.
+
+| Code | When |
+| --- | --- |
+| file_unreadable | The input file does not exist, is a folder, cannot be read or is not UTF-8 |
+| yaml_syntax | The YAML does not parse; the message gives the line |
+| missing_field | A required field is absent |
+| unknown_field | A key that the kind does not have |
+| unknown_kind | `kind` is missing or not in the list |
+| invalid_value | Wrong type or a value outside its range or list |
+| duplicate_id | A node ID or page ID is used twice |
+| unknown_page | `page` or `children_page` names a page that does not exist |
+| unused_page | A page that no node is placed on |
+| child_not_allowed | A kind under a parent that does not take it, or a root that is not a supply |
+| unknown_label | A name in `labels` that is not in the template list |
+| link_text_without_page | `link_text` on a node without `page` or `children_page` |
+
+Label templates. Names fixed now; texts written from M3. House A and House B differ only in their `labels` section.
+
+| Name | Example (House A / House B) |
+| --- | --- |
+| breaker | "20A" / "C20" |
+| differential | "300 mA 4x40 A" / "40/0.3A" |
+| differential_type | none / "type A" |
+| reserve | "Reserve" |
+| free_place | "Vrije plaats" |
+| link_to | "Naar Pg {page}" |
+| link_from | "Van pg {page}" |
+| page_number | "Pagina {number} van {total}" |
+| supply_voltage | "3*230 V" / "3N400V" |
+| title_address, title_drawn_by, title_executed_by, title_version, title_date | Captions in the title block |
+
+Fixed in task 1.3 on 12 October 2026 (see the decision log).
 
 ## Symbols
 
@@ -317,7 +358,8 @@ Every primitive carries a style: stroke width, fill and dash. Text also carries 
 ```python
 class Project:       address, drawn_by, executed_by, version, date, extra
 class PageDef:       id, title
-class Node:          kind, id, page | None                     # base class
+class Node:          kind, id                                  # base class
+class Container(Node): page, link_text                       # supply, breaker, differential, circuit, board
 class Supply:        label, voltage, children
 class Breaker:       rating_a, label, curve, poles, cable, conductors, children
 class Differential:  sensitivity_ma, rating_a, poles, type, selective, label, children
@@ -328,6 +370,7 @@ class Socket:        count, variant, note
 class Light:         switch, name, count
 class Appliance:     type, note
 class ImpulseRelay:  children
+class PhotoDetector: children
 class Transformer, Converter:    (id only)
 class Box:           label
 class Installation:  project, pages, labels, root
@@ -400,7 +443,7 @@ py -3 -m venv .venv
 .venv\Scripts\Activate.ps1
 pip install -e ".[dev]"
 pytest -q
-huiselek build examples\minimal.yaml -o out\minimal.pdf
+python -m huiselek build examples\minimal.yaml -o out\minimal.pdf
 ```
 
 Git uses one branch, main, on GitHub, with one commit per approved milestone. The repository is checked for personal names and addresses before every push. Full reference documents stay local; only extracts are committed.
@@ -427,7 +470,7 @@ Seven milestones in the order M1–M5, M7, M6, with M8 later. Each task fits a b
 | 3.3 | Nested breaker with its bus, and a circuit branching off a circuit (N, L, M, O, P) | Sonnet | Golden SVG |
 | 3.4 | Measure and draw frame, title block (optional version, date and extra entries; no signature field), supply, main breaker, 300 mA differential | Sonnet | Page 1 complete as SVG and PDF |
 | 3.5 | Overflow errors for too many rows or devices | Sonnet | One test per error |
-| 4.1 | Page assignment from `page` and `children_page`, link arrows with optional reference text | Sonnet | Minimal two-page example links both ways |
+| 4.1 | Page assignment from `page` and `children_page`, link arrows with optional reference text | Sonnet | Minimal two-page example links both ways; every "Naar" arrow has exactly one matching "Van" arrow and the reverse |
 | 4.2 | Lighting detail rows: header letter, switch contact, light, name | Sonnet | Golden SVG of a detail page |
 | 4.3 | export_pdf.py: all pages on one canvas | Sonnet | PDF has the right page count, every page A4 |
 | 4.4 | Docstrings and README usage | Haiku | README commands run as written |
@@ -502,7 +545,8 @@ Answers needed from the owner:
 - [x] The House A slips are corrected; the owner checks the correction list of task 5.1 by hand (decided 12 October).
 - [x] Title block: no signature field; spare cells for entries such as name and location (decided 12 October).
 - [ ] Installation marks (in wall, on wall, in conduit in wall): in version 1 or not (before task 2.6).
-- [ ] Name the square-with-triangle symbol and the grey marks above the cables (before task 2.6).
+- [x] The square-with-triangle symbol is a photo detector that switches the light (12 October).
+- [ ] Name the grey marks above the cables (before task 2.6).
 - [ ] House B data, before task 7.4: which circuits besides J are XVB (the rest is VOB in conduit); VOB label text, official "H07V-U Eca 2.5²" or "VOB 3x2.5"; confirm DIFF-TUIN 4-pole and D1–D5 40 A.
 - [ ] The House B source xlsx and how the controller is drawn (before M8).
 

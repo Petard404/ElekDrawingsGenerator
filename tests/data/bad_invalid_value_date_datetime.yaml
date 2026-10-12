@@ -1,0 +1,27 @@
+project:
+  address: "Straat A 1"
+  drawn_by: "Ontwerper"
+  executed_by: "Installateur"
+  date: 2026-10-12 10:00:00
+pages:
+  - {id: pg1, title: "Pagina 1"}
+  - {id: pg2, title: "Pagina 2"}
+installation:
+  kind: supply
+  id: SUP
+  label: "Aansluiting"
+  voltage: "3x230V"
+  children:
+    - kind: differential
+      id: D1
+      sensitivity_ma: 30
+      rating_a: 40
+      poles: "4P"
+      type: A
+      children:
+        - kind: circuit
+          id: K
+          description: "Test"
+          rating_a: 16
+          children:
+            - {kind: socket, id: K1}

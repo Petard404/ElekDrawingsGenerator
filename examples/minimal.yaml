@@ -1,0 +1,53 @@
+project:
+  address: "Straat A 1, 0000 Gemeente"
+  drawn_by: "Ontwerper"
+  executed_by: "Installateur"
+
+pages:
+  - {id: pg1, title: "Pagina 1: eendraadschema"}
+
+installation:
+  kind: supply
+  id: SUP
+  page: pg1
+  label: "Aansluiting en teller"
+  voltage: "230V"
+  children:
+    - kind: breaker
+      id: Q0
+      rating_a: 40
+      label: "Hoofdschakelaar"
+      children:
+        - kind: differential
+          id: D1
+          label: "Diff 1"
+          sensitivity_ma: 30
+          rating_a: 40
+          poles: "2P"
+          type: A
+          children:
+            - kind: circuit
+              id: A
+              description: "Verlichting"
+              rating_a: 16
+              cable: "XVB 3x1.5"
+              children:
+                - {kind: light, id: A1, switch: true, name: "Living"}
+                - {kind: light, id: A2, switch: true, name: "Keuken"}
+                - {kind: light, id: A3, name: "Gang"}
+            - kind: circuit
+              id: B
+              description: "Stopcontacten living"
+              rating_a: 16
+              cable: "XVB 3x2.5"
+              children:
+                - {kind: socket, id: B1, count: 2}
+                - {kind: socket, id: B2}
+            - kind: circuit
+              id: C
+              description: "Stopcontacten keuken"
+              rating_a: 20
+              cable: "XVB 3x2.5"
+              children:
+                - {kind: socket, id: C1, count: 3}
+                - {kind: light, id: C2, name: "Dampkap"}

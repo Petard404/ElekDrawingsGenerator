@@ -4,3 +4,5 @@ __pycache__/
 
 # Full reference documents stay local; only extracts are committed
 docs/reference/arei/*.pdf
+*.egg-info/
+.pytest_cache/

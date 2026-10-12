@@ -124,3 +124,51 @@ One entry per decision: date, decision, alternatives considered, reason.
 - **Decision:** Task 1.3 fixes the YAML field names against House A and House B (power circuits) together. See `docs/plan-review.md`, section "House B needs".
 - **Alternatives:** Fix names for House A only and extend later.
 - **Reason:** Avoid renaming fields after examples and tests have been typed (plan risk "field names change").
+
+## 2026-10-12 · Square-with-triangle is a photo detector
+
+- **Decision:** The square-with-triangle symbol ahead of lights K7, K8 and H1 in House A is a photo detector that switches the light. It gets its own element kind (name fixed in task 1.3) and stays a code-drawn symbol as in the original, because AREI table 2.23 has no photo detector.
+- **Alternatives:** A neutral placeholder name until identified (plan fallback); the AREI bewegingssensor symbol.
+- **Reason:** The owner identified it. A motion sensor is a different device, so its symbol would misstate the installation.
+
+## 2026-10-12 · Start the tool with python -m huiselek
+
+- **Decision:** The documented way to start the tool is `python -m huiselek` (via `src/huiselek/__main__.py`). The `huiselek` console script stays in `pyproject.toml` for PCs that allow it. Tests and docs use the `-m` form.
+- **Alternatives:** Allow the pip-generated `huiselek.exe` in Windows security; document both forms equally.
+- **Reason:** Windows Application Control on the owner's PC blocks `.venv\Scripts\huiselek.exe` (task 1.1). `python.exe` is signed and runs; changing security settings is not wanted.
+
+## 2026-10-12 · Dependency versions pinned
+
+- **Decision:** PyYAML 6.0.3, pydantic 2.14.1, svglib 2.3.0, reportlab 5.0.1; dev: pytest 9.1.1, pypdf 6.20.0. Pinned with `==` in `pyproject.toml`.
+- **Alternatives:** Version ranges.
+- **Reason:** The newest versions that install from wheels on Python 3.14 under Windows (task 1.1); pinning keeps golden files stable.
+
+## 2026-10-12 · PDF route proven on Windows
+
+- **Decision:** Keep the route svglib to one ReportLab canvas. Task 1.2 converted two hand-written A4 SVG pages (user units in mm) with thin and dashed lines, fill, circle, arc, three text anchors, rotated text and the characters ² Ø é –. The PDF has two pages of 595.28 x 841.89 pt, extractable text in Helvetica, and the geometry is correct by eye.
+- **Alternatives:** Draw primitives straight into the PDF with ReportLab (the fallback).
+- **Reason:** Nothing failed and no SVG feature had to be avoided. One harmless side effect: `renderPDF.draw` adds an unused Times-Roman font resource.
+
+## 2026-10-12 · Field names, kinds, error codes and label templates fixed (task 1.3)
+
+- **Decision:** The input format, value rules, error codes and label template names in the plan's Input format section are fixed. Choices beyond plan version 2: a `photo_detector` kind holding the lights it switches; `page` and `link_text` only on containers, and `link_text` without a page move is an error; differential `type` is required (House A's original omits it; task 5.1 lists that as a correction); `poles` is text, one of 1P, 1P+N, 2P, 3P, 3P+N, 4P; fixed lists for curve and appliance type; node IDs and page IDs unique within their own set; every "Naar" link has one matching "Van" link. Naming is checked again for consistency at the end of M1.
+- **Alternatives:** `poles` as a number 1 to 4, or only 1, 3 and 4; optional differential type; `page` on every node.
+- **Reason:** Designed against House A and House B and for reuse on other houses. A number cannot tell 1P+N from 2P or 3P+N from 4P, and single-phase and 3x230 V installations need 2-pole devices.
+
+## 2026-10-12 · Root page default, unused pages, file error name
+
+- **Decision:** The root supply goes on the first page in `pages` unless it has `page`. A page that holds no node is an error (`unused_page`). Error code `file_not_found` is renamed `file_unreadable`. Light keeps `switch` (not `switched`).
+- **Alternatives:** `page` required on the root; unused pages allowed (printed empty); keep `file_not_found`; rename `switch` to `switched`.
+- **Reason:** Owner's choice after the M1 review. An empty sheet is always a mistake. The code also covers folders, unreadable and non-UTF-8 files. `switch` can grow from a yes/no into a switch kind in M8 without a rename.
+
+## 2026-10-12 · pydantic for the data model
+
+- **Decision:** The data model uses pydantic 2 classes with a discriminated union on `kind`, unknown keys forbidden, and a post-pass for parent/child rules, unique IDs and page references. Its error locations are mapped to element IDs and Dutch messages.
+- **Alternatives:** Dataclasses with hand-written validation; cattrs.
+- **Reason:** In the plan from the start; gives typed fields, defaults and unknown-key errors with little code. Logged at first use (M1 review).
+
+## 2026-10-12 · Supply voltage is a typed network type
+
+- **Decision:** `supply.voltage` is one of `230V` (single-phase, two conductors), `3x230V`, `3N400V`. The text on the drawing comes from the label template `supply_voltage`, so House A can keep "3*230 V".
+- **Alternatives:** Free text (as in task 1.3); a separate `system` field next to free-text voltage.
+- **Reason:** Owner's choice after the M1 review. Later tools such as the PLC design need the network type without parsing text; one field avoids two values that can contradict.

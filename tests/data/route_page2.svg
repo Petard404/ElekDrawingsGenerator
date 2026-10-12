@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 210 297">
+  <rect x="10" y="10" width="190" height="277" fill="none" stroke="black" stroke-width="0.35"/>
+  <g font-family="Helvetica" fill="black">
+    <text x="20" y="25" font-size="3.5">Pagina 2: verlichting</text>
+    <text x="20" y="35" font-size="2.5">Lichtpunt plafond, enkelpolige schakelaar</text>
+  </g>
+</svg>

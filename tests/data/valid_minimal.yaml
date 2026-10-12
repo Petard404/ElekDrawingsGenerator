@@ -1,0 +1,132 @@
+project:
+  address: "Straat A 1, 0000 Gemeente"
+  drawn_by: "Ontwerper"
+  executed_by: "Installateur"
+  version: "1.0"
+  date: 2026-10-12            # unquoted YAML date, kept as given
+  extra:
+    - {label: "Keuring", value: "ja"}
+
+labels:
+  breaker: "{rating_a}A"
+
+pages:
+  - {id: pg1, title: "Pagina 1: aansluiting"}
+  - {id: pg2, title: "Pagina 2: differentieel 2"}
+  - {id: pg3, title: "Pagina 3: Verlichting gelijkvloers A"}
+  - {id: 4, title: "Pagina 4: onderbord"}     # numeric page id
+
+installation:
+  kind: supply
+  id: SUP
+  page: pg1
+  label: "Aansluiting en teller"
+  voltage: "3x230V"
+  children:
+    - kind: breaker
+      id: Q0
+      rating_a: 40
+      label: "Hoofd auto 1"
+      children:
+        - kind: differential
+          id: D0
+          sensitivity_ma: 300
+          rating_a: 40
+          poles: "4P"
+          type: A
+          selective: true
+          children:
+            - kind: differential
+              id: D1
+              label: "Diff 1"
+              sensitivity_ma: 30
+              rating_a: 40
+              poles: "4P"
+              type: A
+              children:
+                - kind: circuit
+                  id: K
+                  description: "Garage + lichten buiten en WC"
+                  rating_a: 16
+                  cable: "XVB 3x2.5"
+                  children:
+                    - {kind: socket, id: K1}
+                    - {kind: light, id: K6, switch: true}
+                    - {kind: appliance, id: K7, type: oven, note: "apart"}
+                    - kind: impulse_relay
+                      id: IR1
+                      children:
+                        - {kind: socket, id: IR1S, variant: waterproof}
+                    - kind: photo_detector
+                      id: PD1
+                      children:
+                        - {kind: light, id: PD1L, name: "Oprit"}
+                    - {kind: transformer, id: TR1}
+                    - {kind: converter, id: CV1}
+                - kind: breaker            # nested breaker with its own bus
+                  id: Q1
+                  rating_a: 32
+                  curve: D
+                  poles: "3P+N"
+                  conductors: 5
+                  cable: "XVB 5x6"
+                  children:
+                    - kind: circuit
+                      id: O
+                      description: "Fornuis en oven"
+                      rating_a: 20
+                      cable: "XVB 3x2.5"
+                      children:
+                        - {kind: socket, id: O1, note: "3ph"}
+                        - kind: circuit    # branches off the end of O
+                          id: P
+                          description: "stopcontact onder wasbak"
+                          rating_a: 20
+                          cable: "XVB 3x2.5"
+                          children:
+                            - {kind: socket, id: P3, count: 2}
+                    - {kind: reserve, id: R1, rating_a: 16, curve: B, poles: "1P+N"}
+                    - {kind: reserve, id: R2}
+            - kind: differential
+              id: D2
+              label: "Diff 2"
+              page: pg2                    # drawn on page 2, link arrow on page 1
+              link_text: "zie pagina 2"
+              sensitivity_ma: 30
+              rating_a: 40
+              poles: "4P"
+              type: A
+              children:
+                - kind: circuit
+                  id: A
+                  description: "lichtkring gelijkvloers"
+                  rating_a: 16
+                  cable: "XVB 3x1.5"
+                  children_page: pg3       # children drawn one per row on page 3
+                  children:
+                    - {kind: light, id: A1, switch: true, name: "Garage voor"}
+                - kind: circuit
+                  id: C
+                  description: "Bureau + zithoek"
+                  rating_a: 20
+                  cable: "XVB 3x2.5"
+                  children:
+                    - {kind: socket, id: C1, count: 2}
+                    - {kind: box, id: C9, label: "Rolluik"}
+                    - {kind: socket, id: 7}          # numeric node id
+                    - kind: board
+                      id: BD
+                      page: 4                        # numeric page reference
+                      label: "Onderbord"
+                      children:
+                        - kind: differential
+                          id: D3
+                          sensitivity_ma: 30
+                          rating_a: 25
+                          poles: "2P"
+                          type: AC
+                          children:
+                            - kind: circuit
+                              id: T
+                              description: "Spare"
+                              rating_a: 10
