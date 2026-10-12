@@ -1,0 +1,35 @@
+{
+  "height": 4.0,
+  "id": "board",
+  "primitives": [
+    {
+      "closed": false,
+      "fill": null,
+      "points": [
+        [
+          0.0,
+          4.0
+        ],
+        [
+          16.0,
+          4.0
+        ],
+        [
+          16.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          4.0
+        ]
+      ],
+      "type": "polyline"
+    }
+  ],
+  "source": "svg-2023/board.svg",
+  "width": 16.0
+}

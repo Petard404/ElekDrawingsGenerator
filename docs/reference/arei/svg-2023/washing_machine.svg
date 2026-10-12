@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="6.888mm" height="6.888mm" viewBox="0 0 6.888 6.888" stroke-linecap="round" stroke-linejoin="round">
+<!-- AREI Visio stencil Verbruikstoestellen.vssx, master "Wasmachine" (symbol washing_machine); converted by tools/vssx_to_svg.py -->
+<path d="M0.444 3.444 L0.444 6.444 L6.444 6.444 L6.444 0.444 L0.444 0.444 L0.444 3.444 Z" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+<circle cx="3.444" cy="3.444" r="2" fill="none" stroke="#000000" stroke-width="0.088"/>
+<circle cx="3.444" cy="3.444" r="0.8" fill="#000000" stroke="#000000" stroke-width="0.088"/>
+</svg>

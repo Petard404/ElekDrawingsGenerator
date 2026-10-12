@@ -1,0 +1,25 @@
+{
+  "height": 1.667,
+  "id": "socket_waterproof_plain",
+  "primitives": [
+    {
+      "anchor": "middle",
+      "rotation": 0.0,
+      "size": 1.411,
+      "text": "h",
+      "type": "text",
+      "x": 4.0,
+      "y": -0.5
+    },
+    {
+      "cx": 1.667,
+      "cy": 1.667,
+      "end_deg": 360.0,
+      "r": 1.667,
+      "start_deg": 180.0,
+      "type": "arc"
+    }
+  ],
+  "source": "svg-2023/socket_waterproof.svg",
+  "width": 3.334
+}

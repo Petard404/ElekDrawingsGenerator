@@ -1,0 +1,38 @@
+{
+  "height": 4.632,
+  "id": "switch",
+  "primitives": [
+    {
+      "cx": 1.0,
+      "cy": 3.632,
+      "fill": null,
+      "r": 1.0,
+      "type": "circle"
+    },
+    {
+      "closed": false,
+      "fill": null,
+      "points": [
+        [
+          3.018,
+          0.254
+        ],
+        [
+          2.322,
+          0.0
+        ],
+        [
+          2.046,
+          0.759
+        ],
+        [
+          1.342,
+          2.692
+        ]
+      ],
+      "type": "polyline"
+    }
+  ],
+  "source": "svg-2023/switch.svg",
+  "width": 3.018
+}

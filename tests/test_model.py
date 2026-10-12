@@ -332,3 +332,15 @@ def test_parent_child_matrix(parent, child):
     else:
         err = error_of(data)
         assert (err.code, err.element_id) == ("child_not_allowed", "X")
+
+
+def test_appliance_type_general():
+    from huiselek.model import Appliance
+
+    assert Appliance(kind="appliance", id="X1", type="general").type == "general"
+
+
+def test_socket_variant_waterproof_plain():
+    from huiselek.model import Socket
+
+    assert Socket(kind="socket", id="X1", variant="waterproof_plain").variant == "waterproof_plain"

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="4.91mm" height="5.643mm" viewBox="0 0 4.91 5.643" stroke-linecap="round" stroke-linejoin="round">
+<!-- AREI Visio stencil Contactdozen.vssx, master "Contactdoost met beschermgeleider en kinderbeveiliging n-aantal" (symbol socket_child_protection_n); converted by tools/vssx_to_svg.py -->
+<path d="M0.4 1.7 L3.83 1.7 L3.83 0.4 L0.4 0.4 L0.4 1.7 Z" fill="none" stroke="none" fill-rule="evenodd"/>
+<text font-family="Helvetica" font-size="1.411" text-anchor="middle" fill="#000000" xml:space="preserve"><tspan x="2.115" y="1.558">n</tspan></text>
+<path d="M4.468 1.535 C3.547 1.535 2.801 2.281 2.801 3.201 C2.801 4.122 3.547 4.868 4.468 4.868" fill="none" stroke="#000000" stroke-width="0.085" fill-rule="evenodd"/>
+<path d="M4.468 4.868 L4.468 5.201" fill="none" stroke="#000000" stroke-width="0.085" fill-rule="evenodd"/>
+<path d="M4.468 1.2 L4.468 1.534" fill="none" stroke="#000000" stroke-width="0.085" fill-rule="evenodd"/>
+<path d="M2.8 1.195 L2.8 5.195" fill="none" stroke="#000000" stroke-width="0.085" fill-rule="evenodd"/>
+<path d="M3.04 1.385 L3.96 2.304" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+</svg>

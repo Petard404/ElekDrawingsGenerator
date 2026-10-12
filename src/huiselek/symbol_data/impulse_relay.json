@@ -1,0 +1,73 @@
+{
+  "height": 3.0,
+  "id": "impulse_relay",
+  "primitives": [
+    {
+      "closed": false,
+      "fill": null,
+      "points": [
+        [
+          0.0,
+          3.0
+        ],
+        [
+          7.0,
+          3.0
+        ],
+        [
+          7.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          3.0
+        ]
+      ],
+      "type": "polyline"
+    },
+    {
+      "closed": false,
+      "fill": null,
+      "points": [
+        [
+          6.0,
+          1.75
+        ],
+        [
+          4.0,
+          1.75
+        ],
+        [
+          4.0,
+          0.75
+        ]
+      ],
+      "type": "polyline"
+    },
+    {
+      "closed": false,
+      "fill": null,
+      "points": [
+        [
+          1.0,
+          1.75
+        ],
+        [
+          3.0,
+          1.75
+        ],
+        [
+          3.0,
+          0.75
+        ]
+      ],
+      "type": "polyline"
+    }
+  ],
+  "source": "svg-2023/impulse_relay.svg",
+  "width": 7.0
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="11.1mm" height="8.07mm" viewBox="0 0 11.1 8.07" stroke-linecap="round" stroke-linejoin="round">
+<!-- AREI Visio stencil Verbruikstoestellen.vssx, master "Transformator" (symbol transformer); converted by tools/vssx_to_svg.py -->
+<path d="M5.55 3.762 C6.1 4.386 6.979 4.604 7.757 4.31 C8.535 4.016 9.05 3.271 9.05 2.439 C9.05 1.608 8.535 0.863 7.757 0.569 C6.979 0.274 6.1 0.493 5.55 1.116 C4.883 1.872 4.883 3.006 5.55 3.762 Z" fill="none" stroke="#000000" stroke-width="0.085" fill-rule="evenodd"/>
+<path d="M5.55 3.762 C6.217 3.006 6.217 1.872 5.55 1.116 C5 0.493 4.121 0.274 3.343 0.569 C2.565 0.863 2.05 1.608 2.05 2.439 C2.05 3.271 2.565 4.016 3.343 4.31 C4.121 4.604 5 4.386 5.55 3.762 Z" fill="none" stroke="#000000" stroke-width="0.085" fill-rule="evenodd"/>
+<path d="M0.4 5.779 L10.7 5.779 L10.7 5.039 L0.4 5.039 L0.4 5.779 Z" fill="none" stroke="none" fill-rule="evenodd"/>
+<text font-family="Helvetica" font-size="1.411" text-anchor="middle" fill="#000000" xml:space="preserve"><tspan x="5.55" y="5.917">Uprim/Usec</tspan></text>
+<path d="M0.4 7.179 L10.7 7.179 L10.7 6.439 L0.4 6.439 L0.4 7.179 Z" fill="none" stroke="none" fill-rule="evenodd"/>
+<text font-family="Helvetica" font-size="1.411" text-anchor="middle" fill="#000000" xml:space="preserve"><tspan x="5.55" y="7.317">Pn</tspan></text>
+</svg>

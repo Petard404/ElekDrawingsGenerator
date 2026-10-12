@@ -31,10 +31,10 @@ Curve = Literal["B", "C", "D"]
 Poles = Literal["1P", "1P+N", "2P", "3P", "3P+N", "4P"]
 DiffType = Literal["AC", "A", "F", "B"]
 Voltage = Literal["230V", "3x230V", "3N400V"]
-Variant = Literal["child_protection", "protective_conductor", "waterproof"]
+Variant = Literal["child_protection", "protective_conductor", "waterproof", "waterproof_plain"]
 ApplianceType = Literal[
     "oven", "dishwasher", "washing_machine", "dryer",
-    "stove", "water_heater", "heating_device", "ev_charger",
+    "stove", "water_heater", "heating_device", "ev_charger", "general",
 ]  # fmt: skip
 
 

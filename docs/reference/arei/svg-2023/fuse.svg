@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="9.119mm" height="10.888mm" viewBox="0 0 9.119 10.888" stroke-linecap="round" stroke-linejoin="round">
+<!-- AREI Visio stencil Beschermingstoestellen.vssx, master "Smeltveiligheid" (symbol fuse); converted by tools/vssx_to_svg.py -->
+<path d="M0.4 10.444 L7.55 10.444 L7.55 0.444 L0.4 0.444 L0.4 10.444 Z" fill="none" stroke="none" fill-rule="evenodd"/>
+<text font-family="Helvetica" font-size="2.117" text-anchor="middle" fill="#000000" xml:space="preserve"><tspan x="3.975" y="4.936">gG</tspan><tspan x="3.975" y="7.476">16A</tspan></text>
+<path d="M6.675 8.444 L8.675 8.444 L8.675 2.444 L6.675 2.444 L6.675 8.444 Z" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+<path d="M7.675 0.444 L7.675 10.444" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+</svg>

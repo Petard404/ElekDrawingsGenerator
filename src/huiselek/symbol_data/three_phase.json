@@ -1,0 +1,33 @@
+{
+  "height": 1.94,
+  "id": "three_phase",
+  "primitives": [
+    {
+      "anchor": "middle",
+      "rotation": 0.0,
+      "size": 1.764,
+      "text": "3",
+      "type": "text",
+      "x": -0.884,
+      "y": 1.119
+    },
+    {
+      "cx": 0.97,
+      "cy": 0.97,
+      "end_deg": 360.0,
+      "r": 0.97,
+      "start_deg": 180.0,
+      "type": "arc"
+    },
+    {
+      "cx": 2.91,
+      "cy": 0.97,
+      "end_deg": 180.0,
+      "r": 0.97,
+      "start_deg": 0.0,
+      "type": "arc"
+    }
+  ],
+  "source": "svg-2023/three_phase.svg",
+  "width": 3.88
+}

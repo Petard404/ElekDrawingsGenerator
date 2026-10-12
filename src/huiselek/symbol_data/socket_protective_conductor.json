@@ -1,0 +1,23 @@
+{
+  "height": 1.667,
+  "id": "socket_protective_conductor",
+  "primitives": [
+    {
+      "cx": 2.0,
+      "cy": 1.667,
+      "end_deg": 360.017,
+      "r": 1.667,
+      "start_deg": 179.983,
+      "type": "arc"
+    },
+    {
+      "type": "line",
+      "x1": 0.0,
+      "x2": 4.0,
+      "y1": 0.0,
+      "y2": 0.0
+    }
+  ],
+  "source": "svg-2023/socket_protective.svg",
+  "width": 4.0
+}

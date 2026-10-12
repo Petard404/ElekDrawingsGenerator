@@ -1,0 +1,116 @@
+file,page,nn,width_px,height_px,guess
+p1_01.png,1,1,102,23,Gelijkstroom
+p1_02.jpg,1,2,105,56,Wisselstroom (algemeen symbool)
+p1_03.jpg,1,3,93,45,Eenfasige wisselstroom
+p1_04.jpg,1,4,94,47,Driefasige wisselstroom
+p1_05.png,1,5,94,28,Algemene voorstelling van een schakel - en verdeelbord
+p1_06.jpg,1,6,95,54,Voorbeeld van een schakel - en verdeelbord met 5 elektri-
+p1_07.jpg,1,7,45,43,Doos
+p1_08.jpg,1,8,46,44,"Verbindingsdoos, aftakdoos, aansluitdoos"
+p1_09.jpg,1,9,100,31,Aftakkast
+p1_10.png,1,10,99,28,Aardingsonderbreker
+p1_11.png,1,11,102,23,Elektrische leiding
+p1_12.jpg,1,12,98,40,Ondergrondse elektrische leiding
+p1_13.jpg,1,13,102,30,Elektrische luchtleiding
+p1_14.jpg,1,14,101,34,Elektrische leiding in een buis
+p1_15.jpg,1,15,96,43,Voorbeeld van een bundel van zes buizen
+p1_16.jpg,1,16,101,37,Elektrische leiding in een wand
+p1_17.jpg,1,17,96,35,Elektrische leiding op een wand
+p2_01.jpg,2,1,98,34,Elektrische leiding geplaatst in een buis in een wand
+p2_02.jpg,2,2,97,32,Twee elektrische leidingen
+p2_03.jpg,2,3,103,45,n elektrische leidingen
+p2_04.jpg,2,4,105,38,Elektrische leiding met 3 geleiders
+p2_05.jpg,2,5,103,40,Elektrische leiding met n geleiders
+p2_06.jpg,2,6,91,38,XVB - kabel Cca met 5 geleiders van 4 mm² geplaatst in
+p2_07.jpg,2,7,100,41,"XVB - kabel Cca met 3 geleiders van 2,5 mm² op een wand"
+p2_08.jpg,2,8,101,50,4 H07V - U - geleiders Eca waarvan de geleiders een door-
+p2_09.png,2,9,95,29,Smeltzekering
+p2_10.jpg,2,10,94,43,Smeltzekering met een nominale stroomsterkte van 16 A
+p2_11.jpg,2,11,72,123,Automatische schakelaar of vermogensschakelaar
+p2_12.jpg,2,12,62,97,Automatische schakelaar of vermogensschakelaar
+p2_13.jpg,2,13,100,84,Voorbeeld: Driepolige vermogensschakelaar voorzien van
+p2_14.jpg,2,14,70,56,"Differentieelstroombeschermingsinrichting (ΔIn=300mA,"
+p3_01.jpg,3,1,47,61,Kleine vermogensschakelaar met een nominale stroom-
+p3_02.jpg,3,2,68,63,"Aardelektrode, aarding"
+p3_03.jpg,3,3,46,51,Schakelaar
+p3_04.jpg,3,4,38,51,Schakelaar met verklikkerlamp
+p3_05.jpg,3,5,49,51,Eenpolige schakelaar met vertraagde opening
+p3_06.jpg,3,6,52,45,Tweepolige schakelaar
+p3_07.jpg,3,7,44,43,Driepolige schakelaar
+p3_08.jpg,3,8,60,49,Eenpolige omschakelaar (dubbele aansteking: om twee
+p3_09.jpg,3,9,59,69,Eenpolige wisselschakelaar (dubbele richting: om een
+p3_10.jpg,3,10,58,74,Tweepolige wisselschakelaar (dubbele richting)
+p3_11.jpg,3,11,68,74,Kruisschakelaar (laat toe een stroombaan te sluiten of te
+p3_12.jpg,3,12,41,51,Dimmer
+p3_13.jpg,3,13,44,52,Eenpolige trekschakelaar
+p3_14.jpg,3,14,73,51,Eenpolige schakelaar met signalisatielamp
+p4_01.jpg,4,1,55,50,Drukknop
+p4_02.jpg,4,2,49,47,Drukknop met verklikkerlamp
+p4_03.jpg,4,3,63,66,Drukknop met afgeschermde toegang (te breken ruit)
+p4_04.jpg,4,4,100,33,Tijdschakelaar
+p4_05.jpg,4,5,100,34,"Schakelklok, tijdschakelaar"
+p4_06.jpg,4,6,100,38,Impulsschakelaar
+p4_07.jpg,4,7,98,27,Thermostaat
+p4_08.jpg,4,8,53,60,Rondecontrole of elektrische slotvergrendelinrichting
+p4_09.jpg,4,9,88,110,Bewegingssensor
+p4_10.jpg,4,10,137,143,Schakelaar geïnstalleerd in een schakel - en verdeelbord
+p4_11.jpg,4,11,79,45,Contactdoos
+p4_12.jpg,4,12,115,71,Meervoudige contactdoos (voor drie contactdozen)
+p4_13.jpg,4,13,84,45,"Half - waterdichte, waterdichte of hermetische contact-"
+p4_14.jpg,4,14,82,45,Contactdoos met contact voor beschermingsgeleider
+p4_15.jpg,4,15,78,48,Contactdoos met kinderbescherming
+p5_01.jpg,5,1,80,46,Contactdoos met contact voor beschermingsgeleider en
+p5_02.jpg,5,2,89,44,Contactdoos met tweepolige schakelaar
+p5_03.jpg,5,3,94,50,Contactdoos met tweepolige vergrendelingschakelaar
+p5_04.jpg,5,4,72,54,Contactdoos met beschermingstransformator (bijvoor-
+p5_05.jpg,5,5,54,36,Datacontactdoos
+p5_06.jpg,5,6,139,143,Contactdoos met enkelpolige schakelaar geïnstalleerd in
+p5_07.jpg,5,7,103,43,"Aansluitpunt voor een verlichtingstoestel, voorgesteld"
+p5_08.jpg,5,8,58,53,Aansluitpunt voor wandverlichtingstoestel
+p5_09.jpg,5,9,99,38,Fluorescentieverlichtingstoestel
+p5_10.jpg,5,10,109,30,Verlichtingstoestel met drie fluorescentiebuizen
+p5_11.jpg,5,11,62,62,Projector
+p5_12.jpg,5,12,75,57,Projector met weinig divergerende lichtbundel
+p5_13.jpg,5,13,82,64,Projector met divergerende lichtbundel
+p5_14.jpg,5,14,63,53,Verlichtingstoestel met ingebouwde eenpolige schakelaar
+p5_15.jpg,5,15,59,51,"Veiligheidsverlichtingstoestel, aangesloten op een veilig-"
+p6_01.jpg,6,1,77,75,Autonoom veiligheidsverlichtingstoestel
+p6_02.jpg,6,2,95,39,Voorschakeltoestel voor ontladingslamp
+p6_03.jpg,6,3,102,44,Bel
+p6_04.jpg,6,4,100,48,Zoemer
+p6_05.jpg,6,5,98,45,Hoorn
+p6_06.jpg,6,6,97,46,Sirene
+p6_07.jpg,6,7,63,59,Horloge
+p6_08.jpg,6,8,60,56,Moederklok
+p6_09.jpg,6,9,100,56,Elektrisch (deur)slot
+p6_10.jpg,6,10,96,47,Ventilator (voorgesteld met elektrische leiding)
+p6_11.jpg,6,11,98,52,Verwarmingstoestel
+p6_12.jpg,6,12,99,47,Verwarmingstoestel met accumulatie
+p6_13.jpg,6,13,90,45,Verwarmingstoestel met accumulatie en ingebouwde
+p6_14.jpg,6,14,69,57,Boiler
+p6_15.jpg,6,15,66,59,Boiler met accumulatie
+p7_01.jpg,7,1,97,47,Vast elektrisch huishoudtoestel
+p7_02.jpg,7,2,95,47,Elektrisch fornuis
+p7_03.jpg,7,3,93,47,Microgolven
+p7_04.jpg,7,4,100,46,Elektrische oven
+p7_05.jpg,7,5,97,45,Wasmachine
+p7_06.jpg,7,6,99,51,Droogkast
+p7_07.jpg,7,7,97,45,Afwasmachine
+p7_08.jpg,7,8,91,44,Koelkast
+p7_09.jpg,7,9,106,48,Diepvriezer
+p7_10.jpg,7,10,106,52,Motor
+p7_11.jpg,7,11,114,138,Laadinrichting voor elektrische wegvoertuigen
+p7_12.jpg,7,12,101,56,kWh - teller
+p7_13.jpg,7,13,102,73,Transformator
+p7_14.jpg,7,14,68,66,Fotovoltaïsch paneel
+p7_15.jpg,7,15,25,30,Fotovoltaïsch paneel
+p7_16.jpg,7,16,92,37,Fotovoltaïsch paneel
+p8_01.jpg,8,1,129,144,Gelijkrichter/Omvormer AC < - > DC
+p8_02.jpg,8,2,65,30,Gelijkrichter/Omvormer AC < - > DC
+p8_03.jpg,8,3,129,131,Omvormer DC - > AC
+p8_04.jpg,8,4,65,30,Omvormer DC - > AC
+p8_05.jpg,8,5,66,65,Hakker DC - > DC
+p8_06.jpg,8,6,65,30,Hakker DC - > DC
+p8_07.jpg,8,7,93,86,De sturingseenheid wordt weergegeven door een recht-
+p8_08.jpg,8,8,77,101,”.
+p8_09.jpg,8,9,783,396,”.

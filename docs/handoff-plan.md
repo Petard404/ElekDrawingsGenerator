@@ -23,7 +23,7 @@ Version 1 is a Python command-line tool that reads one YAML file describing a ho
 | Font | Helvetica in SVG and PDF; text widths from ReportLab's metrics | Same result on every PC |
 | Way of working | CLAUDE.md in the repository root | Covers pacing, models, token use and the decision log |
 
-Runtime dependencies are PyYAML, pydantic, svglib and reportlab; pytest and pypdf are development dependencies. Versions are pinned in `pyproject.toml`. Scripts in `tools/` use the standard library only. Each dependency is logged in docs/decisions.md when first used.
+Runtime dependencies are PyYAML, pydantic, svglib and reportlab; pytest and pypdf are development dependencies. Versions are pinned in `pyproject.toml`. Scripts in `tools/` use the standard library and the development dependencies only. Each dependency is logged in docs/decisions.md when first used.
 
 ## House A: existing diagram
 
@@ -91,7 +91,7 @@ The design overview is `docs/testcase/house-b-overzicht-v4.md`; the values it le
 | Sub-board | BRD-TUIN, fed by circuit J (XVB 5G6), with DIFF-TUIN 30 mA type A 40 A and circuits T1–T3 |
 | Devices | Sockets with 1 to 4 mechanisms, appliances with their AREI symbol, EV charger, reserve circuits Y and T3 |
 | Later (M8) | Lighting circuits 1–35 through a push-button controller; 70 light points |
-| Not drawn | Earthing, surge protection, installation marks, phases |
+| Not drawn | Earthing, surge protection, phases; installation marks come in a later milestone |
 
 Structures House A does not have, and the model and layout must support: 3P+N circuits with curve, differential type, a sub-board on its own page, circuits directly behind the 300 mA, reserve circuits, appliances and the EV charger on the circuit line, an impulse relay ahead of V's sockets, and a title block with version and date.
 
@@ -213,7 +213,7 @@ Top level: `project`, `pages`, optional `labels`, `installation`. Nothing else.
 | circuit | **description**, **rating_a**, curve (default C), poles, cable, conductors, children_page | devices, circuit, board |
 | board | **label** | differential, breaker, circuit, reserve |
 | reserve | rating_a, curve, poles; without rating_a it is a free place | none |
-| socket | count (mechanisms, default 1), variant (default `child_protection`; `protective_conductor`, `waterproof`), note | none |
+| socket | count (mechanisms, default 1), variant (default `child_protection`; `protective_conductor`, `waterproof` (with protective conductor and child protection), `waterproof_plain`), note | none |
 | light | switch (default false), name, count (default 1) | none |
 | appliance | **type**: `oven`, `dishwasher`, `washing_machine`, `dryer`, `stove`, `water_heater`, `heating_device`, `ev_charger`; note | none |
 | impulse_relay | none beyond id | devices except impulse_relay and photo_detector |
@@ -337,7 +337,7 @@ House B constructs (circuits directly behind the 300 mA, the sub-board page and 
 
 ## Code architecture
 
-The package is eleven small modules in one line of dependency: each module uses only the ones above it in the table, and the layout never touches SVG or PDF.
+The package is twelve small modules in one line of dependency: each module uses only the ones above it in the table, and the layout and the symbol sheet never touch SVG or PDF.
 
 | Module | Responsibility | Takes | Gives |
 | --- | --- | --- | --- |
@@ -349,8 +349,9 @@ The package is eleven small modules in one line of dependency: each module uses 
 | reader.py | Read the YAML file, report file and syntax errors | file path | plain dict |
 | symbols.py | Load symbol data and table; the two code-drawn symbols | Settings | dict of Symbol |
 | layout.py | Place every element on its page | Installation, symbols, Settings | list of Page |
+| symbol_sheet.py | Build the symbol review sheet pages (review tool; reads docs/reference/arei from the repository) | symbols, Settings | list of Page, image overlays |
 | render_svg.py | Turn one page of primitives into SVG text, with fixed number formatting and element order | Page, Settings | SVG string |
-| export_pdf.py | Convert each SVG with svglib onto one ReportLab canvas | SVG strings, output path | one PDF file |
+| export_pdf.py | Convert each SVG with svglib onto one ReportLab canvas, with optional image overlays per page | SVG strings, output path, overlays | one PDF file |
 | cli.py | Parse arguments, run the pipeline, print Dutch messages, set the exit code | command line | files and messages |
 
 Every primitive carries a style: stroke width, fill and dash. Text also carries anchor, rotation and size. The data model is a tree of nodes, one pydantic class per kind, selected by the `kind` field, with unknown keys forbidden.
@@ -375,7 +376,7 @@ class Transformer, Converter:    (id only)
 class Box:           label
 class Installation:  project, pages, labels, root
 
-class Symbol:        primitives, bbox, points      # points: name -> (x, y)
+class Symbol:        id, primitives, width, height, points, anchor   # points: name -> (x, y); place(x, y, rotation), point(name, x, y, rotation)
 class Page:          id, number, title, primitives
 ```
 
@@ -389,7 +390,7 @@ def build_model(data: dict) -> Installation                             # model,
 def load_symbols(s: Settings) -> dict[str, Symbol]                      # symbols
 def layout(inst: Installation, sym: dict[str, Symbol], s: Settings) -> list[Page]   # layout
 def render_svg(page: Page, s: Settings) -> str                          # render_svg
-def export_pdf(svgs: list[str], out: Path) -> None                      # export_pdf
+def export_pdf(svgs: list[str], out: Path, overlays=None) -> None       # export_pdf
 ```
 
 Because the layout produces only styled primitives, a second renderer that draws them straight into a PDF is a small addition. That is the fallback if SVG conversion misbehaves on Windows.
@@ -420,7 +421,7 @@ huiselek/
     settings.py  labels.py
     symbol_table.yaml        anchor, size and points per symbol
     symbol_data/             generated symbol primitives, committed
-  tools/                     standard library only, not part of the package
+  tools/                     standard library and dev dependencies, not part of the package
     vssx_to_svg.py  svg_to_symbol.py
     svg_visible_text.py      on-page text of a reference SVG
     compare_text.py  check_house_b.py
@@ -460,11 +461,11 @@ Seven milestones in the order M1–M5, M7, M6, with M8 later. Each task fits a b
 | 1.4 | model.py and errors.py for every kind, pages, `page` and `children_page`; error location mapped to element ID | Sonnet | Valid example loads; each broken file gives the expected error code and element ID |
 | 1.5 | reader.py, cli.py `build` up to validation with Dutch messages, examples/minimal.yaml | Sonnet | A broken file exits non-zero with a one-line Dutch message |
 | 2.1 | primitives.py with styles and Page; render_svg.py; a command that writes golden candidates to out/ | Sonnet | Golden test of one page holding one of each primitive and style |
-| 2.2 | tools/vssx_to_svg.py for the needed 2023 masters, plus a list of symbols that differ between the old and 2023 sets | Sonnet | Each converted symbol rendered next to its official image and checked by eye |
+| 2.2 | tools/vssx_to_svg.py for the needed 2023 masters (including M8 and installation mark symbols); tools/extract_official.py for the table 2.23 images | Sonnet | Each converted symbol rendered next to its official image and checked by eye |
 | 2.3 | tools/svg_to_symbol.py and the generated symbol_data files | Sonnet | Every symbol in the table converts; output is identical on a second run |
 | 2.4 | symbol_table.yaml entries: size, anchor, connection points | Haiku, batched | Each symbol stays inside its bounding box; points lie on its outline |
 | 2.5 | symbols.py: load data and table; code-drawn page link and square-with-triangle | Sonnet | Parametrised test over all symbols |
-| 2.6 | `huiselek symbols` sheet with three columns: official, library, generated | Sonnet | Owner approves the sheet |
+| 2.6 | `huiselek symbols` sheet with three columns: official, library, generated; minimal export_pdf.py (pages onto one canvas) | Sonnet | Owner approves the sheet |
 | 3.1 | Layout design note: variable row height, nested breaker, branching circuit, text metrics | Opus, main session | Owner agrees; logged in decisions.md |
 | 3.2 | Rows for one differential with plain circuits (I, J, K) | Sonnet | Golden SVG; positions match the Layout table |
 | 3.3 | Nested breaker with its bus, and a circuit branching off a circuit (N, L, M, O, P) | Sonnet | Golden SVG |
@@ -472,7 +473,7 @@ Seven milestones in the order M1–M5, M7, M6, with M8 later. Each task fits a b
 | 3.5 | Overflow errors for too many rows or devices | Sonnet | One test per error |
 | 4.1 | Page assignment from `page` and `children_page`, link arrows with optional reference text | Sonnet | Minimal two-page example links both ways; every "Naar" arrow has exactly one matching "Van" arrow and the reverse |
 | 4.2 | Lighting detail rows: header letter, switch contact, light, name | Sonnet | Golden SVG of a detail page |
-| 4.3 | export_pdf.py: all pages on one canvas | Sonnet | PDF has the right page count, every page A4 |
+| 4.3 | export_pdf.py completed for the diagram pages (started in 2.6) | Sonnet | PDF has the right page count, every page A4 |
 | 4.4 | Docstrings and README usage | Haiku | README commands run as written |
 | 5.1 | Type examples/house-a.yaml from the inventory, correcting the slips, with a list of every correction | Sonnet | Loads without errors; 16 circuits, 20 detail rows, 25 light points; owner checks the correction list by hand |
 | 5.2 | tools/svg_visible_text.py and tools/compare_text.py: on-page text of each original against the regenerated page | Sonnet | List of missing and extra texts per page |
@@ -537,14 +538,14 @@ Golden files change only on purpose: a test run never rewrites them, a separate 
 
 ## Out of scope and open answers
 
-Version 1 leaves out the position plan, panel layout, material list, automatic circuit assignment, AREI rule checking, Excel input, automatic page flow (a possible later extension), a graphical interface, and on the drawing: earthing, surge protection, installation marks and phases.
+Version 1 leaves out the position plan, panel layout, material list, automatic circuit assignment, AREI rule checking, Excel input, automatic page flow (a possible later extension), a graphical interface, and on the drawing: earthing, surge protection and phases. Installation marks are in scope but come in a later milestone.
 
 Answers needed from the owner:
 
 - [x] Pages are typed in the YAML and never flow automatically (confirmed 12 October).
 - [x] The House A slips are corrected; the owner checks the correction list of task 5.1 by hand (decided 12 October).
 - [x] Title block: no signature field; spare cells for entries such as name and location (decided 12 October).
-- [ ] Installation marks (in wall, on wall, in conduit in wall): in version 1 or not (before task 2.6).
+- [x] Installation marks (in wall, on wall, in conduit in wall) are in scope, in a later milestone; their symbols are converted in M2 (12 October).
 - [x] The square-with-triangle symbol is a photo detector that switches the light (12 October).
 - [ ] Name the grey marks above the cables (before task 2.6).
 - [ ] House B data, before task 7.4: which circuits besides J are XVB (the rest is VOB in conduit); VOB label text, official "H07V-U Eca 2.5²" or "VOB 3x2.5"; confirm DIFF-TUIN 4-pole and D1–D5 40 A.

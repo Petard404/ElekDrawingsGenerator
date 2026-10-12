@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="9.251mm" height="12.888mm" viewBox="0 0 9.251 12.888" stroke-linecap="round" stroke-linejoin="round">
+<!-- AREI Visio stencil Verbruikstoestellen.vssx, master "Laadinrichting voor elektrische wegvoertuigen" (symbol ev_charger); converted by tools/vssx_to_svg.py -->
+<path d="M1.794 3.044 L6.594 3.044 L6.594 1.044 L1.794 1.044 L1.794 3.044 Z" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+<path d="M4.194 3.919 L4.194 10.069" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+<path d="M7.982 2.244 L8.807 2.244 L8.807 0.444 L7.982 0.444 L7.982 2.244 Z" fill="#000000" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+<path d="M1.194 10.119 L4.194 10.119 L4.194 3.969 L1.194 3.969 L1.194 10.119 Z" fill="none" stroke="none" fill-rule="evenodd"/>
+<text font-family="Helvetica" font-size="2.117" text-anchor="middle" fill="#000000" xml:space="preserve"><tspan x="2.694" y="6.536">V</tspan><tspan x="2.694" y="9.076">E</tspan></text>
+<path d="M4.194 10.119 L7.194 10.119 L7.194 3.969 L4.194 3.969 L4.194 10.119 Z" fill="none" stroke="none" fill-rule="evenodd"/>
+<text font-family="Helvetica" font-size="2.117" text-anchor="middle" fill="#000000" xml:space="preserve"><tspan x="5.694" y="6.536">E</tspan><tspan x="5.694" y="9.076">V</tspan></text>
+<path d="M8.394 2.244 L8.394 8.244" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+<path d="M7.794 3.044 L7.794 8.244" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+<path d="M7.794 8.244 L8.394 8.244" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+<path d="M7.194 3.044 L7.794 3.044" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+<path d="M0.444 12.444 L7.944 12.444 L7.944 10.944 L0.444 10.944 L0.444 12.444 Z" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+<path d="M1.194 10.944 L7.194 10.944 L7.194 0.444 L1.194 0.444 L1.194 10.944 Z" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+</svg>

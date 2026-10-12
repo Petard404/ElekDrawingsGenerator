@@ -1,0 +1,44 @@
+{
+  "height": 1.668,
+  "id": "socket_child_protection_n",
+  "primitives": [
+    {
+      "cx": 1.999,
+      "cy": 1.668,
+      "end_deg": 360.017,
+      "r": 1.667,
+      "start_deg": 179.983,
+      "type": "arc"
+    },
+    {
+      "type": "line",
+      "x1": 0.333,
+      "x2": 0.0,
+      "y1": 1.668,
+      "y2": 1.668
+    },
+    {
+      "type": "line",
+      "x1": 4.001,
+      "x2": 3.667,
+      "y1": 1.668,
+      "y2": 1.668
+    },
+    {
+      "type": "line",
+      "x1": 4.006,
+      "x2": 0.006,
+      "y1": 0.0,
+      "y2": 0.0
+    },
+    {
+      "type": "line",
+      "x1": 3.816,
+      "x2": 2.897,
+      "y1": 0.24,
+      "y2": 1.16
+    }
+  ],
+  "source": "svg-2023/socket_child_protection_n.svg",
+  "width": 4.006
+}

@@ -1,0 +1,42 @@
+{
+  "height": 6.0,
+  "id": "appliance_general",
+  "primitives": [
+    {
+      "closed": false,
+      "fill": null,
+      "points": [
+        [
+          1.25,
+          6.0
+        ],
+        [
+          1.25,
+          0.0
+        ],
+        [
+          7.25,
+          0.0
+        ],
+        [
+          7.25,
+          6.0
+        ],
+        [
+          1.25,
+          6.0
+        ]
+      ],
+      "type": "polyline"
+    },
+    {
+      "type": "line",
+      "x1": 0.0,
+      "x2": 1.25,
+      "y1": 3.0,
+      "y2": 3.0
+    }
+  ],
+  "source": "svg-2023/appliance_general.svg",
+  "width": 7.25
+}

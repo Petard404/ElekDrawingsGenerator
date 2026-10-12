@@ -1,0 +1,22 @@
+{
+  "height": 4.0,
+  "id": "transformer",
+  "primitives": [
+    {
+      "cx": 5.0,
+      "cy": 2.0,
+      "fill": null,
+      "r": 2.0,
+      "type": "circle"
+    },
+    {
+      "cx": 2.0,
+      "cy": 2.0,
+      "fill": null,
+      "r": 2.0,
+      "type": "circle"
+    }
+  ],
+  "source": "svg-2023/transformer.svg",
+  "width": 7.0
+}

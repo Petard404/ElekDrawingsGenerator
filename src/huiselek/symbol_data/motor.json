@@ -1,0 +1,24 @@
+{
+  "height": 4.0,
+  "id": "motor",
+  "primitives": [
+    {
+      "cx": 2.0,
+      "cy": 2.0,
+      "fill": null,
+      "r": 2.0,
+      "type": "circle"
+    },
+    {
+      "anchor": "middle",
+      "rotation": 0.0,
+      "size": 2.822,
+      "text": "M",
+      "type": "text",
+      "x": 2.0,
+      "y": 3.016
+    }
+  ],
+  "source": "svg-2023/motor.svg",
+  "width": 4.0
+}

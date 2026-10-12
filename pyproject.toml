@@ -26,6 +26,9 @@ huiselek = "huiselek.cli:main"
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.package-data]
+huiselek = ["symbol_table.yaml", "symbol_data/*.json"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"

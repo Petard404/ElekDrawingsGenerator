@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="7.931mm" height="19.885mm" viewBox="0 0 7.931 19.885" stroke-linecap="round" stroke-linejoin="round">
+<!-- AREI Visio stencil Elektrische leidingen.vssx, master "Leiding in buis in wand" (symbol line_in_conduit_in_wall); converted by tools/vssx_to_svg.py -->
+<path d="M7.531 19.442 L7.531 0.442 L3.731 0.442 L3.731 19.442 L7.531 19.442 Z" fill="none" stroke="none" fill-rule="evenodd"/>
+<text x="6.393" y="9.942" font-family="Helvetica" font-size="2.117" text-anchor="middle" fill="#000000" xml:space="preserve" transform="rotate(-90 6.393 9.942)">XVB Cca 3G2.5²</text>
+<path d="M2.131 17.642 L2.131 13.642 L0.531 13.642 L0.531 17.642 L2.131 17.642 Z" fill="none" stroke="none" fill-rule="evenodd"/>
+<text x="2.093" y="15.642" font-family="Helvetica" font-size="2.117" text-anchor="middle" fill="#000000" xml:space="preserve" transform="rotate(-90 2.093 15.642)">n</text>
+<path d="M2.731 0.442 L2.731 17.442 L2.731 19.442" fill="none" stroke="#000000" stroke-width="0.085" fill-rule="evenodd"/>
+<path d="M3.731 18.442 L2.731 17.442 L1.731 16.442" fill="none" stroke="#000000" stroke-width="0.085" fill-rule="evenodd"/>
+<path d="M2.031 1.442 L0.631 1.442 L0.631 4.492 L2.031 4.492" fill="none" stroke="#000000" stroke-width="0.085" fill-rule="evenodd"/>
+<path d="M2.031 9.842 L0.631 9.842 L0.631 12.892 L2.031 12.892" fill="none" stroke="#000000" stroke-width="0.085" fill-rule="evenodd"/>
+<path d="M2.031 2.942 L0.631 2.942" fill="none" stroke="#000000" stroke-width="0.085" fill-rule="evenodd"/>
+<path d="M2.031 11.342 L0.631 11.342" fill="none" stroke="#000000" stroke-width="0.085" fill-rule="evenodd"/>
+<path d="M1.331 5.942 C1.014 5.942 0.756 6.185 0.756 6.485 C0.756 6.785 1.014 7.028 1.331 7.028 C1.537 7.028 1.727 6.925 1.829 6.757 C1.932 6.589 1.932 6.382 1.829 6.214 C1.727 6.046 1.537 5.942 1.331 5.942 Z" fill="none" stroke="#000000" stroke-width="0.085" fill-rule="evenodd"/>
+</svg>

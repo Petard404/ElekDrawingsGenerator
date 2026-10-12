@@ -1,0 +1,51 @@
+{
+  "height": 6.0,
+  "id": "kwh_meter",
+  "primitives": [
+    {
+      "anchor": "middle",
+      "rotation": 0.0,
+      "size": 2.117,
+      "text": "kWh",
+      "type": "text",
+      "x": 2.992,
+      "y": 4.837
+    },
+    {
+      "type": "line",
+      "x1": 6.0,
+      "x2": 0.0,
+      "y1": 2.0,
+      "y2": 2.0
+    },
+    {
+      "closed": false,
+      "fill": null,
+      "points": [
+        [
+          0.0,
+          6.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          6.0,
+          0.0
+        ],
+        [
+          6.0,
+          6.0
+        ],
+        [
+          0.0,
+          6.0
+        ]
+      ],
+      "type": "polyline"
+    }
+  ],
+  "source": "svg-2023/kwh_meter.svg",
+  "width": 6.0
+}

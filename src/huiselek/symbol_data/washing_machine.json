@@ -1,0 +1,53 @@
+{
+  "height": 6.0,
+  "id": "washing_machine",
+  "primitives": [
+    {
+      "closed": false,
+      "fill": null,
+      "points": [
+        [
+          0.0,
+          3.0
+        ],
+        [
+          0.0,
+          6.0
+        ],
+        [
+          6.0,
+          6.0
+        ],
+        [
+          6.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          3.0
+        ]
+      ],
+      "type": "polyline"
+    },
+    {
+      "cx": 3.0,
+      "cy": 3.0,
+      "fill": null,
+      "r": 2.0,
+      "type": "circle"
+    },
+    {
+      "cx": 3.0,
+      "cy": 3.0,
+      "fill": "#000000",
+      "r": 0.8,
+      "type": "circle"
+    }
+  ],
+  "source": "svg-2023/washing_machine.svg",
+  "width": 6.0
+}

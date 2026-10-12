@@ -1,0 +1,61 @@
+{
+  "height": 10.0,
+  "id": "differential",
+  "primitives": [
+    {
+      "type": "line",
+      "x1": 3.431,
+      "x2": 3.431,
+      "y1": 0.0,
+      "y2": 2.0
+    },
+    {
+      "closed": false,
+      "fill": null,
+      "points": [
+        [
+          3.431,
+          10.0
+        ],
+        [
+          3.431,
+          8.0
+        ],
+        [
+          1.951,
+          5.039
+        ],
+        [
+          0.531,
+          2.2
+        ]
+      ],
+      "type": "polyline"
+    },
+    {
+      "closed": true,
+      "fill": "#000000",
+      "points": [
+        [
+          0.62,
+          3.721
+        ],
+        [
+          1.158,
+          3.456
+        ],
+        [
+          0.538,
+          2.2
+        ],
+        [
+          0.0,
+          2.466
+        ]
+      ],
+      "type": "polyline"
+    }
+  ],
+  "source": "svg-2023/differential.svg",
+  "width": 3.431
+}

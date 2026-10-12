@@ -1,0 +1,22 @@
+{
+  "height": 3.0,
+  "id": "push_button",
+  "primitives": [
+    {
+      "cx": 1.5,
+      "cy": 1.5,
+      "fill": null,
+      "r": 1.5,
+      "type": "circle"
+    },
+    {
+      "cx": 1.5,
+      "cy": 1.5,
+      "fill": null,
+      "r": 0.75,
+      "type": "circle"
+    }
+  ],
+  "source": "svg-2023/push_button.svg",
+  "width": 3.0
+}

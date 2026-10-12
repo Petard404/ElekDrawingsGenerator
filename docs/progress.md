@@ -1,5 +1,17 @@
 # Progress
 
+## 2026-10-12 · M2 Symbols done (sheet approved)
+
+- 2.1 `primitives.py` (styled primitives, Page, Overlay), `render_svg.py` (fixed number format and order), golden `tests/golden/primitives_page.svg` (candidates via `tests/make_golden.py` to `out/golden/`). `.gitattributes` keeps golden and symbol data byte-stable.
+- 2.2 `tools/vssx_to_svg.py`: 41 masters from the 2023 Visio stencils to `docs/reference/arei/svg-2023/`. `tools/extract_official.py`: 115 table 2.23 images to `official/images/` with `index.csv`.
+- 2.3 `tools/svg_to_symbol.py` + `src/huiselek/symbol_table.yaml` → `symbol_data/*.json`; rules rotate, mirror, keep_text, drop, text_at (official image wins). Deterministic.
+- 2.4/2.5 points and anchors per symbol; `symbols.py` with `load_symbols`, `Symbol.place/point`; code-drawn `page_link` and `photo_detector` measured from House A.
+- 2.6 `python -m huiselek symbols -o out/symbolen.pdf`: 7-page three-column sheet; `export_pdf.py` with overlays.
+- Sheet review: names in AREI wording; new `socket_waterproof` (protective conductor + child protection + h) for `variant: waterproof`, plain one as `waterproof_plain`; 1~/3~ in the official arc shape; impulse relay marks moved up. 42 symbols, 810 tests pass. Fresh-agent review done; decisions logged.
+- Notes for M3: symbol sizes are at library scale (tune with `scale`); House A page 1 bus measured at x 34.57, not 63.5 as in the Layout table; model→symbol mapping (socket variant, appliance type incl. `general`) is still to write; child-protection feet are 0.2 × radius against about 0.3 in the official image; the impulse relay box is taller than the official one (2.3:1 against 4.4:1).
+
+**Next step:** M3 One page, starting with task 3.1 (layout design note). Read CLAUDE.md, the plan's Layout and M3 rows, and the decision log entries of 12 October.
+
 ## 2026-10-12 · M1 Skeleton done
 
 - Package skeleton in `src/huiselek/`, pinned dependencies, started with `python -m huiselek` (the `huiselek.exe` launcher is blocked by Windows Application Control on this PC).

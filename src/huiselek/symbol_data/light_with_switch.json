@@ -1,0 +1,34 @@
+{
+  "height": 4.0,
+  "id": "light_with_switch",
+  "primitives": [
+    {
+      "closed": false,
+      "fill": null,
+      "points": [
+        [
+          0.0,
+          4.0
+        ],
+        [
+          4.0,
+          0.0
+        ],
+        [
+          4.967,
+          0.967
+        ]
+      ],
+      "type": "polyline"
+    },
+    {
+      "type": "line",
+      "x1": 4.0,
+      "x2": 0.0,
+      "y1": 4.0,
+      "y2": 0.0
+    }
+  ],
+  "source": "svg-2023/light_with_switch.svg",
+  "width": 4.967
+}

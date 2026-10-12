@@ -1,0 +1,42 @@
+{
+  "height": 2.0,
+  "id": "fuse",
+  "primitives": [
+    {
+      "closed": false,
+      "fill": null,
+      "points": [
+        [
+          2.0,
+          0.0
+        ],
+        [
+          2.0,
+          2.0
+        ],
+        [
+          8.0,
+          2.0
+        ],
+        [
+          8.0,
+          0.0
+        ],
+        [
+          2.0,
+          0.0
+        ]
+      ],
+      "type": "polyline"
+    },
+    {
+      "type": "line",
+      "x1": 10.0,
+      "x2": 0.0,
+      "y1": 1.0,
+      "y2": 1.0
+    }
+  ],
+  "source": "svg-2023/fuse.svg",
+  "width": 10.0
+}

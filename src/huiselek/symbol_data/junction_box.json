@@ -1,0 +1,22 @@
+{
+  "height": 4.0,
+  "id": "junction_box",
+  "primitives": [
+    {
+      "cx": 2.0,
+      "cy": 2.0,
+      "fill": null,
+      "r": 2.0,
+      "type": "circle"
+    },
+    {
+      "cx": 2.0,
+      "cy": 2.0,
+      "fill": "#000000",
+      "r": 0.5,
+      "type": "circle"
+    }
+  ],
+  "source": "svg-2023/junction_box.svg",
+  "width": 4.0
+}

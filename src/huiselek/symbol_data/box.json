@@ -1,0 +1,15 @@
+{
+  "height": 4.0,
+  "id": "box",
+  "primitives": [
+    {
+      "cx": 2.0,
+      "cy": 2.0,
+      "fill": null,
+      "r": 2.0,
+      "type": "circle"
+    }
+  ],
+  "source": "svg-2023/box.svg",
+  "width": 4.0
+}

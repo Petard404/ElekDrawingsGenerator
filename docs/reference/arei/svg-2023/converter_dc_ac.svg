@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="17.157mm" height="6.888mm" viewBox="0 0 17.157 6.888" stroke-linecap="round" stroke-linejoin="round">
+<!-- AREI Visio stencil Bronnen.vssx, master "Gelijkrichter/Omvormer DC → AC" (symbol converter_dc_ac); converted by tools/vssx_to_svg.py -->
+<path d="M0.444 6.444 L6.444 6.444 L6.444 0.444 L0.444 0.444 L0.444 6.444 Z" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+<path d="M0.444 6.444 L6.444 0.444" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+<path d="M3.374 4.644 L6.114 4.644" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+<path d="M3.374 5.444 L4.054 5.444" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+<path d="M5.434 5.444 L6.114 5.444" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+<path d="M4.404 5.444 L5.084 5.444" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+<path d="M0.804 1.803 L3.544 1.803" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+<path d="M0.804 2.603 L1.484 2.603" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+<path d="M2.864 2.603 L3.544 2.603" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+<path d="M1.834 2.603 L2.514 2.603" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+<path d="M7.444 6.434 L16.444 6.434 L16.444 0.434 L7.444 0.434 L7.444 6.434 Z" fill="none" stroke="none" fill-rule="evenodd"/>
+<text font-family="Helvetica" font-size="1.411" text-anchor="start" fill="#000000" xml:space="preserve"><tspan x="7.444" y="3.095">Pmax U prim.</tspan><tspan x="7.444" y="4.789">Pmax U sec.</tspan></text>
+</svg>

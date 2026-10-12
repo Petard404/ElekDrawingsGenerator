@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="7.885mm" height="3.885mm" viewBox="0 0 7.885 3.885" stroke-linecap="round" stroke-linejoin="round">
+<!-- AREI Visio stencil Schakelaars.vssx, master "Impulsschakelaar" (symbol impulse_relay); converted by tools/vssx_to_svg.py -->
+<path d="M0.442 3.442 L7.442 3.442 L7.442 0.442 L0.442 0.442 L0.442 3.442 Z" fill="none" stroke="#000000" stroke-width="0.085" fill-rule="evenodd"/>
+<path d="M6.442 2.442 L4.442 2.442 L4.442 1.442" fill="none" stroke="#000000" stroke-width="0.085" fill-rule="evenodd"/>
+<path d="M1.442 2.442 L3.442 2.442 L3.442 1.442" fill="none" stroke="#000000" stroke-width="0.085" fill-rule="evenodd"/>
+</svg>

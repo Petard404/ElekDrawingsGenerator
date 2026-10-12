@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="18.658mm" height="10.885mm" viewBox="0 0 18.658 10.885" stroke-linecap="round" stroke-linejoin="round">
+<!-- AREI Visio stencil Beschermingstoestellen.vssx, master "Differentieel 2023" (symbol differential); converted by tools/vssx_to_svg.py -->
+<path d="M3.873 0.442 L3.873 2.442" fill="none" stroke="#000000" stroke-width="0.085" fill-rule="evenodd"/>
+<path d="M3.873 10.442 L3.873 8.442 L2.393 5.481 L0.973 2.642" fill="none" stroke="#000000" stroke-width="0.085" fill-rule="evenodd"/>
+<path d="M1.234 6.071" fill="none" stroke="#000000" stroke-width="0.085" fill-rule="evenodd"/>
+<path d="M1.062 4.163 L1.6 3.898 L0.98 2.642 L0.442 2.908 L1.062 4.163 Z" fill="#000000" stroke="#000000" stroke-width="0.085" fill-rule="evenodd"/>
+<path d="M3.808 10.442 L18.258 10.442 L18.258 0.442 L3.808 0.442 L3.808 10.442 Z" fill="none" stroke="none" fill-rule="evenodd"/>
+<text font-family="Helvetica" font-size="2.117" text-anchor="middle" fill="#000000" xml:space="preserve"><tspan x="11.033" y="3.664">40A / △0.3A</tspan><tspan x="11.033" y="6.204">2P</tspan><tspan x="11.033" y="8.744">Type A</tspan></text>
+</svg>

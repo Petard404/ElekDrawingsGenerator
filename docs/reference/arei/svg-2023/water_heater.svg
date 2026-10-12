@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="4.788mm" height="4.888mm" viewBox="0 0 4.788 4.888" stroke-linecap="round" stroke-linejoin="round">
+<!-- AREI Visio stencil Verbruikstoestellen.vssx, master "Boiler" (symbol water_heater); converted by tools/vssx_to_svg.py -->
+<path d="M3.863 1.128 C3.724 0.965 3.56 0.826 3.377 0.717 C3.225 0.626 3.062 0.556 2.892 0.51 C2.733 0.467 2.57 0.445 2.406 0.444 C2.242 0.443 2.079 0.463 1.92 0.504 C1.75 0.548 1.587 0.615 1.435 0.703 C1.251 0.809 1.085 0.946 0.944 1.107 C0.279 1.865 0.277 3.015 0.939 3.776 C1.081 3.939 1.249 4.077 1.435 4.185 C1.587 4.274 1.75 4.341 1.92 4.384 C2.079 4.425 2.242 4.445 2.406 4.444 C2.57 4.443 2.733 4.421 2.892 4.378 C3.062 4.332 3.225 4.262 3.377 4.171 C3.56 4.062 3.724 3.923 3.863 3.759 C4.504 3.006 4.504 1.882 3.863 1.129 L3.863 1.128 Z" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+<path d="M1.92 0.503 L1.92 0.504" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+<path d="M0.944 1.104 L0.944 1.107 L0.939 3.776" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+<path d="M2.892 0.51 L2.892 4.378" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+<path d="M1.435 4.185 L1.435 0.703" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+<path d="M1.92 4.384 L1.92 0.504" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+<path d="M3.863 3.759 L3.863 1.129" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+<path d="M3.377 4.171 L3.377 0.717" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+<path d="M2.406 4.444 L2.406 0.444" fill="none" stroke="#000000" stroke-width="0.088" fill-rule="evenodd"/>
+</svg>

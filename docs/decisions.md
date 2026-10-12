@@ -172,3 +172,39 @@ One entry per decision: date, decision, alternatives considered, reason.
 - **Decision:** `supply.voltage` is one of `230V` (single-phase, two conductors), `3x230V`, `3N400V`. The text on the drawing comes from the label template `supply_voltage`, so House A can keep "3*230 V".
 - **Alternatives:** Free text (as in task 1.3); a separate `system` field next to free-text voltage.
 - **Reason:** Owner's choice after the M1 review. Later tools such as the PLC design need the network type without parsing text; one field avoids two values that can contradict.
+
+## 2026-10-12 · M2 scope adjustments
+
+- **Decision:** (1) No difference list between the old SVG set and the 2023 set; every needed symbol comes from the 2023 stencils and is compared with the official table image on the sheet. (2) Scripts in `tools/` may use the development dependencies (pypdf extracts the official table images). (3) M8 symbols and installation mark symbols are converted in M2 and approved on the same sheet. (4) A minimal `export_pdf.py` is written in task 2.6 for the sheet; task 4.3 completes it.
+- **Alternatives:** Keep the difference list; standard library only with a one-off extraction; convert M8 symbols in M8; a separate sheet export.
+- **Reason:** Owner's choice; less work, one approval for all symbols, and the official table already checks the 2023 changes.
+
+## 2026-10-12 · Installation marks in scope, later
+
+- **Decision:** Installation marks (in wall, on wall, in conduit in wall) are in scope for the tool, in a later milestone. Their symbols are converted in M2; the model field and layout come later.
+- **Alternatives:** Out of version 1 (plan version 2).
+- **Reason:** Owner's choice; they belong on a complete single-line diagram.
+
+## 2026-10-12 · Symbol conversion rules: the official image wins
+
+- **Decision:** Library symbols are converted with per-symbol table fields: `rotate` and `mirror` to match the orientation of the official image, `keep_text` to keep only text that is part of the symbol (placeholders such as "20A" or "XVB Cca 3G2.5²" are dropped; the layout writes values), `drop` to remove library geometry the official image lacks (the count slash on installation marks), `text_at` to place kept text as in the official image. Line widths are not stored; symbols use `symbol_stroke_mm` (0.26, the House A value). Both converters come from the library's "AC → DC" master, which is really DC → AC (input top-left); AC → DC is the same master rotated 180°. The library's "DC → AC" master is broken and unused.
+- **Alternatives:** Use library masters unchanged; redraw differing symbols by hand.
+- **Reason:** AREI table 2.23 is the ground truth; the differences are in the library, and small general options fix them without hand-drawn geometry.
+
+## 2026-10-12 · Symbol connection points
+
+- **Decision:** Every symbol has named points and an anchor in `symbol_table.yaml`: `a`/`b` for two-terminal devices on a line, `in` (and `out` for the transformer) for end devices, `center` for marks placed on a cable, `label` beside socket stems for the count. `Symbol.place(x, y, rotation)` puts the anchor on (x, y) with rotation 0/90/180/270 clockwise. Sizes stay at library scale until M3 (optional `scale` field). Socket ids follow the model variants (`socket_protective_conductor`). The model gets appliance type `general` (vast elektrisch huishoudtoestel).
+- **Alternatives:** Points computed in the layout per symbol; Haiku-batched point entry (plan); scale fixed now.
+- **Reason:** One table keeps symbol geometry knowledge out of the layout. Points need judgement and checking against geometry, so one Sonnet task did table and loader together. Scale depends on the layout, measured in M3.
+
+## 2026-10-12 · Symbol review sheet via image overlays
+
+- **Decision:** `symbol_sheet.py` (a twelfth module) builds the sheet as pages of primitives; official images and library SVGs are drawn by `export_pdf` as overlays on the same canvas (`export_pdf(svgs, out, overlays=None)`). The sheet reads `docs/reference/arei` from the repository and fails with one Dutch line (`reference_missing`) when that is absent, as in an installed package. Helper scripts `tools/contact_sheet.py` and `tools/symbol_points.py` are kept as development aids.
+- **Alternatives:** `<image>` elements inside the SVG; drawing the whole sheet directly with ReportLab.
+- **Reason:** svglib refuses absolute image references. Overlays keep the sheet's own content on our SVG route and keep the sheet module free of PDF code.
+
+## 2026-10-12 · Symbol names, waterproof socket, phase marks (sheet review)
+
+- **Decision:** (1) Symbol names on the sheet and in labels use the wording of AREI table 2.23 where the table has the symbol; our own names only for symbols it lacks (photo detector, page link, domotica parts, n-count sockets). (2) A waterproof socket with protective conductor and child protection (bar, feet and "h") is added; it is what `variant: waterproof` draws, the current default for waterproof sockets. The table's plain waterproof socket becomes `variant: waterproof_plain`. (3) The 1~ and 3~ marks use the official arc shape (half circle up, half circle down) instead of the library's sine. (4) The impulse relay's contact marks move up, closer to the official image. Photo detector and page link are approved as measured from House A.
+- **Alternatives:** Library names; plain waterproof socket as `waterproof`; keep the library's sine wave and mark positions.
+- **Reason:** Owner's review of the symbol sheet; the sheet is approved with these changes.

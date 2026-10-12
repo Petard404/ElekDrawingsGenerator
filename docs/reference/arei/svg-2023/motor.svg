@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="4.885mm" height="4.885mm" viewBox="0 0 4.885 4.885" stroke-linecap="round" stroke-linejoin="round">
+<!-- AREI Visio stencil Verbruikstoestellen.vssx, master "Motor" (symbol motor); converted by tools/vssx_to_svg.py -->
+<circle cx="2.442" cy="2.442" r="2" fill="none" stroke="#000000" stroke-width="0.085"/>
+<path d="M0.442 4.442 L4.442 4.442 L4.442 0.442 L0.442 0.442 L0.442 4.442 Z" fill="none" stroke="none" fill-rule="evenodd"/>
+<text font-family="Helvetica" font-size="2.822" text-anchor="middle" fill="#000000" xml:space="preserve"><tspan x="2.442" y="3.458">M</tspan></text>
+</svg>

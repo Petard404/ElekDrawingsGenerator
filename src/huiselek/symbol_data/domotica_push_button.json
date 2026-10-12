@@ -1,0 +1,22 @@
+{
+  "height": 1.8,
+  "id": "domotica_push_button",
+  "primitives": [
+    {
+      "cx": 0.9,
+      "cy": 0.9,
+      "fill": null,
+      "r": 0.9,
+      "type": "circle"
+    },
+    {
+      "cx": 0.9,
+      "cy": 0.9,
+      "fill": null,
+      "r": 0.45,
+      "type": "circle"
+    }
+  ],
+  "source": "svg-2023/domotica_push_button.svg",
+  "width": 1.8
+}

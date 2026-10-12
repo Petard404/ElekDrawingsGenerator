@@ -47,6 +47,9 @@ _BAD_ID_ROOT = "het hoofdelement heeft geen geldige 'id'"
 _BAD_ID_PAGE = "een pagina heeft geen geldige 'id'"
 
 ERROR_VARIANTS: dict[str, str] = {
+    "reference_missing.dir": "Referentiemap niet gevonden: {path}",
+    "reference_missing.file": "{id}: bronbestand niet gevonden: {path}",
+    "reference_missing.data": "{id}: symboolbestand niet gevonden: {path}",
     "missing_field.id": _BAD_ID_UNDER,
     "missing_field.root_id": _BAD_ID_ROOT,
     "missing_field.page_id": _BAD_ID_PAGE,
@@ -125,7 +128,117 @@ CLI_FILE_HELP = "YAML-bestand met de beschrijving van de installatie"
 CLI_OUTPUT_HELP = "pad van het PDF-bestand dat gemaakt wordt"
 CLI_ERROR_PREFIX = "Fout: "
 CLI_TOO_DEEP = "het bestand is te diep genest"
+CLI_WRITE_ERROR = "Kan het bestand niet schrijven: {path}"
 CLI_OK = (
     "{file}: geldig, {elements} elementen, aantal pagina's: {pages}. "
     "Tekenen volgt in een latere versie."
 )
+
+# `symbols` subcommand (symbol review sheet).
+CLI_SYMBOLS_HELP = "Maak het controleblad met alle symbolen (officieel, bibliotheek, gegenereerd)."
+CLI_SYMBOLS_OUTPUT_HELP = "pad van het PDF-bestand (standaard: out/symbolen.pdf)"
+CLI_SYMBOLS_OK = "Controleblad geschreven: {path} ({pages} pagina's)"
+
+# Symbol review sheet texts.
+SHEET_TITLE = "AREI symbolen – controleblad"
+SHEET_COLUMNS: tuple[str, str, str] = (
+    "Officiële afbeelding",
+    "Bibliotheek (bron)",
+    "Gegenereerd symbool",
+)
+SHEET_NO_OFFICIAL = "geen officiële afbeelding"
+SHEET_PAGE = "Pagina {n} van {total}"
+SHEET_SCALE = "schaal {k}x"
+SHEET_NOTES: tuple[str, ...] = (
+    "Kolom 1: afbeelding uit de officiële AREI-tabel (eigen schaal). Kolom 2: bronbestand uit de "
+    "AREI-bibliotheek, ongewijzigd. Kolom 3: het symbool zoals de tool het tekent.",
+    "Kolom 2 en 3 staan op dezelfde schaal (per rij vermeld); lijndikte in kolom 3 is vast. "
+    "Rode cirkel: verbindingspunt met naam. Blauwe stip: ankerpunt, het punt dat de indeling plaatst.",
+)
+
+# Symbol groups of the sheet, in order (ids as in symbol_table.yaml and symbols.CODE_DRAWN).
+SYMBOL_GROUPS: tuple[tuple[str, tuple[str, ...]], ...] = (
+    ("Beveiliging", ("breaker", "differential", "fuse")),
+    ("Voeding", ("kwh_meter", "single_phase", "three_phase")),
+    ("Leidingen", ("conductors",)),
+    ("Stopcontacten", (
+        "socket_protective_conductor", "socket_protective_conductor_n", "socket_child_protection",
+        "socket_child_protection_n", "socket_waterproof", "socket_waterproof_plain",
+    )),
+    ("Verlichting en schakelaars", ("light", "light_with_switch", "switch", "impulse_relay")),
+    ("Toestellen", (
+        "oven", "dishwasher", "washing_machine", "dryer", "stove", "water_heater",
+        "heating_device", "ev_charger", "appliance_general",
+    )),
+    ("Overige", ("transformer", "converter_ac_dc", "converter_dc_ac", "box", "junction_box", "board")),
+    ("In code getekend", ("page_link", "photo_detector")),
+    ("Domotica (M8)", (
+        "push_button", "domotica_detection", "domotica_clock", "domotica_push_button",
+        "domotica_wireless", "motor",
+    )),
+    ("Installatietekens", ("line_in_conduit", "line_in_conduit_in_wall", "line_in_wall", "line_on_wall")),
+)
+SHEET_OTHER_GROUP = "Niet ingedeeld"
+
+# Dutch symbol names. Where a symbol has an official image the name is the wording of AREI
+# table 2.23 (official/images/index.csv, line breaks of the table joined; "Algemene voorstelling"
+# etc. kept, "differential" gets a hyphen so it can wrap, "voorgesteld met elektrische toevoerleiding" dropped from the light point).
+# Ours, with no official image or wording: page_link, photo_detector, the four domotica_* (named
+# after the legend lines of table J), socket_protective_conductor_n and socket_child_protection_n
+# (the official wording plus "met aantal (n)").
+SYMBOL_NAMES: dict[str, str] = {
+    "appliance_general": "Vast elektrisch huishoudtoestel",
+    "board": "Algemene voorstelling van een schakel- en verdeelbord",
+    "box": "Doos",
+    "breaker": "Automatische schakelaar of vermogensschakelaar",
+    "conductors": "Elektrische leiding met n geleiders",
+    "converter_ac_dc": "Gelijkrichter/omvormer AC <-> DC",
+    "converter_dc_ac": "Omvormer DC -> AC",
+    "differential": "Differentieelstroom-beschermingsinrichting",
+    "dishwasher": "Afwasmachine",
+    "domotica_clock": "Domotica: geprogrammeerde sturing",
+    "domotica_detection": "Domotica: sturing door detectie",
+    "domotica_push_button": "Domotica: lokale sturing door drukknop",
+    "domotica_wireless": "Domotica: draadloze sturing",
+    "dryer": "Droogkast",
+    "ev_charger": "Laadinrichting voor elektrische wegvoertuigen",
+    "fuse": "Smeltzekering",
+    "heating_device": "Verwarmingstoestel",
+    "impulse_relay": "Impulsschakelaar",
+    "junction_box": "Verbindingsdoos, aftakdoos, aansluitdoos",
+    "kwh_meter": "kWh-teller",
+    "light": "Aansluitpunt voor een verlichtingstoestel",
+    "light_with_switch": "Verlichtingstoestel met ingebouwde eenpolige schakelaar",
+    "line_in_conduit": "Elektrische leiding in een buis",
+    "line_in_conduit_in_wall": "Elektrische leiding geplaatst in een buis in een wand",
+    "line_in_wall": "Elektrische leiding in een wand",
+    "line_on_wall": "Elektrische leiding op een wand",
+    "motor": "Motor",
+    "oven": "Elektrische oven",
+    "page_link": "Paginaverwijzing",
+    "photo_detector": "Fotocel (schemerschakelaar)",
+    "push_button": "Drukknop",
+    "single_phase": "Eenfasige wisselstroom",
+    "socket_child_protection": (
+        "Contactdoos met contact voor beschermingsgeleider en met kinderbescherming"
+    ),
+    "socket_child_protection_n": (
+        "Contactdoos met contact voor beschermingsgeleider en met kinderbescherming, "
+        "met aantal (n)"
+    ),
+    "socket_protective_conductor": "Contactdoos met contact voor beschermingsgeleider",
+    "socket_protective_conductor_n": (
+        "Contactdoos met contact voor beschermingsgeleider, met aantal (n)"
+    ),
+    "socket_waterproof": (
+        "Waterdichte contactdoos met contact voor beschermingsgeleider en met kinderbescherming"
+    ),
+    "socket_waterproof_plain": "Half-waterdichte, waterdichte of hermetische contactdoos",
+    "stove": "Elektrisch fornuis",
+    "switch": "Schakelaar",
+    "three_phase": "Driefasige wisselstroom",
+    "transformer": "Transformator",
+    "washing_machine": "Wasmachine",
+    "water_heater": "Boiler",
+}
+SHEET_NO_SOURCE = "in code getekend"

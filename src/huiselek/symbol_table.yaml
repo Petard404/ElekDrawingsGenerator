@@ -1,0 +1,459 @@
+# AREI symbol table: conversion fields only.
+# Read by tools/svg_to_symbol.py (writes src/huiselek/symbol_data/<id>.json).
+# Read by src/huiselek/symbols.py (anchor, points; the conversion fields above are ignored there).
+#
+# anchor     name of the point that the layout positions (the symbol lands with this point on x, y)
+# points     name -> [x, y] in the symbol's own frame (mm, the frame of its JSON), base orientation:
+#              a, b     the two ends of a two-terminal device on a line, or the ends of a mark's base line
+#              in       where the incoming line meets an end device (free end of its wire stub, else
+#                       the point on the outline on the side the official image shows the lead);
+#                       the lead arrives from the left, except sockets: from above, onto the stem
+#              out      second terminal where there is one (transformer)
+#              center   a mark (conductors, three_phase, ...) is placed centred on a cable
+#              label    text position for a count number or label (not on the geometry)
+# scale      not supported yet (sizes are tuned in M3)
+#
+# source     svg file relative to docs/reference/arei/
+# official   stems of the official table images (docs/reference/arei/official/images) that show it
+# rotate     degrees clockwise (0/90/180/270) so the symbol has the orientation of the official image
+# keep_text  text that belongs to the symbol; all other library text is a placeholder and is dropped
+# mirror     optional, vertical (top<->bottom) or horizontal (left<->right); applied before rotate
+# drop       optional, indices of primitives to remove, counted in the primitive list produced from
+#            the SVG (after text filtering, in output order, before mirror/rotate/translate); one
+#            comment per drop says what goes
+# text_at    optional, {text: [x, y]}: baseline position (mm) of that kept text in the final
+#            (rotated and translated) symbol frame, whose origin is the top-left of the geometry
+# add        optional, list of primitives (same JSON shape as symbol_data/<id>.json: type + its fields,
+#            text included) appended in the final symbol frame, i.e. after drop/mirror/rotate/translate
+#            and text_at (if drop leaves no geometry, the frame is the rotated source frame). Then the
+#            symbol is re-translated so the bounding box of all geometry starts at (0, 0), which also
+#            shifts text; `points` must be given in the frame after that shift.
+#
+# The official image wins over the library. The library master converter_dc_ac is broken
+# (no sine wave), and the master converter_ac_dc actually shows DC top-left / AC bottom-right,
+# which is the IEC DC->AC (inverter) form with the input top-left (official p8_03). So
+# converter_dc_ac uses converter_ac_dc.svg unrotated, and converter_ac_dc (AC top-left,
+# DC bottom-right, official p8_01) uses the same file rotated by 180.
+
+appliance_general:
+  source: svg-2023/appliance_general.svg
+  official: [p7_01]
+  rotate: 0
+  keep_text: []
+  anchor: in
+  points:
+    in: [0, 3]
+
+board:
+  source: svg-2023/board.svg
+  official: [p1_05]
+  rotate: 0
+  keep_text: []
+  anchor: in
+  points:
+    in: [0, 2]
+
+box:
+  source: svg-2023/box.svg
+  official: [p1_07]
+  rotate: 0
+  keep_text: []
+  anchor: in
+  points:
+    in: [0, 2]
+
+breaker:
+  source: svg-2023/breaker.svg
+  official: [p2_11, p2_13, p3_01]
+  rotate: 0
+  keep_text: []
+  anchor: a
+  points:
+    a: [3.431, 0]
+    b: [3.431, 10]
+
+conductors:
+  source: svg-2023/conductors.svg
+  official: [p2_05]
+  rotate: 90
+  keep_text: []
+  anchor: center
+  points:
+    a: [0, 1]
+    b: [19, 1]
+    center: [9.5, 1]
+
+converter_ac_dc:
+  source: svg-2023/converter_ac_dc.svg
+  official: [p8_01]
+  rotate: 180
+  keep_text: []
+  anchor: in
+  points:
+    in: [0, 3]
+
+converter_dc_ac:
+  source: svg-2023/converter_ac_dc.svg
+  official: [p8_03]
+  rotate: 0
+  keep_text: []
+  anchor: in
+  points:
+    in: [0, 3]
+
+differential:
+  source: svg-2023/differential.svg
+  official: [p2_14]
+  rotate: 0
+  keep_text: []
+  anchor: a
+  points:
+    a: [3.431, 0]
+    b: [3.431, 10]
+
+dishwasher:
+  source: svg-2023/dishwasher.svg
+  official: [p7_07]
+  rotate: 0
+  keep_text: []
+  anchor: in
+  points:
+    in: [0, 3]
+
+domotica_clock:
+  source: svg-2023/domotica_clock.svg
+  official: [p8_09]
+  rotate: 0
+  keep_text: []
+  anchor: in
+  points:
+    in: [0, 0.9]
+
+domotica_detection:
+  source: svg-2023/domotica_detection.svg
+  official: [p8_09]
+  rotate: 0
+  keep_text: []
+  anchor: in
+  points:
+    in: [0.607, 0.9]
+
+domotica_push_button:
+  source: svg-2023/domotica_push_button.svg
+  official: [p8_09]
+  rotate: 0
+  keep_text: []
+  anchor: in
+  points:
+    in: [0, 0.9]
+
+domotica_wireless:
+  source: svg-2023/domotica_wireless.svg
+  official: [p8_09]
+  rotate: 0
+  keep_text: []
+  anchor: in
+  points:
+    in: [0.237, 0.9]
+
+dryer:
+  source: svg-2023/dryer.svg
+  official: [p7_06]
+  rotate: 0
+  keep_text: []
+  anchor: in
+  points:
+    in: [0, 3]
+
+ev_charger:
+  source: svg-2023/ev_charger.svg
+  official: [p7_11]
+  rotate: 0
+  keep_text: ["V", "E"]
+  anchor: in
+  points:
+    in: [0.75, 5.25]
+
+fuse:
+  source: svg-2023/fuse.svg
+  official: [p2_09, p2_10]
+  rotate: 90
+  keep_text: []
+  anchor: a
+  points:
+    a: [0, 1]
+    b: [10, 1]
+
+heating_device:
+  source: svg-2023/heating_device.svg
+  official: [p6_11]
+  rotate: 0
+  keep_text: []
+  anchor: in
+  points:
+    in: [0, 2]
+
+impulse_relay:
+  source: svg-2023/impulse_relay.svg
+  official: [p4_06]
+  rotate: 0
+  keep_text: []
+  drop: [1, 2]   # library contact marks (right, left); official p4_06 has them about 0.25 mm higher
+  add:
+    - {type: polyline, closed: false, fill: null, points: [[6, 1.75], [4, 1.75], [4, 0.75]]}
+    - {type: polyline, closed: false, fill: null, points: [[1, 1.75], [3, 1.75], [3, 0.75]]}
+  anchor: a
+  points:
+    a: [0, 1.5]
+    b: [7, 1.5]
+
+junction_box:
+  source: svg-2023/junction_box.svg
+  official: [p1_08]
+  rotate: 0
+  keep_text: []
+  anchor: in
+  points:
+    in: [0, 2]
+
+kwh_meter:
+  source: svg-2023/kwh_meter.svg
+  official: [p7_12]
+  rotate: 0
+  keep_text: ["kWh"]
+  anchor: in
+  points:
+    in: [0, 3]
+
+light:
+  source: svg-2023/light.svg
+  official: [p5_07]
+  rotate: 0
+  keep_text: []
+  anchor: in
+  points:
+    in: [2.017, 2]
+
+light_with_switch:
+  source: svg-2023/light_with_switch.svg
+  official: [p5_14]
+  rotate: 0
+  keep_text: []
+  anchor: in
+  points:
+    in: [2, 2]
+
+line_in_conduit:
+  source: svg-2023/line_in_conduit.svg
+  official: [p1_14]
+  rotate: 90
+  keep_text: []
+  drop: [1]          # the n-conductor slash; the official image has none
+  anchor: center
+  points:
+    a: [0, 1.975]
+    b: [19, 1.975]
+    center: [9.5, 1.975]
+
+line_in_conduit_in_wall:
+  source: svg-2023/line_in_conduit_in_wall.svg
+  official: [p2_01]
+  rotate: 90
+  keep_text: []
+  drop: [1, 2, 4]    # the n-conductor slash [1] and the second "pi" shape [2] + its middle leg [4]; official p2_01 has one "pi" and one circle
+  anchor: center
+  points:
+    a: [0, 2.1]
+    b: [19, 2.1]
+    center: [9.5, 2.1]
+
+line_in_wall:
+  source: svg-2023/line_in_wall.svg
+  official: [p1_16]
+  rotate: 90
+  keep_text: []
+  drop: [1]          # the n-conductor slash; the official image has none
+  anchor: center
+  points:
+    a: [0, 2.1]
+    b: [19, 2.1]
+    center: [9.5, 2.1]
+
+line_on_wall:
+  source: svg-2023/line_on_wall.svg
+  official: [p1_17]
+  rotate: 270
+  keep_text: []
+  drop: [4]          # the n-conductor slash; the official image has none
+  anchor: center
+  points:
+    a: [0, 0]
+    b: [19, 0]
+    center: [9.5, 0]
+
+motor:
+  source: svg-2023/motor.svg
+  official: [p7_10]
+  rotate: 0
+  keep_text: ["M"]
+  anchor: in
+  points:
+    in: [0, 2]
+
+oven:
+  source: svg-2023/oven.svg
+  official: [p7_04]
+  rotate: 0
+  keep_text: []
+  anchor: in
+  points:
+    in: [0, 3]
+
+push_button:
+  source: svg-2023/push_button.svg
+  official: [p4_01]
+  rotate: 0
+  keep_text: []
+  anchor: a
+  points:
+    a: [0, 1.5]
+    b: [3, 1.5]
+
+single_phase:
+  source: svg-2023/single_phase.svg
+  official: [p1_03]
+  rotate: 0
+  drop: [1, 2, 3, 4, 5, 6, 7, 8]   # the library sine (4 polylines + 4 end ticks); official arcs are added
+  add:
+    - {type: arc, cx: 0.97, cy: 1.05, r: 0.97, start_deg: 180, end_deg: 360}
+    - {type: arc, cx: 2.91, cy: 1.05, r: 0.97, start_deg: 0, end_deg: 180}
+  keep_text: ["1"]
+  anchor: center
+  points:
+    center: [1.94, 0.97]
+
+socket_child_protection:
+  source: svg-2023/socket_child_protection.svg
+  official: [p5_01]
+  rotate: 90
+  keep_text: []
+  anchor: in
+  points:
+    in: [2, 0]
+    label: [2.8, -0.8]
+
+socket_child_protection_n:
+  source: svg-2023/socket_child_protection_n.svg
+  official: []
+  rotate: 90
+  keep_text: []
+  anchor: in
+  points:
+    in: [2, 0]
+    label: [2.8, -0.8]
+
+socket_protective_conductor:
+  source: svg-2023/socket_protective.svg
+  official: [p4_14]
+  rotate: 90
+  keep_text: []
+  anchor: in
+  points:
+    in: [2, 0]
+    label: [2.8, -0.8]
+
+socket_protective_conductor_n:
+  source: svg-2023/socket_protective_n.svg
+  official: []
+  rotate: 90
+  keep_text: []
+  anchor: in
+  points:
+    in: [2, 0]
+    label: [2.8, -0.8]
+
+# Protective conductor bar + child-protection feet + "h": the combination of p5_01 and p4_13.
+# Geometry from the child-protection master, "h" placed as in socket_waterproof_plain.
+socket_waterproof:
+  source: svg-2023/socket_child_protection.svg
+  official: []
+  rotate: 90
+  keep_text: []
+  add:
+    - {type: text, text: h, x: 4.7, y: -0.5, size: 1.411, anchor: middle, rotation: 0}
+  anchor: in
+  points:
+    in: [2, 0]
+    label: [2.8, -0.8]
+
+socket_waterproof_plain:
+  source: svg-2023/socket_waterproof.svg
+  official: [p4_13]
+  rotate: 90
+  keep_text: ["h"]
+  text_at: {h: [4.0, -0.5]}   # right of and above the dome, as in official p4_13
+  anchor: in
+  points:
+    in: [1.667, 0]
+    label: [2.5, -0.8]
+
+stove:
+  source: svg-2023/stove.svg
+  official: [p7_02]
+  rotate: 0
+  keep_text: []
+  mirror: vertical   # library dots are TR/BL/BR, official p7_02 has TL/TR/BR
+  anchor: in
+  points:
+    in: [0, 3]
+
+switch:
+  source: svg-2023/switch.svg
+  official: [p3_03]
+  rotate: 0
+  keep_text: []
+  anchor: a
+  points:
+    a: [1, 4.632]
+    b: [3.018, 0.254]
+
+three_phase:
+  source: svg-2023/three_phase.svg
+  official: [p1_04]
+  rotate: 0
+  drop: [1, 2, 3, 4, 5, 6, 7, 8]   # the library sine (4 polylines + 4 end ticks); official arcs are added
+  add:
+    - {type: arc, cx: 0.97, cy: 1.05, r: 0.97, start_deg: 180, end_deg: 360}
+    - {type: arc, cx: 2.91, cy: 1.05, r: 0.97, start_deg: 0, end_deg: 180}
+  keep_text: ["3"]
+  anchor: center
+  points:
+    center: [1.94, 0.97]
+
+transformer:
+  source: svg-2023/transformer.svg
+  official: [p7_13]
+  rotate: 0
+  keep_text: []
+  anchor: in
+  points:
+    in: [0, 2]
+    out: [7, 2]
+
+washing_machine:
+  source: svg-2023/washing_machine.svg
+  official: [p7_05]
+  rotate: 0
+  keep_text: []
+  anchor: in
+  points:
+    in: [0, 3]
+
+water_heater:
+  source: svg-2023/water_heater.svg
+  official: [p6_14]
+  rotate: 0
+  keep_text: []
+  anchor: in
+  points:
+    in: [0, 2]
