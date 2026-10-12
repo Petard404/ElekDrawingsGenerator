@@ -208,3 +208,35 @@ One entry per decision: date, decision, alternatives considered, reason.
 - **Decision:** (1) Symbol names on the sheet and in labels use the wording of AREI table 2.23 where the table has the symbol; our own names only for symbols it lacks (photo detector, page link, domotica parts, n-count sockets). (2) A waterproof socket with protective conductor and child protection (bar, feet and "h") is added; it is what `variant: waterproof` draws, the current default for waterproof sockets. The table's plain waterproof socket becomes `variant: waterproof_plain`. (3) The 1~ and 3~ marks use the official arc shape (half circle up, half circle down) instead of the library's sine. (4) The impulse relay's contact marks move up, closer to the official image. Photo detector and page link are approved as measured from House A.
 - **Alternatives:** Library names; plain waterproof socket as `waterproof`; keep the library's sine wave and mark positions.
 - **Reason:** Owner's review of the symbol sheet; the sheet is approved with these changes.
+
+## 2026-10-12 · Layout design for one page (task 3.1)
+
+- **Decision:** The layout follows `docs/layout-notes.md`.
+  - Rows sit on a fixed grid of 15.35 mm. A row that would overlap placed symbols or text moves down by whole pitches.
+  - The chain from the supply is drawn as horizontal head levels joined by House A's return loop. Sibling differentials hang from a feeder at x 34.57. A differential with circuits opens a bus at x 63.53.
+  - A nested breaker takes two grid lines and continues the bus below itself. Nesting is recursive; at each level it must be the last child of its bus.
+  - A branching circuit hangs from its parent's next free device slot.
+  - Symbols get an optional `scale` (sockets 0.85, lights 0.8).
+  - The differential is drawn with the same AREI switch as the breaker and told apart by its text, as in the official table; House A's triangle is not drawn.
+  - New layout errors: `layout_unsupported` (constructs left for task 7.1), `too_many_devices`, `page_full`.
+  - The title block grows upward for version, date and extra entries.
+- **Alternatives:** Free row height (pitch or content, or 0.5 mm steps); a nested breaker with an indented bus; House A's symbol sizes and triangle.
+- **Reason:** Owner's choice of fixed pitches. The rules reproduce the measured page 1 and keep the design general enough for other houses, while the House B constructs wait for task 7.1.
+
+## 2026-10-12 · M3 adjustments after building and review
+
+- **Decision:**
+  - The conductors mark is drawn at scale 0.5.
+  - All breaker ratings use the circuit-row offsets, also for head levels and nested breakers.
+  - A box label goes one line below its ID.
+  - The head chain stops at its first differential.
+  - A malformed label template is a Dutch one-line error (`invalid_template`).
+  - Words wider than their column are left for task 6.1.
+- **Alternatives:** Scale 1.0, whose slash crosses the cable text; House A's own rating positions per breaker; the label beside the ID; checking word widths now.
+- **Reason:** The page renders legibly and matches the original's information. One rule is simpler than per-case House A positions. The independent review found the template crash.
+
+## 2026-10-12 · Visual design proposals are welcome
+
+- **Decision:** Proposals that improve the look of the drawing beyond House A's original are welcome. They are collected and proposed after M5, when the House A text comparison is done, or with task 7.1 for House B constructs. Each one is a change to settings or templates, approved by the owner on one rendered page, and it updates the golden files on purpose.
+- **Alternatives:** Stay strictly with House A's look; change the look during M4/M5.
+- **Reason:** The owner's wish (M3 approval). Changing the look before M5 would mix layout changes into the House A comparison.

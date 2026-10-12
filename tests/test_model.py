@@ -52,8 +52,10 @@ BAD = {
     "bad_child_not_allowed_children_on_leaf": ("child_not_allowed", "K2"),
 }
 
-# Codes raised by the reader (task 1.5), not by build_model.
-READER_CODES = {"file_unreadable", "yaml_syntax"}  # tested in test_reader.py
+# Codes that build_model does not raise, so they need no bad_*.yaml: the reader codes (task 1.5,
+# tested in test_reader.py) and the layout codes (tested in test_layout*.py).
+READER_CODES = {"file_unreadable", "yaml_syntax", "layout_unsupported", "too_many_devices",
+                "page_full", "invalid_template"}
 
 
 # valid_minimal.yaml: node id -> page id (page inherited, `page` overrides,

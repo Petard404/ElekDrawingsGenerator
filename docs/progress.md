@@ -1,5 +1,24 @@
 # Progress
 
+## 2026-10-12 · M3 One page done (page 1 approved)
+
+- 3.1 `docs/layout-notes.md`: page 1 measured once (do not reread the reference SVG) plus the approved layout design. Rows sit on a fixed 15.35 grid; an overlapping row moves down by whole pitches.
+- 3.2–3.5 `layout.py`:
+  - head chain (it stops at the first differential), group feeder, buses
+  - circuit rows, nested breakers (recursive, last on their bus), branching circuits
+  - frame and title block (grows upward), errors `layout_unsupported`, `too_many_devices`, `page_full`, `invalid_template`
+- Other modules: `settings.py` holds every value; `labels.py` has the official default templates and House A overrides in its YAML; `scale` per symbol (sockets 0.85, lights 0.8, conductors 0.5); `bbox()` in `primitives.py`.
+- `python -m huiselek build examples/house-a-pg1.yaml -o out/house-a-pg1.pdf` writes the PDF and one SVG per page. Golden files `layout_rows`, `layout_nested`, `house_a_pg1` approved; 911 tests pass.
+- Review by a fresh agent: template crash and two misleading variants fixed; deviations from the notes put into the notes and the log.
+- Open:
+  - words wider than their column are not checked (task 6.1)
+  - "3ph" touches socket O1
+  - the M2 symbol sheet now shows scaled symbols
+  - the planning session has not verified M3
+- The owner welcomes visual design proposals (decision log); collect them for after M5.
+
+**Next step:** M4 Multi-page, starting with task 4.1 (page assignment from `page` and `children_page`, link arrows with optional reference text, the Diff 2 feeder end on page 1). Read CLAUDE.md, the M4 rows of the plan, `docs/layout-notes.md` and the decision log entries of 12 October.
+
 ## 2026-10-12 · M2 Symbols done (sheet approved)
 
 - 2.1 `primitives.py` (styled primitives, Page, Overlay), `render_svg.py` (fixed number format and order), golden `tests/golden/primitives_page.svg` (candidates via `tests/make_golden.py` to `out/golden/`). `.gitattributes` keeps golden and symbol data byte-stable.

@@ -1,0 +1,141 @@
+# House A, page 1: supply, main breaker, 300 mA, Diff 1 with circuits I to K, the 32 A breaker and
+# its circuits N to P. Diff 2 (page 2) is left out until the page links exist (M4).
+project:
+  address: "Straat A 1, 0000 Gemeente"
+  drawn_by: "Ontwerper"
+  executed_by: "Installateur"
+
+labels:
+  breaker: "{rating_a}A"
+  differential: "{sensitivity_ma} mA\n{pole_count}x{rating_a} A"
+  differential_type: ""
+  supply_voltage: "3*230 V"
+
+pages:
+  - {id: pg1, title: "Pagina 1: aansluiting"}
+
+installation:
+  kind: supply
+  id: SUP
+  label: "Aansluiting\nen teller"
+  voltage: "3x230V"
+  children:
+    - kind: breaker
+      id: Q0
+      rating_a: 40
+      label: "Hoofd auto 1"
+      children:
+        - kind: differential
+          id: D0
+          sensitivity_ma: 300
+          rating_a: 40
+          poles: "4P"
+          type: A
+          children:
+            - kind: differential
+              id: D1
+              label: "Diff 1"
+              sensitivity_ma: 30
+              rating_a: 40
+              poles: "4P"
+              type: A
+              children:
+                - kind: circuit
+                  id: I
+                  description: "Gang + poort"
+                  rating_a: 20
+                  cable: "XVB 3x2.5"
+                  conductors: 3
+                  children:
+                    - {kind: socket, id: I1}
+                    - {kind: socket, id: I2}
+                    - {kind: socket, id: I3}
+                - kind: circuit
+                  id: J
+                  description: "Badkamer + slaapkamer 2"
+                  rating_a: 20
+                  cable: "XVB 3x2.5"
+                  conductors: 3
+                  children:
+                    - {kind: socket, id: J1, count: 2}
+                    - {kind: socket, id: J2, count: 2}
+                    - {kind: socket, id: J3}
+                    - {kind: socket, id: J4}
+                    - {kind: socket, id: J5}
+                    - {kind: socket, id: J6}
+                - kind: circuit
+                  id: K
+                  description: "Garage + lichten buiten en WC"
+                  rating_a: 16
+                  cable: "XVB 3x2.5"
+                  conductors: 3
+                  children:
+                    - {kind: socket, id: K1}
+                    - {kind: socket, id: K2}
+                    - {kind: socket, id: K3}
+                    - {kind: socket, id: K4}
+                    - {kind: socket, id: K5}
+                    - {kind: light, id: K6, switch: true}
+                    - kind: photo_detector
+                      id: K7F
+                      children:
+                        - {kind: light, id: K7}
+                    - kind: photo_detector
+                      id: K8F
+                      children:
+                        - {kind: light, id: K8}
+                - kind: breaker
+                  id: Q32
+                  rating_a: 32
+                  label: "Hoofd auto 1"
+                  cable: "XVB 5x6"
+                  conductors: 5
+                  children:
+                    - kind: circuit
+                      id: N
+                      description: "Keuken"
+                      rating_a: 20
+                      cable: "XVB 3x2.5"
+                      conductors: 3
+                      children:
+                        - {kind: socket, id: N1, count: 2}
+                        - {kind: socket, id: N2}
+                        - {kind: socket, id: N3}
+                        - {kind: socket, id: N4, count: 2}
+                        - {kind: socket, id: N5, count: 3}
+                        - {kind: socket, id: N6, count: 2}
+                        - {kind: socket, id: N7, count: 2}
+                    - kind: circuit
+                      id: L
+                      description: "Werkplaats"
+                      rating_a: 20
+                      cable: "XVB 3x2.5"
+                      conductors: 3
+                      children:
+                        - {kind: socket, id: L1}
+                        - {kind: socket, id: L2}
+                    - kind: circuit
+                      id: M
+                      description: "Wasmachine"
+                      rating_a: 20
+                      cable: "XVB 3x2.5"
+                      conductors: 3
+                      children:
+                        - {kind: socket, id: M1}
+                    - kind: circuit
+                      id: O
+                      description: "Fornuis en oven"
+                      rating_a: 20
+                      cable: "XVB 3x2.5"
+                      conductors: 3
+                      children:
+                        - {kind: socket, id: O1, note: "3ph"}
+                        - {kind: socket, id: O2}
+                        - kind: circuit
+                          id: P
+                          description: "stopcontact onder wasbak"
+                          rating_a: 20
+                          cable: "XVB 3x2.5"
+                          conductors: 3
+                          children:
+                            - {kind: socket, id: P3, count: 2}

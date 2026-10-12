@@ -155,3 +155,15 @@ def test_rotation_is_clockwise_and_validated():
     assert s.point("b", 10, 10, 270) == pytest.approx((20.0, 10.0))
     with pytest.raises(ValueError):
         s.place(0, 0, 45)
+
+
+def test_scale_from_table():
+    unscaled = {"breaker": (3.431, 10.0)}
+    assert (SYMBOLS["breaker"].width, SYMBOLS["breaker"].height) == unscaled["breaker"]
+    sock = SYMBOLS["socket_protective_conductor"]
+    assert sock.width == pytest.approx(4.0 * 0.85)
+    assert sock.points["in"] == pytest.approx((2.0 * 0.85, 0.0))
+    assert SYMBOLS["light"].width == pytest.approx(4.017 * 0.8)
+    assert SYMBOLS["light"].points["in"] == pytest.approx((2.017 * 0.8, 2.0 * 0.8))
+    h = next(p for p in SYMBOLS["socket_waterproof"].primitives if isinstance(p, Text))
+    assert h.size == pytest.approx(1.411 * 0.85)

@@ -2,6 +2,10 @@
 
 from __future__ import annotations
 
+from decimal import Decimal
+
+from .errors import HuiselekError
+
 # Names of the label templates a project's `labels` section may override.
 # The texts themselves are written from M3 (drawing texts and label templates
 # will be added to this module then).
@@ -22,6 +26,47 @@ TEMPLATE_NAMES: tuple[str, ...] = (
     "title_date",
 )
 
+# Default text per template (the official forms); a project's `labels` section overrides it. Fields
+# are the node's own (rating_a, curve, ...); an unset field is empty. Derived fields: sensitivity_a
+# (sensitivity_ma / 1000 without trailing zeros) and pole_count (4P -> 4). Title templates get {value}.
+# A text with line breaks is drawn one line each; an empty text is not drawn at all. Templates the
+# layout does not use yet have no default.
+TEMPLATES: dict[str, str] = {
+    "breaker": "{curve}{rating_a}",
+    "differential": "{rating_a}/{sensitivity_a}A",
+    "differential_type": "type {type}",
+    "supply_voltage": "{voltage}",
+    "title_address": "{value}",
+    "title_drawn_by": "Getekend door: {value}",
+    "title_executed_by": "Uitgevoerd door: {value}",
+    "title_version": "Versie: {value}",
+    "title_date": "Datum: {value}",
+}
+TITLE_EXTRA = "{label}: {value}"  # an `extra` item of the project
+
+POLE_COUNT = {"1P": 1, "1P+N": 2, "2P": 2, "3P": 3, "3P+N": 4, "4P": 4}
+
+
+def _fields(node) -> dict:
+    """Template fields of a node (or of a plain mapping): own fields plus the derived ones."""
+    fields = dict(node) if isinstance(node, dict) else node.model_dump()
+    if fields.get("sensitivity_ma") is not None:
+        amps = format(Decimal(fields["sensitivity_ma"]) / 1000, "f")
+        fields["sensitivity_a"] = amps.rstrip("0").rstrip(".") if "." in amps else amps
+    if fields.get("poles") is not None:
+        fields["pole_count"] = POLE_COUNT[fields["poles"]]
+    return {k: ("" if v is None else v) for k, v in fields.items()}
+
+
+def format_template(name: str, overrides: dict[str, str], node) -> str:
+    """Text of a label template for a node or mapping: the project's override, else the default."""
+    template = overrides.get(name, TEMPLATES[name])
+    try:
+        return template.format_map(_Params(_fields(node)))
+    except (ValueError, KeyError, IndexError, AttributeError, TypeError):
+        raise HuiselekError("invalid_template", None, section="labels", name=name) from None
+
+
 # Error messages, one line each, plain Dutch. ERRORS holds the default text per
 # code; ERROR_VARIANTS holds more specific texts, selected by the error's
 # "variant" param as "code.variant". {id} is the element ID; without one it is
@@ -39,7 +84,11 @@ ERRORS: dict[str, str] = {
     "unused_page": "Pagina '{id}' bevat geen enkel element",
     "child_not_allowed": "{id}: soort '{kind}' is niet toegestaan onder '{parent_kind}'",
     "unknown_label": "Onbekende labelnaam '{name}' in 'labels'",
+    "invalid_template": "Ongeldige tekstindeling voor '{name}' in 'labels'",
     "link_text_without_page": "{id}: 'link_text' vereist 'page' of 'children_page'",
+    "layout_unsupported": "{id}: soort '{kind}' wordt nog niet getekend",
+    "too_many_devices": "{id}: te veel toestellen op één lijn; het laatste past niet meer voor de beschrijving",
+    "page_full": "Pagina '{id}' is vol: '{element}' past er niet meer op",
 }
 
 _BAD_ID_UNDER = "een element onder '{id}' heeft geen geldige 'id'"
@@ -68,6 +117,16 @@ ERROR_VARIANTS: dict[str, str] = {
     "unknown_field.file": (
         "Onbekend onderdeel '{field}' in het bestand; "
         "toegestaan zijn 'project', 'pages', 'labels' en 'installation'"
+    ),
+    "layout_unsupported.nested": (
+        "{id}: een automaat met onderliggende elementen moet het laatste element van zijn bus zijn"
+    ),
+    "layout_unsupported.detector": "{id}: een fotocel met meer dan één lamp wordt nog niet getekend",
+    "layout_unsupported.mixed": (
+        "{id}: kringen naast differentiëlen of automaten onder één element worden nog niet getekend"
+    ),
+    "layout_unsupported.group": (
+        "{id}: meerdere differentiëlen of automaten onder één element worden nog niet getekend"
     ),
     "child_not_allowed.root": (
         "{id}: het hoofdelement moet soort 'supply' zijn, niet '{kind}'"
@@ -129,10 +188,7 @@ CLI_OUTPUT_HELP = "pad van het PDF-bestand dat gemaakt wordt"
 CLI_ERROR_PREFIX = "Fout: "
 CLI_TOO_DEEP = "het bestand is te diep genest"
 CLI_WRITE_ERROR = "Kan het bestand niet schrijven: {path}"
-CLI_OK = (
-    "{file}: geldig, {elements} elementen, aantal pagina's: {pages}. "
-    "Tekenen volgt in een latere versie."
-)
+CLI_OK = "Schema geschreven: {path} ({pages} pagina's)"
 
 # `symbols` subcommand (symbol review sheet).
 CLI_SYMBOLS_HELP = "Maak het controleblad met alle symbolen (officieel, bibliotheek, gegenereerd)."

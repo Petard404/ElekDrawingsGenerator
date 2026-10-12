@@ -11,7 +11,8 @@
 #              out      second terminal where there is one (transformer)
 #              center   a mark (conductors, three_phase, ...) is placed centred on a cable
 #              label    text position for a count number or label (not on the geometry)
-# scale      not supported yet (sizes are tuned in M3)
+# scale      optional, default 1.0: geometry, points, width, height and text size times this factor
+#            (stroke widths are not scaled); House A draws sockets at 0.85 and lights at 0.8
 #
 # source     svg file relative to docs/reference/arei/
 # official   stems of the official table images (docs/reference/arei/official/images) that show it
@@ -76,6 +77,7 @@ conductors:
   source: svg-2023/conductors.svg
   official: [p2_05]
   rotate: 90
+  scale: 0.5
   keep_text: []
   anchor: center
   points:
@@ -231,6 +233,7 @@ light:
   rotate: 0
   keep_text: []
   anchor: in
+  scale: 0.8
   points:
     in: [2.017, 2]
 
@@ -240,6 +243,7 @@ light_with_switch:
   rotate: 0
   keep_text: []
   anchor: in
+  scale: 0.8
   points:
     in: [2, 2]
 
@@ -338,6 +342,7 @@ socket_child_protection:
   rotate: 90
   keep_text: []
   anchor: in
+  scale: 0.85
   points:
     in: [2, 0]
     label: [2.8, -0.8]
@@ -348,6 +353,7 @@ socket_child_protection_n:
   rotate: 90
   keep_text: []
   anchor: in
+  scale: 0.85
   points:
     in: [2, 0]
     label: [2.8, -0.8]
@@ -358,6 +364,7 @@ socket_protective_conductor:
   rotate: 90
   keep_text: []
   anchor: in
+  scale: 0.85
   points:
     in: [2, 0]
     label: [2.8, -0.8]
@@ -368,6 +375,7 @@ socket_protective_conductor_n:
   rotate: 90
   keep_text: []
   anchor: in
+  scale: 0.85
   points:
     in: [2, 0]
     label: [2.8, -0.8]
@@ -382,6 +390,7 @@ socket_waterproof:
   add:
     - {type: text, text: h, x: 4.7, y: -0.5, size: 1.411, anchor: middle, rotation: 0}
   anchor: in
+  scale: 0.85
   points:
     in: [2, 0]
     label: [2.8, -0.8]
@@ -393,6 +402,7 @@ socket_waterproof_plain:
   keep_text: ["h"]
   text_at: {h: [4.0, -0.5]}   # right of and above the dome, as in official p4_13
   anchor: in
+  scale: 0.85
   points:
     in: [1.667, 0]
     label: [2.5, -0.8]

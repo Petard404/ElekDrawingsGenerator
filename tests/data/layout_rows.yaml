@@ -1,0 +1,81 @@
+# House A, differential 1 with circuits I, J and K (page 1 of the redraw).
+project:
+  address: "Straat A 1, 0000 Gemeente"
+  drawn_by: "Ontwerper"
+  executed_by: "Installateur"
+
+labels:
+  breaker: "{rating_a}A"
+
+pages:
+  - {id: pg1, title: "Pagina 1: aansluiting"}
+
+installation:
+  kind: supply
+  id: SUP
+  label: "Aansluiting"
+  voltage: "3x230V"
+  children:
+    - kind: breaker
+      id: Q0
+      rating_a: 40
+      children:
+        - kind: differential
+          id: D0
+          sensitivity_ma: 300
+          rating_a: 40
+          poles: "4P"
+          type: A
+          children:
+            - kind: differential
+              id: D1
+              label: "Diff 1"
+              sensitivity_ma: 30
+              rating_a: 40
+              poles: "4P"
+              type: A
+              children:
+                - kind: circuit
+                  id: I
+                  description: "Gang + poort"
+                  rating_a: 20
+                  cable: "XVB 3x2.5"
+                  conductors: 3
+                  children:
+                    - {kind: socket, id: I1}
+                    - {kind: socket, id: I2}
+                    - {kind: socket, id: I3}
+                - kind: circuit
+                  id: J
+                  description: "Badkamer + slaapkamer 2"
+                  rating_a: 20
+                  cable: "XVB 3x2.5"
+                  conductors: 3
+                  children:
+                    - {kind: socket, id: J1, count: 2}
+                    - {kind: socket, id: J2, count: 2}
+                    - {kind: socket, id: J3}
+                    - {kind: socket, id: J4}
+                    - {kind: socket, id: J5}
+                    - {kind: socket, id: J6}
+                - kind: circuit
+                  id: K
+                  description: "Garage + lichten buiten en WC"
+                  rating_a: 16
+                  cable: "XVB 3x2.5"
+                  conductors: 3
+                  children:
+                    - {kind: socket, id: K1}
+                    - {kind: socket, id: K2}
+                    - {kind: socket, id: K3}
+                    - {kind: socket, id: K4}
+                    - {kind: socket, id: K5}
+                    - {kind: light, id: K6, switch: true}
+                    - kind: photo_detector
+                      id: K7F
+                      children:
+                        - {kind: light, id: K7}
+                    - kind: photo_detector
+                      id: K8F
+                      children:
+                        - {kind: light, id: K8}

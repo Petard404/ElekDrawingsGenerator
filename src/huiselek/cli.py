@@ -50,13 +50,32 @@ def _symbols(args: argparse.Namespace) -> int:
     return 0
 
 
+def _build(args: argparse.Namespace) -> int:
+    from .export_pdf import export_pdf
+    from .layout import layout
+    from .render_svg import render_svg
+    from .settings import Settings
+
+    installation = build_model(read(args.file))
+    settings = Settings()
+    pages = layout(installation, settings)
+    svgs = [render_svg(page, settings) for page in pages]
+    out = args.output or Path("out") / f"{args.file.stem}.pdf"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    export_pdf(svgs, out)
+    for n, svg in enumerate(svgs, 1):  # one SVG per page next to the PDF
+        (out.parent / f"{out.stem}_p{n}.svg").write_text(svg, encoding="utf-8", newline="\n")
+    print(labels.CLI_OK.format(path=out, pages=len(pages)))
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     """Run the CLI; returns the exit code (usage errors exit 2 via argparse)."""
     args = _parser().parse_args(argv)
     try:
         if args.command == "symbols":
             return _symbols(args)
-        installation = build_model(read(args.file))
+        return _build(args)
     except HuiselekError as err:
         print(labels.CLI_ERROR_PREFIX + str(err), file=sys.stderr)
         return 1
@@ -67,11 +86,3 @@ def main(argv: list[str] | None = None) -> int:
     except RecursionError:
         print(labels.CLI_ERROR_PREFIX + labels.CLI_TOO_DEEP, file=sys.stderr)
         return 1
-    print(
-        labels.CLI_OK.format(
-            file=args.file,
-            elements=sum(1 for _ in installation.nodes()),
-            pages=len(installation.pages),
-        )
-    )
-    return 0

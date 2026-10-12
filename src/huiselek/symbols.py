@@ -96,6 +96,25 @@ def _from_json(d: dict, style: Style) -> Primitive:
     raise ValueError(f"unknown primitive type {t!r}")
 
 
+def _scaled(p: Primitive, k: float) -> Primitive:
+    """Geometry and text size times k about the symbol origin; stroke widths are kept."""
+    if k == 1.0:
+        return p
+    if isinstance(p, Line):
+        return Line(p.x1 * k, p.y1 * k, p.x2 * k, p.y2 * k, p.style)
+    if isinstance(p, Polyline):
+        return Polyline(tuple((x * k, y * k) for x, y in p.points), p.closed, p.style)
+    if isinstance(p, Circle):
+        return Circle(p.cx * k, p.cy * k, p.r * k, p.style)
+    if isinstance(p, Arc):
+        return Arc(p.cx * k, p.cy * k, p.r * k, p.start_deg, p.end_deg, p.style)
+    if isinstance(p, Rect):
+        return Rect(p.x * k, p.y * k, p.w * k, p.h * k, p.style)
+    if isinstance(p, Text):
+        return Text(p.x * k, p.y * k, p.text, p.size * k, p.anchor, p.rotation, p.fill)
+    raise TypeError(f"unknown primitive {p!r}")
+
+
 def _filled(style: Style, fill: str | None) -> Style:
     return Style(style.stroke, style.stroke_width, fill, style.dash)
 
@@ -146,8 +165,6 @@ def load_symbols(s: Settings) -> dict[str, Symbol]:
     out: dict[str, Symbol] = {}
     for sid in sorted(table):
         entry = table[sid]
-        if "scale" in entry:
-            raise ValueError(f"{sid}: scale is not supported yet")
         data_file = pkg / "symbol_data" / f"{sid}.json"
         if not data_file.is_file():
             raise HuiselekError("reference_missing", sid, variant="data", path=f"symbol_data/{sid}.json")
@@ -155,12 +172,13 @@ def load_symbols(s: Settings) -> dict[str, Symbol]:
         points = {name: (float(xy[0]), float(xy[1])) for name, xy in entry["points"].items()}
         if entry["anchor"] not in points:
             raise ValueError(f"{sid}: anchor {entry['anchor']!r} is not one of its points")
+        k = float(entry.get("scale", 1.0))
         out[sid] = Symbol(
             sid,
-            tuple(_from_json(d, style) for d in data["primitives"]),
-            data["width"],
-            data["height"],
-            points,
+            tuple(_scaled(_from_json(d, style), k) for d in data["primitives"]),
+            data["width"] * k,
+            data["height"] * k,
+            {name: (x * k, y * k) for name, (x, y) in points.items()},
             entry["anchor"],
         )
     for sym in (_page_link(style), _photo_detector(style)):
