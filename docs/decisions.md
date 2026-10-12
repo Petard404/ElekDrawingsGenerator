@@ -2,6 +2,18 @@
 
 One entry per decision: date, decision, alternatives considered, reason.
 
+## 2026-10-12 · Title block without signature field
+
+- **Decision:** The title block has no signature field. It keeps spare cells for extra entries such as name and location, typed as `project.extra` (label and value pairs). Version and date are optional fields.
+- **Alternatives:** An empty signature field, as inspection reports suggest.
+- **Reason:** The owner's choice.
+
+## 2026-10-12 · House A slips are corrected
+
+- **Decision:** The House A YAML corrects the slips of the original. Task 5.1 lists every correction; the owner checks the list by hand, and it is the allow-list for the comparison in task 5.2.
+- **Alternatives:** Copy the original as it is, slips included.
+- **Reason:** The owner's choice; a manual check keeps the corrections visible.
+
 ## 2026-10-12 · Pages are typed, no automatic flow
 
 - **Decision:** Pages are typed in the YAML with `page` and `children_page`. The tool never flows pages; an overfull page stops the build with an error naming the page and element. Automatic flow is kept as a possible later extension.

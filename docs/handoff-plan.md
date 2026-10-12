@@ -65,7 +65,7 @@ What the review of the reference pages found:
 - **Detail pages have a circuit letter header** ("A" or "G" at x 141, y 52).
 - The title block and names on the reference pages are replaced by placeholders; the repository holds no personal names or addresses.
 
-The original has points that look like slips. The tool draws what is typed, so the owner decides for each one whether the YAML copies or corrects it. Answers are needed before M5.
+The original has points that look like slips. The owner decided on 12 October that the YAML corrects them. Task 5.1 lists every correction it makes, the owner checks that list by hand, and it becomes the allow-list for task 5.2. The last three items are questions, not slips.
 
 - [ ] The title block of page 2 reads "Pagina 1: aansluiting".
 - [ ] The socket on circuit B is labelled J1.
@@ -202,7 +202,7 @@ installation:
 
 | Kind | Fields | Children |
 | --- | --- | --- |
-| project | address, drawn_by, executed_by, optional version, date | none |
+| project | address, drawn_by, executed_by, optional version, date, extra (list of label and value pairs for the spare title block cells) | none |
 | labels (top level, optional) | overrides of label templates for this project | none |
 | supply | label, voltage | breakers, differentials |
 | breaker | rating_a, optional label, curve, poles, cable, conductors | differentials, breakers, circuits |
@@ -265,7 +265,7 @@ The diagram reads top to bottom: a vertical bus on the left, each circuit a hori
 | --- | --- |
 | Page | 210 x 297, frame line 0.8 thick |
 | Title block | Top edge at y 276.5, two rows of 10, split at x 105 |
-| Title block cells | Page title and address on the first row; drawn by and executed by on the second; version and date when given |
+| Title block cells | Page title and address on the first row; drawn by and executed by on the second; version and date when given; spare cells for extra entries such as name and location; no signature field |
 | First circuit row | y 57 |
 | Row pitch | 15.4 minimum, which gives about 14 rows per page |
 | Main bus | x 63.5 |
@@ -315,7 +315,7 @@ The package is eleven small modules in one line of dependency: each module uses 
 Every primitive carries a style: stroke width, fill and dash. Text also carries anchor, rotation and size. The data model is a tree of nodes, one pydantic class per kind, selected by the `kind` field, with unknown keys forbidden.
 
 ```python
-class Project:       address, drawn_by, executed_by, version, date
+class Project:       address, drawn_by, executed_by, version, date, extra
 class PageDef:       id, title
 class Node:          kind, id, page | None                     # base class
 class Supply:        label, voltage, children
@@ -425,15 +425,15 @@ Seven milestones in the order M1–M5, M7, M6, with M8 later. Each task fits a b
 | 3.1 | Layout design note: variable row height, nested breaker, branching circuit, text metrics | Opus, main session | Owner agrees; logged in decisions.md |
 | 3.2 | Rows for one differential with plain circuits (I, J, K) | Sonnet | Golden SVG; positions match the Layout table |
 | 3.3 | Nested breaker with its bus, and a circuit branching off a circuit (N, L, M, O, P) | Sonnet | Golden SVG |
-| 3.4 | Measure and draw frame, title block (with optional version and date), supply, main breaker, 300 mA differential | Sonnet | Page 1 complete as SVG and PDF |
+| 3.4 | Measure and draw frame, title block (optional version, date and extra entries; no signature field), supply, main breaker, 300 mA differential | Sonnet | Page 1 complete as SVG and PDF |
 | 3.5 | Overflow errors for too many rows or devices | Sonnet | One test per error |
 | 4.1 | Page assignment from `page` and `children_page`, link arrows with optional reference text | Sonnet | Minimal two-page example links both ways |
 | 4.2 | Lighting detail rows: header letter, switch contact, light, name | Sonnet | Golden SVG of a detail page |
 | 4.3 | export_pdf.py: all pages on one canvas | Sonnet | PDF has the right page count, every page A4 |
 | 4.4 | Docstrings and README usage | Haiku | README commands run as written |
-| 5.1 | Type examples/house-a.yaml from the inventory, applying the owner's answers on the slips | Sonnet | Loads without errors; 16 circuits, 20 detail rows, 25 light points |
+| 5.1 | Type examples/house-a.yaml from the inventory, correcting the slips, with a list of every correction | Sonnet | Loads without errors; 16 circuits, 20 detail rows, 25 light points; owner checks the correction list by hand |
 | 5.2 | tools/svg_visible_text.py and tools/compare_text.py: on-page text of each original against the regenerated page | Sonnet | List of missing and extra texts per page |
-| 5.3 | Fix the differences found | Sonnet, small fixes in main session | No missing text apart from the allow-list of agreed corrections and format differences |
+| 5.3 | Fix the differences found | Sonnet, small fixes in main session | No missing text apart from the checked correction list and format differences |
 | 7.1 | Layout design note for House B constructs | Opus, main session | Owner agrees; logged in decisions.md |
 | 7.2 | Build the House B constructs | Sonnet | Golden SVG per construct on a small example |
 | 7.3 | tools/check_house_b.py part 1: expected list of circuits, devices and values read from the overview tables plus the provisional values, written before the YAML | Sonnet | Totals match the overview: 22 + 3 circuits, 74 + 4 sockets, 6 differentials |
@@ -499,7 +499,9 @@ Version 1 leaves out the position plan, panel layout, material list, automatic c
 Answers needed from the owner:
 
 - [x] Pages are typed in the YAML and never flow automatically (confirmed 12 October).
-- [ ] The House A slips under House A: copy or correct each (before M5).
+- [x] The House A slips are corrected; the owner checks the correction list of task 5.1 by hand (decided 12 October).
+- [x] Title block: no signature field; spare cells for entries such as name and location (decided 12 October).
+- [ ] Installation marks (in wall, on wall, in conduit in wall): in version 1 or not (before task 2.6).
 - [ ] Name the square-with-triangle symbol and the grey marks above the cables (before task 2.6).
 - [ ] House B data, before task 7.4: which circuits besides J are XVB (the rest is VOB in conduit); VOB label text, official "H07V-U Eca 2.5²" or "VOB 3x2.5"; confirm DIFF-TUIN 4-pole and D1–D5 40 A.
 - [ ] The House B source xlsx and how the controller is drawn (before M8).
